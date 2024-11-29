@@ -1,0 +1,453 @@
+/* main container of the hospital profile */
+.hospital-profile-main-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 65vw;
+    height: 700px;
+    margin: 50px auto;
+}
+
+/* name contact address description container */
+.hospital-profile-main-container .hospital-name-description-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65vw;
+    height: 330px;
+    margin: 10px 0;
+    /* background: linear-gradient(to left, #67b99a, #248277); */
+    background-color: var(--third-color);
+    /* border: 5px solid var(--primary-color); */
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+
+/* hospital facilities container */
+.hospital-profile-main-container .hospital-facilities-container {
+    /* background: #5a189a; */
+    /* background: linear-gradient(to right, #613dc1, #5a189a); */
+    background-color: var(--primary-color);
+    border-radius: 25px;
+    width: 55vw;
+    height: 330px;
+    margin: 10px 0;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+
+/* photo container of the hopital */
+.hospital-photo-container {
+    position: absolute;
+    height: 335px;
+    width: 335px;
+    border-radius: 50%;
+    left: -140px;
+    background-color: #48cae4;
+    border: 10px solid white;
+
+}
+
+
+/* box in which photo is placed inside the photo container */
+.hospital-profile-main-container .hospital-photo-container .image-box {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    overflow: hidden;
+}
+
+
+/* hospital image */
+.hospital-profile-main-container .hospital-photo-container .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+/* hospital name contact address values */
+.hospital-name-contact-address-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    width: 60vw;
+    height: 90%;
+    margin: auto;
+}
+
+/* hospital name font sizing */
+.hospital-name-contact-address-section .hospital-name-section .name-of-the-hospital {
+    font-size: 35px;
+    color: black;
+}
+
+
+/* hospital contact address font sizing */
+.hospital-name-contact-address-section .address-of-the-hospital,
+.phone-number,
+.hospital-email {
+    font-size: 25px;
+    color: black;
+}
+
+/* hospital doctor, total bed section */
+.hospital-facilities-container .doctor-number-total-bed-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 40vw;
+    height: 35%;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+/* doctor number font sizing , total bed font sizing*/
+
+.hospital-facilities-container .doctor-number-total-bed-section .doctor-number-section,
+.hospital-facilities-container .doctor-number-total-bed-section .total-beds-section {
+    font-size: 35px;
+    color: white;
+    width: 16vw;
+    text-align: center;
+}
+
+
+/* heading sizing */
+.doctor-number-section .heading,
+.total-beds-section .heading {
+    display: block;
+    height: 20px;
+    font-size: 15px;
+    color: var(--third-color);
+}
+
+/* hospital equipment facilities section */
+.hospital-equipment-facilities-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    width: 50vw;
+    height: 45%;
+    gap: 6vw;
+}
+
+
+/* facility quantity */
+.icu-bed-number-section,
+.mri-machine-number-section,
+.xray-machine-number-section,
+.ventilator-number-section {
+    display: inline-block;
+    width: 10vw;
+    font-size: 35px;
+    color: white;
+    text-align: center;
+
+}
+
+
+/* facility heading */
+.hospital-facilities-container .hospital-equipment-facilities-section .heading {
+    display: block;
+    height: 20px;
+    font-size: 15px;
+    color: var(--third-color);
+}
+
+
+@media (max-width: 1500px) {
+
+
+    /* main container of the hospital profile */
+    .hospital-profile-main-container {
+
+        margin: 90px auto;
+        margin-left: 180px;
+        width: 70vw;
+    }
+
+    /* name contact address description container */
+    .hospital-profile-main-container .hospital-name-description-container {
+        width: 70vw;
+    }
+
+    /* hospital facilities container */
+    .hospital-profile-main-container .hospital-facilities-container {
+        width: 60vw;
+    }
+
+    /* photo container of the hopital */
+    .hospital-photo-container {
+        height: 290px;
+        width: 290px;
+        
+    }
+
+    /* hospital name contact address values */
+    .hospital-name-contact-address-section {
+        gap: 7px;
+        width: 65vw;
+        height: 80%;
+        margin: auto;
+        margin-bottom: 50px;
+    }
+
+    /* hospital name font sizing */
+    .hospital-name-contact-address-section .hospital-name-section .name-of-the-hospital {
+        font-size: 28px;
+    }
+
+    /* hospital contact address font sizing */
+    .hospital-name-contact-address-section .address-of-the-hospital,
+    .phone-number,
+    .hospital-email {
+        font-size: 18px;
+    }
+
+    /* hospital doctor, total bed section */
+    .hospital-facilities-container .doctor-number-total-bed-section {
+        width: 30vw;
+    }
+
+    /* doctor number font sizing , total bed font sizing*/
+    .hospital-facilities-container .doctor-number-total-bed-section .doctor-number-section,
+    .hospital-facilities-container .doctor-number-total-bed-section .total-beds-section {
+        width: 14vw;
+        font-size: 24px;
+    }
+
+    /* heading sizing */
+    .doctor-number-section .heading,
+    .total-beds-section .heading {
+        height: 15px;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    /* hospital equipment facilities section */
+    .hospital-equipment-facilities-section {
+        width: 45vw;
+        gap: 4vw;
+    }
+
+    /* facility quantity */
+    .icu-bed-number-section,
+    .mri-machine-number-section,
+    .xray-machine-number-section,
+    .ventilator-number-section {
+        width: 8vw;
+        font-size: 24px;
+    }
+
+    /* facility heading */
+    .hospital-facilities-container .hospital-equipment-facilities-section .heading {
+        height: 15px;
+        font-size: 12px;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+
+    /* main container of the hospital profile */
+    .hospital-profile-main-container {
+        margin-left: 145px;
+        width: 60vw;
+        height: 500px;
+    }
+
+    /* name contact address description container */
+    .hospital-profile-main-container .hospital-name-description-container {
+        width: 60vw;
+        height: 250px;
+    }
+
+    /* hospital facilities container */
+    .hospital-profile-main-container .hospital-facilities-container {
+        width: 50vw;
+        height: 170px;
+    }
+
+    /* photo container of the hopital */
+    .hospital-photo-container {
+        height: 150px;
+        width: 150px;
+        left: -70px;
+        top: 195px;
+    }
+
+    /* hospital name contact address values */
+    .hospital-name-contact-address-section {
+        gap: 4px;
+        width: 58vw;
+        height: 65%;
+        margin-bottom: 90px;
+    }
+
+    /* hospital name font sizing */
+    .hospital-name-contact-address-section .hospital-name-section .name-of-the-hospital {
+        font-size: 16px;
+    }
+
+    /* hospital contact address font sizing */
+    .hospital-name-contact-address-section .address-of-the-hospital,
+    .phone-number,
+    .hospital-email {
+        font-size: 12px;
+    }
+
+    /* hospital doctor, total bed section */
+    .hospital-facilities-container .doctor-number-total-bed-section {
+        width: 38vw;
+        margin-bottom: 2px;
+    }
+
+    /* doctor number font sizing , total bed font sizing*/
+    .hospital-facilities-container .doctor-number-total-bed-section .doctor-number-section,
+    .hospital-facilities-container .doctor-number-total-bed-section .total-beds-section {
+        width: 17vw;
+        font-size: 15px;
+    }
+
+    /* heading sizing */
+    .doctor-number-section .heading,
+    .total-beds-section .heading {
+        height: 10px;
+        font-size: 9px;
+        margin-top: 5px;
+    }
+
+    /* hospital equipment facilities section */
+    .hospital-equipment-facilities-section {
+        width: 45vw;
+        gap: 1.5vw;
+        padding: 5px;
+    }
+
+    /* facility quantity */
+    .icu-bed-number-section,
+    .mri-machine-number-section,
+    .xray-machine-number-section,
+    .ventilator-number-section {
+        width: 8vw;
+        font-size: 13px;
+    }
+
+    /* facility heading */
+    .hospital-facilities-container .hospital-equipment-facilities-section .heading {
+        height: 10px;
+        font-size: 8px;
+    }
+
+}
+
+@media (max-width: 600px){
+    /* main container of the hospital profile */
+    .hospital-profile-main-container {
+        margin-left: 120px;
+        width: 60vw;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    /* main container of the hospital profile */
+    .hospital-profile-main-container {
+        width: 65vw;
+        margin-left: 80px;
+        height: 415px;
+    }
+
+    /* name contact address description container */
+    .hospital-profile-main-container .hospital-name-description-container {
+        width: 65vw;
+        height: 200px;
+    }
+
+    /* hospital facilities container */
+    .hospital-profile-main-container .hospital-facilities-container {
+        width: 55vw;
+        height: 170px;
+    }
+
+    /* hospital name contact address values */
+    .hospital-name-contact-address-section {
+        margin-bottom: 60px;
+    }
+
+    /* photo container of the hopital */
+    .hospital-photo-container {
+        height: 110px;
+        width: 110px;
+        left: -50px;
+        top: 175px;
+    }
+
+    /* hospital name font sizing */
+    .hospital-name-contact-address-section .hospital-name-section .name-of-the-hospital {
+        font-size: 12px;
+    }
+
+    /* hospital contact address font sizing */
+    .hospital-name-contact-address-section .address-of-the-hospital,
+    .phone-number,
+    .hospital-email {
+        font-size: 9px;
+    }
+
+    /* hospital doctor, total bed section */
+    .hospital-facilities-container .doctor-number-total-bed-section {
+        margin-top: 15px;
+    }
+
+
+    /* doctor number font sizing , total bed font sizing*/
+    .hospital-facilities-container .doctor-number-total-bed-section .doctor-number-section,
+    .hospital-facilities-container .doctor-number-total-bed-section .total-beds-section {
+        font-size: 11px;
+    }
+
+    /* heading sizing */
+    .doctor-number-section .heading, .total-beds-section .heading {
+        height: 9px;
+        font-size: 7px;
+        margin-top: 3px;
+    }
+
+    /* facility quantity */
+    .icu-bed-number-section,
+    .mri-machine-number-section,
+    .xray-machine-number-section,
+    .ventilator-number-section {
+        font-size: 11px;
+    }
+
+    /* facility heading */
+    .hospital-facilities-container .hospital-equipment-facilities-section .heading {
+        height: 9px;
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 350px){
+    /* main container of the hospital profile */
+    .hospital-profile-main-container {
+        margin-left: 65px;
+    }
+}

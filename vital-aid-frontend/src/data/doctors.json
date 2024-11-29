@@ -1,0 +1,272 @@
+[
+    {
+        "name": "Dr. Shafayet Karim",
+        "img": "/Images/doctor1.jpg",
+        "hospital": "Sir Salimullah Medical College",
+        "speciality": "Neurologist, Neurosurgeon, Neuropsychiatrist",
+        "medicalField": "Neurology",
+        "location": "Dhaka",
+        "degree": "MBBS, MD (Neurology)",
+        "consultationDays": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+        ],
+        "consultationTime": "9:00 AM - 12:00 PM",
+        "fees": "1000 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "shafayet.karim@example.com"
+    },
+    {
+        "name": "Dr. Sadia Noor",
+        "img": "/Images/doctor2.jpg",
+        "hospital": "Dhaka Medical College",
+        "speciality": "Gynecologist, Perinatologist, Gynecologic Oncologist",
+        "medicalField": "Gynecology",
+        "location": "Dhaka",
+        "degree": "MBBS, MD (Gynecology)",
+        "consultationDays": [
+            "Tuesday",
+            "Thursday",
+            "Saturday"
+        ],
+        "consultationTime": "10:00 AM - 1:00 PM",
+        "fees": "1200 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "sadia.noor@example.com"
+    },
+    {
+        "name": "Dr. Zubair Rahman",
+        "img": "/Images/doctor3.jpg",
+        "hospital": "Chittagong Medical College",
+        "speciality": "Cardiologist, Electrophysiologist, Cardiothoracic Surgeon",
+        "medicalField": "Cardiology",
+        "location": "Chittagong",
+        "degree": "MBBS, FCPS (Cardiology)",
+        "consultationDays": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+        ],
+        "consultationTime": "11:00 AM - 2:00 PM",
+        "fees": "1500 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "zubair.rahman@example.com"
+    },
+    {
+        "name": "Dr. Nayeem Islam",
+        "img": "/Images/doctor4.jpg",
+        "hospital": "Rajshahi Medical College",
+        "speciality": "Ophthalmologist, Neuro-ophthalmologist, Optometrist",
+        "medicalField": "Ophthalmology",
+        "location": "Rajshahi",
+        "degree": "MBBS, MS (Ophthalmology)",
+        "consultationDays": [
+            "Sunday",
+            "Tuesday",
+            "Thursday"
+        ],
+        "consultationTime": "9:00 AM - 12:00 PM",
+        "fees": "800 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "nayeem.islam@example.com"
+    },
+    {
+        "name": "Dr. Anika Sultana",
+        "img": "/Images/doctor5.jpg",
+        "hospital": "Mymensingh Medical College",
+        "speciality": "Pediatrician, Pediatric Surgeon, Neonatologist",
+        "medicalField": "Pediatrics",
+        "location": "Mymensingh",
+        "degree": "MBBS, MD (Pediatrics)",
+        "consultationDays": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+        ],
+        "consultationTime": "10:00 AM - 1:00 PM",
+        "fees": "900 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "anika.sultana@example.com"
+    },
+    {
+        "name": "Dr. Rina Roy",
+        "img": "/Images/female-doctor.jpg",
+        "hospital": "Sylhet MAG Osmani Medical College",
+        "speciality": "Dermatologist, Trichologist, Cosmetologist",
+        "medicalField": "Dermatology",
+        "location": "Sylhet",
+        "degree": "MBBS, MD (Dermatology)",
+        "consultationDays": [
+            "Tuesday",
+            "Thursday",
+            "Saturday"
+        ],
+        "consultationTime": "2:00 PM - 5:00 PM",
+        "fees": "1000 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "rina.roy@example.com"
+    },
+    {
+        "name": "Dr. Omar Khan",
+        "img": "/Images/male-doctor.jpg",
+        "hospital": "Bangladesh Medical College",
+        "speciality": "Orthopedic Surgeon, Sports Medicine Specialist",
+        "medicalField": "Orthopedics",
+        "location": "Dhaka",
+        "degree": "MBBS, MS (Orthopedics)",
+        "consultationDays": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+        ],
+        "consultationTime": "8:00 AM - 11:00 AM",
+        "fees": "1300 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "omar.khan@example.com"
+    },
+    {
+        "name": "Dr. Fahim Hossain",
+        "img": "/Images/male-doctor.jpg",
+        "hospital": "Combined Military Hospital Dhaka",
+        "speciality": "Urologist, Kidney Specialist",
+        "medicalField": "Urology",
+        "location": "Dhaka",
+        "degree": "MBBS, FCPS (Urology)",
+        "consultationDays": [
+            "Tuesday",
+            "Thursday",
+            "Saturday"
+        ],
+        "consultationTime": "10:00 AM - 1:00 PM",
+        "fees": "1400 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "fahim.hossain@example.com"
+    },
+    {
+        "name": "Dr. Tasnim Islam",
+        "img": "/Images/female-doctor.jpg",
+        "hospital": "Chittagong Medical College",
+        "speciality": "General Surgeon, Laparoscopic Surgeon",
+        "medicalField": "Surgery",
+        "location": "Chittagong",
+        "degree": "MBBS, MS (Surgery)",
+        "consultationDays": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+        ],
+        "consultationTime": "9:00 AM - 12:00 PM",
+        "fees": "1100 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "tasnim.islam@example.com"
+    },
+    {
+        "name": "Dr. Monira Begum",
+        "img": "/Images/female-doctor.jpg",
+        "hospital": "Kuwait Bangladesh Friendship Government Hospital",
+        "speciality": "Endocrinologist, Diabetes Specialist",
+        "medicalField": "Endocrinology",
+        "location": "Dhaka",
+        "degree": "MBBS, MD (Endocrinology)",
+        "consultationDays": [
+            "Sunday",
+            "Tuesday",
+            "Thursday"
+        ],
+        "consultationTime": "8:00 AM - 11:00 AM",
+        "fees": "1200 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "monira.begum@example.com"
+    },
+    {
+        "name": "Dr. Kamal Ahmed",
+        "img": "/Images/male-doctor.jpg",
+        "hospital": "Dhaka National Medical College Hospital",
+        "speciality": "Pulmonologist, Sleep Disorder Specialist",
+        "medicalField": "Pulmonology",
+        "location": "Dhaka",
+        "degree": "MBBS, MD (Pulmonology)",
+        "consultationDays": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+        ],
+        "consultationTime": "2:00 PM - 5:00 PM",
+        "fees": "1500 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "kamal.ahmed@example.com"
+    },
+    {
+        "name": "Dr. Syeda Roksana",
+        "img": "/Images/female-doctor.jpg",
+        "hospital": "Rajshahi Medical College",
+        "speciality": "Hematologist, Cancer Specialist",
+        "medicalField": "Hematology",
+        "location": "Rajshahi",
+        "degree": "MBBS, MD (Hematology)",
+        "consultationDays": [
+            "Tuesday",
+            "Thursday",
+            "Saturday"
+        ],
+        "consultationTime": "9:00 AM - 12:00 PM",
+        "fees": "1000 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "syeda.roksana@example.com"
+    },
+    {
+        "name": "Dr. Mahmudul Hasan",
+        "img": "/Images/male-doctor.jpg",
+        "hospital": "Siddique Medical College",
+        "speciality": "Rheumatologist, Immunologist",
+        "medicalField": "Rheumatology",
+        "location": "Dhaka",
+        "degree": "MBBS, MD (Rheumatology)",
+        "consultationDays": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+        ],
+        "consultationTime": "9:00 AM - 12:00 PM",
+        "fees": "1000 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "mahmudul.hasan@example.com"
+    },
+    {
+        "name": "Dr. Shima Ahmed",
+        "img": "/Images/female-doctor.jpg",
+        "hospital": "United Hospital Limited",
+        "speciality": "Gastroenterologist, Hepatologist",
+        "medicalField": "Gastroenterology",
+        "location": "Dhaka",
+        "degree": "MBBS, MD (Gastroenterology)",
+        "consultationDays": [
+            "Monday",
+            "Wednesday",
+            "Friday"
+        ],
+        "consultationTime": "10:00 AM - 1:00 PM",
+        "fees": "1400 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "shima.ahmed@example.com"
+    },
+    {
+        "name": "Dr. Ashraful Islam",
+        "img": "/Images/male-doctor.jpg",
+        "hospital": "Bangladesh Medical College",
+        "speciality": "Psychiatrist, Mental Health Expert",
+        "medicalField": "Psychiatry",
+        "location": "Dhaka",
+        "degree": "MBBS, MD (Psychiatry)",
+        "consultationDays": [
+            "Sunday",
+            "Tuesday",
+            "Thursday"
+        ],
+        "consultationTime": "2:00 PM - 5:00 PM",
+        "fees": "1200 BDT",
+        "contact": "017XXXXXXXX",
+        "email": "ashraful.islam@example.com"
+    }
+]

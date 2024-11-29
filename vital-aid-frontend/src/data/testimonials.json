@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Arif Hossain",
+        "photo": "/Images/user1.jpg",
+        "feedback": "Vital Aid's online appointment service made it so easy to get expert advice without leaving my home. Highly recommended!"
+    },
+    {
+        "name": "Nusrat Jahan",
+        "photo": "/Images/user2.jpg",
+        "feedback": "The emergency support was incredibly fast and professional. I felt safe knowing help was just a call away."
+    },
+    {
+        "name": "Rohit Sen",
+        "photo": "/Images/user3.jpg",
+        "feedback": "Fantastic pharmacy service! I ordered my medicines online, and they were delivered the same day."
+    },
+    {
+        "name": "Samiul Islam",
+        "photo": "/Images/user4.jpg",
+        "feedback": "Finding a nearby hospital was a breeze with Vital Aid. Their recommendations were spot-on for my needs."
+    },
+    {
+        "name": "Ayesha Siddique",
+        "photo": "/Images/user5.jpg",
+        "feedback": "I love the convenience Vital Aid offers. Everything from appointments to emergency care is accessible in just a few clicks!"
+    },
+    {
+        "name": "Farhan Ahmed",
+        "photo": "/Images/user6.jpg",
+        "feedback": "Vital Aid’s commitment to quality service is impressive. The online platform is easy to navigate and has everything I need."
+    }
+]

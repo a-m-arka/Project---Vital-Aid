@@ -1,0 +1,26 @@
+[
+    {
+        "img": "/Images/service1.jpg",
+        "caption": "Top Specialists",
+        "line1": "Schedule your healthcare consultations with ease, from the comfort of your home",
+        "line2": "Instant, convenient, and always available"
+    },
+    {
+        "img": "/Images/service2.jpg",
+        "caption": "Quick Emergency Support",
+        "line1": "In critical moments, trust us to be there",
+        "line2": "Fast, reliable ambulance services when every second counts"
+    },
+    {
+        "img": "/Images/service3.jpg",
+        "caption": "Dependable Pharmacy Service",
+        "line1": "Order medicines online and get them delivered to your door",
+        "line2": "Trusted, timely, and convenient"
+    },
+    {
+        "img": "/Images/service4.jpg",
+        "caption": "Premium Healthcare Facilities",
+        "line1": "Discover trusted hospitals in your area",
+        "line2": "Get the care you need without the hassle—your health is our mission"
+    }
+]

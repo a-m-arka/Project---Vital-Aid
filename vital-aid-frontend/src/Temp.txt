@@ -1,0 +1,25 @@
+<div className="filter-container">
+    {filters.map((filter, index) => (
+        <div key={index} className="filter">
+            <div className="filter-name">
+                <label>{filter.name}</label>
+            </div>
+            <select
+                value={selectedValues[index]}
+                onChange={(event) => handleSelectChange(index, event)}
+                className="filter-select"
+            >
+                <option value="">All</option>
+                {filter.options.map((option, i) => (
+                    <option key={i} value={option}>
+                        {option}
+                    </option>
+                ))}
+            </select>
+        </div>
+    ))}
+    <div className="filter-btn">
+        <button>Filter</button>
+        {/* <i className="fa-solid fa-filter"></i> */}
+    </div>
+</div>

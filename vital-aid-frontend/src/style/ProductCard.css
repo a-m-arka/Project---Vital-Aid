@@ -1,0 +1,132 @@
+/* main container of the card */
+.medical-store-card-main-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 20vw;
+    height: 615px;
+    margin: 50px auto;
+}
+
+/* product photo container */
+.product-photo-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    /* background-color: #f1f1f1; */
+    border-radius: 15px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+/* product photo container img box that contains the img */
+.product-photo-container .product-photo-box {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* background-color: #f1f1f1; */
+    border-radius: 15px;
+    overflow: hidden;
+    /* border: 5px solid var(--primary-color); */
+}
+
+/* product image */
+.product-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* product info container */
+.product-info-and-button-container {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    overflow: hidden;
+    color: white;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+/* product name */
+.product-name-section{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+
+.product-category-section, .product-stock-number-section, .product-price-section{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    /* background-color: #f1f1f1; */
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.product-category-section .product-heading, .product-stock-number-section .product-heading, .product-price-section .product-heading{
+    width: 40%;
+    font-size: 14px;
+}
+.product-category-section .product-Category, .product-stock-number-section .product-stock-number, .product-price-section .product-price{
+    font-size: 20px;
+    width: 50%;
+}
+
+
+
+
+/* buttons container */
+.cart-and-buy-now-button-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.add-to-cart-button-section, .buy-now-button-section{
+    text-align: center;
+    width: 45%;
+    height: 50px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.add-to-cart-button-section button, .buy-now-button-section button{
+    position: relative;
+    width: 100%;
+    height: 90%;
+    /* background-color: white; */
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+    /* border: 5px solid white; */
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: rgba(255, 255, 255, 0.245) 0px 5px 15px;
+    background: linear-gradient(to left, var(--secondary-color),var(--secondary-color), white, white);
+    background-size: 200%;
+    transition: all 0.5s;
+}
+
+.buy-now-button-section button:hover, .add-to-cart-button-section button:hover  {
+    background-position: right;
+    /* background-color: var(--secondary-color); */
+    color: white;
+}

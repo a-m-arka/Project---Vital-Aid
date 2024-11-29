@@ -1,0 +1,417 @@
+.parent-container-of-ambulance-form-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../Images/ambulance_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 874px;
+}
+
+.parent-container-of-ambulance-form-main-container::before {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 874px;
+    background: rgba(2, 0, 48, 0.405);
+    z-index: 1;
+}
+
+
+/* main container containing everything */
+.main-container-of-ambulance-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    /* margin: 0px auto; */
+    margin-top: -250px;
+    height: 500px;
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.605);
+    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+    /* box-shadow: rgb(18, 22, 27) 0px 20px 30px -10px; */
+    box-shadow: rgba(19, 17, 17, 0.56) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    z-index: 2;
+}
+
+/* ambulance form container */
+.ambulance-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    width: 35vw;
+    height: 430px;
+    margin: auto;
+}
+
+/* ambulance form */
+.ambulance-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 34vw;
+    height: 400px;
+}
+
+/* each row of form */
+.ambulance-form-container .ambulance-form .ambulance-form-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0px;
+}
+
+
+/* input section */
+.ambulance-form-container .ambulance-form .ambulance-form-row .ambulance-form-data-input-section {
+    width: 33vw;
+    position: relative;
+
+}
+
+/* each input inside the input box */
+.ambulance-form-data-input-section input {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    /* background-color: rgb(248, 247, 244); */
+}
+
+/* Label of input */
+.ambulance-form .ambulance-form-data-input-section label {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+/* Label animation */
+.ambulance-form-data-input-section input:focus~label,
+.ambulance-form-data-input-section input:valid~label {
+    transform: translateY(-40px);
+    color: white;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+
+
+/* container of icon and button */
+.right-side-icon-design-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 480px;
+    margin: auto;
+}
+
+/* ambulance icon container */
+.right-side-icon-design-container .ambulance-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 29vw;
+    height: 350px;
+}
+
+/* ambulance icon */
+.right-side-icon-design-container .ambulance-icon-container img {
+    width: 480px;
+    height: 270px;
+}
+
+
+/* button container */
+.ambulance-form-button-container input {
+    position: relative;
+    background-image: linear-gradient(to right,
+            var(--primary-color) 0%,
+            var(--secondary-color) 51%,
+            var(--primary-color) 100%);
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(47, 47, 47, 0.22) 0px 15px 12px; */
+    background-size: 200%;
+    transition: .8s;
+    cursor: pointer;
+}
+
+
+
+/* button hover effect */
+.ambulance-form-button-container input:hover {
+    background-position: right;
+    /* When mouse over, move the gradient to right */
+}
+
+
+@media(max-width:1300px) {
+    .parent-container-of-ambulance-form-main-container {
+        height: 874px;
+    }
+
+    .parent-container-of-ambulance-form-main-container::before {
+        height: 874px;
+    }
+
+    /* ambulance form container */
+    .ambulance-form-container {
+        width: 35vw;
+    }
+
+    /* ambulance form */
+    .ambulance-form {
+        width: 34vw;
+        height: 380px;
+    }
+
+
+
+    /* input section */
+    .ambulance-form-container .ambulance-form .ambulance-form-row .ambulance-form-data-input-section {
+        width: 33vw;
+
+    }
+
+    /* each input inside the input box */
+    .ambulance-form-data-input-section input {
+        font-size: 12px;
+    }
+
+    /* Label of input */
+    .ambulance-form .ambulance-form-data-input-section label {
+        font-size: 14px;
+    }
+
+    /* Label animation */
+    .ambulance-form-data-input-section input:focus~label,
+    .ambulance-form-data-input-section input:valid~label {
+        font-size: 12px;
+    }
+
+    /* right side container containing the ambulance icon */
+    .right-side-icon-design-container {
+        width: 34vw;
+    }
+
+    /* ambulance icon container */
+    .right-side-icon-design-container .ambulance-icon-container {
+        width: 33vw;
+    }
+
+    /* ambulance icon */
+    .right-side-icon-design-container .ambulance-icon-container img {
+        width: 320px;
+        height: 200px;
+    }
+
+    .ambulance-form-button-container input {
+        font-size: 15px;
+    }
+}
+
+@media(max-width:900px) {
+    .parent-container-of-ambulance-form-main-container {
+        height: 1000px;
+    }
+
+    .parent-container-of-ambulance-form-main-container::before {
+        height: 1000px;
+    }
+
+
+    /* main container containing everything */
+    .main-container-of-ambulance-form {
+        width: 90vw;
+        height: 500px;
+    }
+
+    /* ambulance form container */
+    .ambulance-form-container {
+        width: 45vw;
+    }
+
+    /* ambulance form */
+    .ambulance-form {
+        width: 44vw;
+        height: 350px;
+    }
+
+
+
+
+    /* input section */
+    .ambulance-form-container .ambulance-form .ambulance-form-row .ambulance-form-data-input-section {
+        width: 44vw;
+
+    }
+
+    /* Label of input */
+    .ambulance-form .ambulance-form-data-input-section label {
+        font-size: 12px;
+    }
+
+    /* Label animation */
+    .ambulance-form-data-input-section input:focus~label,
+    .ambulance-form-data-input-section input:valid~label {
+        font-size: 10px;
+    }
+
+    /* right side container containing the ambulance icon */
+    .right-side-icon-design-container {
+        width: 40vw;
+    }
+
+    /* ambulance icon container */
+    .right-side-icon-design-container .ambulance-icon-container {
+        width: 38vw;
+    }
+
+    /* ambulance icon */
+    .right-side-icon-design-container .ambulance-icon-container img {
+        width: 250px;
+        height: 150px;
+    }
+
+    .ambulance-form-button-container input {
+        font-size: 13px;
+    }
+}
+
+
+@media(max-width:768px) {
+    .parent-container-of-ambulance-form-main-container {
+        height: 950px;
+    }
+
+    .parent-container-of-ambulance-form-main-container::before {
+        height: 950px;
+    }
+
+
+    /* main container containing everything */
+    .main-container-of-ambulance-form {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 90vw;
+        margin: 0px auto;
+        height: 600px;
+    }
+
+    /* ambulance form container */
+    .ambulance-form-container {
+        width: 88vw;
+        height: 350px;
+        margin: 10px auto;
+    }
+
+    /* ambulance form */
+    .ambulance-form {
+        width: 85vw;
+        height: 350px;
+    }
+
+
+
+    /* input section */
+    .ambulance-form-container .ambulance-form .ambulance-form-row .ambulance-form-data-input-section {
+        width: 84vw;
+
+    }
+
+    /* each input inside the input box */
+    .ambulance-form-data-input-section input {
+        font-size: 12px;
+    }
+
+    /* Label of input */
+    .ambulance-form .ambulance-form-data-input-section label {
+        font-size: 14px;
+    }
+
+    /* Label animation */
+    .ambulance-form-data-input-section input:focus~label,
+    .ambulance-form-data-input-section input:valid~label {
+        font-size: 12px;
+    }
+
+
+
+    /* container of icon and button */
+    /* now it is the upper portion in phone */
+    .right-side-icon-design-container {
+        width: 86vw;
+        height: 200px;
+        margin: 10px auto;
+    }
+
+    /* ambulance icon container */
+    .right-side-icon-design-container .ambulance-icon-container {
+        width: 86vw;
+        height: 200px;
+    }
+
+    /* ambulance icon */
+    .right-side-icon-design-container .ambulance-icon-container img {
+        width: 250px;
+        height: 140px;
+    }
+
+
+    /* button container */
+    .ambulance-form-button-container input {
+        font-size: 18px;
+    }
+
+}
+
+@media(max-width:300px) {
+
+    /* ambulance icon */
+    .right-side-icon-design-container .ambulance-icon-container img {
+        width: 180px;
+        height: 100px;
+    }
+
+    /* each input inside the input box */
+    .ambulance-form-data-input-section input {
+        font-size: 8px;
+    }
+
+    /* Label of input */
+    .ambulance-form .ambulance-form-data-input-section label {
+        font-size: 12px;
+    }
+
+    /* Label animation */
+    .ambulance-form-data-input-section input:focus~label,
+    .ambulance-form-data-input-section input:valid~label {
+        font-size: 10px;
+    }
+
+    /* button container */
+    .ambulance-form-button-container input {
+        font-size: 15px;
+    }
+}

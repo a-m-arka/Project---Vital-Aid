@@ -1,0 +1,67 @@
+[
+    {
+        "name": "Location",
+        "options": [
+            "Dhaka",
+            "Chittagong",
+            "Rajshahi",
+            "Khulna",
+            "Barishal",
+            "Sylhet",
+            "Rangpur",
+            "Mymensingh"
+        ]
+    },
+    {
+        "name": "Field",
+        "options": [
+            "Cardiology",
+            "Dermatology",
+            "Endocrinology",
+            "Gastroenterology",
+            "Gynecology",
+            "Hematology",
+            "Neurology",
+            "Ophthalmology",
+            "Orthopedics",
+            "Pediatrics",
+            "Psychiatry",
+            "Pulmonology",
+            "Rheumatology",
+            "Surgery",
+            "Urology"
+        ]
+    },
+    {
+        "name": "Hospital",
+        "options": [
+            "Bangladesh Medical College",
+            "BIRDEM General Hospital",
+            "Chittagong Medical College",
+            "Combined Military Hospital Dhaka",
+            "Dhaka Medical College",
+            "Dhaka National Medical College Hospital",
+            "Evercare Hospital Dhaka",
+            "Kuwait Bangladesh Friendship Government Hospital",
+            "Mymensingh Medical College",
+            "Rajshahi Medical College",
+            "Siddique Medical College",
+            "Sir Salimullah Medical College",
+            "Square Hospitals Ltd.",
+            "Sylhet MAG Osmani Medical College",
+            "United Hospital Limited"
+        ]
+    },
+    {
+        "name": "Availability",
+        "options": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ]
+    }
+]

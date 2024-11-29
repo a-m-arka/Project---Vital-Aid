@@ -1,0 +1,659 @@
+/* Parent container of doctor profile main container */
+.parent-container-of-doctor-profile-main-container {
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+    background-image: url('../Images/bg_img.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 874px;
+}
+
+
+.parent-container-of-doctor-profile-main-container::before {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 874px;
+    background: rgba(0, 0, 0, 0.396);
+    z-index: 1;
+}
+
+/* Main container */
+.doctor-profile-main-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    margin: 30px auto;
+    height: 650px;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.697);
+    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+    /* box-shadow: rgb(18, 22, 27) 0px 20px 30px -10px; */
+    box-shadow: rgba(19, 17, 17, 0.56) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    z-index: 2;
+}
+
+
+
+/* profile picture container */
+.doctor-profile-picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 500px;
+    margin: auto;
+    z-index: 2;
+}
+
+/* profile picture */
+.doctor-profile-picture-container img {
+    width: 18vw;
+    height: 18vw;
+    object-fit: cover;
+    border: none;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+/* profile details container */
+.doctor-profile-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 640px;
+    margin: auto;
+    z-index: 2;
+}
+
+/* profile details including name hospital degree adress*/
+.doctor-profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto;
+    width: 49vw;
+    height: 250px;
+    text-align: center;
+    color: #9bf6ff;
+}
+
+/* fixing height of all spans under doctor profile details div */
+.doctor-profile-details .doctor-name-span,
+.degree-span,
+.speciality-span,
+.hospital-name-span,
+.address-value {
+    height: 45px;
+    display: block;
+}
+
+/* doctor name */
+.doctor-profile-details .doctor-name-span {
+    font-size: 1.8rem;
+}
+
+/* doctor degree, doctor speciality, doctor working hospital section, doctor address section font size */
+.doctor-profile-details .doctor-degree-section .degree-span, .speciality-span, .hospital-name-span, .address-value {
+    font-size: 1.5rem;
+}
+
+
+
+
+/* consultation days custimization */
+.consultation-days-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    width: 49vw;
+    height: 80px;
+}
+
+/* heading customization */
+.consultation-days-section .consultation-day-heading {
+    color: #f5ffc6;
+    margin: 5px;
+    font-size: 1.2rem;
+}
+
+/* day value custimization */
+.consultation-days-section .consultation-day-values {
+    color: #9bf6ff;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+
+
+/* time and fees container */
+.consultation-time-fees-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 48vw;
+    height: 80px;
+    gap: 8px;
+    margin: auto;
+    text-align: center;
+}
+
+.consultation-time-section,
+.consultation-fees-section {
+    display: inline-block;
+    width: 23vw;
+}
+
+/* consultation time and fees section headings */
+.consultation-time-heading,
+.consultation-fees-heading {
+    color: #f5ffc6;
+    margin: 15px;
+    height: 15px;
+    font-size: 1.2rem;
+}
+
+/* consultation time and fees section values */
+.consultation-time-values,
+.consultation-fees-values {
+    display: block;
+    height: 50px;
+    color: #9bf6ff;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+
+
+/* contact info STARTS*/
+
+.doctor-contact-information-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 48vw;
+    height: 80px;
+    gap: 8px;
+    margin: auto;
+}
+
+/* width of the contact and email div */
+.doctor-contact-information-section .contact-email-section,
+.contact-phone-number-section {
+    text-align: center;
+    display: inline-block;
+    width: 23vw;
+}
+
+/* heading of contact number and email */
+.contact-headings {
+    color: #f5ffc6;
+    margin: 15px;
+    height: 15px;
+    font-size: 1.2rem;
+}
+
+/* values of contact number and email */
+.contact-email,
+.contact-phone-number {
+    text-align: center;
+    color: #9bf6ff;
+    font-size: 1.4rem;
+    display: block;
+    height: 50px;
+}
+
+
+
+/* button container */
+.doctor-book-appointment-button {
+    margin: auto;
+}
+
+/* doctor book appointment button */
+.doctor-book-appointment-button button {
+    position: relative;
+    width: 14vw;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    padding: 1px;
+    background-image: linear-gradient(to right,
+            var(--primary-color) 0%,
+            var(--secondary-color) 51%,
+            var(--primary-color) 100%);
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-size: 200%;
+    transition: .4s;
+}
+
+
+/* button border customization(simply copy paste without modify) */
+.doctor-book-appointment-button button::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, #f3f3f3, #5bdbff, #e0e2e2, #bedf7b);
+    /* Gradient colors */
+    z-index: -1;
+    border-radius: 22px;
+    opacity: 0;
+    /* Initially invisible */
+    background-size: 200% 200%;
+    transition: opacity .4s;
+    /* Smooth opacity transition on hover */
+}
+
+.doctor-book-appointment-button button:hover::before {
+    opacity: 1;
+    /* Show on hover */
+}
+
+.doctor-book-appointment-button button:hover {
+    background-position: right;
+}
+
+
+
+
+@media (max-width: 1300px) {
+
+
+
+    .doctor-profile-main-container {
+        height: 600px;
+        width: 80.5vw;
+    }
+
+
+    /* profile picture container */
+    .doctor-profile-picture-container {
+        width: 22vw;
+    }
+
+    /* doctor profile details container having doctor info, consultation info, contact info and button */
+    .doctor-profile-details-container {
+        height: 590px;
+        width: 55vw;
+    }
+
+    /* profile details (personal info of doctor) */
+    .doctor-profile-details {
+        width: 53vw;
+        height: 220px;
+    }
+
+    /* fixing height of all spans under doctor profile details div */
+    .doctor-profile-details .doctor-name-span,
+    .degree-span,
+    .speciality-span,
+    .hospital-name-span,
+    .address-value {
+        height: 40px;
+    }
+
+    /* doctor name */
+    /* .doctor-profile-details .doctor-name-span {
+        font-size: .65rem;
+    } */
+
+    /* doctor degree, doctor speciality, doctor working hospital section, doctor address section font size */
+    .doctor-profile-details .doctor-degree-section .degree-span, .speciality-span, .hospital-name-span, .address-value {
+        font-size: 2.2vw;
+    }
+
+    /* consultation days custimization */
+    .consultation-days-section {
+        width: 54vw;
+        height: 80px;
+    }
+
+    /* heading customization */
+    /* .consultation-days-section .consultation-day-heading {
+        font-size: .38rem;
+    } */
+
+    /* day value custimization */
+    /* .consultation-days-section .consultation-day-values {
+        font-size: .5rem;
+    } */
+
+
+    /* time and fees container */
+    .consultation-time-fees-section {
+        width: 54vw;
+        height: 60px;
+    }
+
+    .consultation-time-section,
+    .consultation-fees-section {
+        width: 26vw;
+    }
+
+    /* consultation time and fees section headings */
+    .consultation-time-heading,
+    .consultation-fees-heading {
+        height: 15px;
+        /* font-size: 0.38rem; */
+    }
+
+    /* consultation time and fees section values */
+    .consultation-time-values,
+    .consultation-fees-values {
+        display: block;
+        height: 40px;
+        /* font-size: .45rem; */
+    }
+
+    /* contact info STARTS*/
+
+    /* full contact container that contains both contact number section and email section */
+    .doctor-contact-information-section {
+        width: 54vw;
+        height: 60px;
+    }
+
+    /* width of the contact and email div */
+    .doctor-contact-information-section .contact-email-section,
+    .contact-phone-number-section {
+        width: 26vw;
+    }
+
+    /* heading of contact number and email */
+    .contact-headings {
+        height: 15px;
+        /* font-size: 0.38rem; */
+    }
+
+
+    /* values of contact number and email */
+    .contact-email,
+    .contact-phone-number {
+        display: block;
+        height: 40px;
+        font-size: 1.7vw;
+    }
+
+
+    /* doctor book appointment button */
+    .doctor-book-appointment-button button {
+        width: 18vw;
+        height: 60px;
+        font-size: 1rem;
+    }
+
+}
+
+@media (max-width: 818px) {
+
+    /* main container having picture and all details */
+    .doctor-profile-main-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 85vw;
+        height: 760px;
+    }
+
+    /* profile picture container */
+    .doctor-profile-picture-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px auto;
+        width: 20vw;
+        height: 155px;
+    }
+
+    /* profile details container */
+    .doctor-profile-details-container {
+        height: 600px;
+        width: 84vw;
+    }
+
+    /* doctor information section */
+    .doctor-profile-details {
+        height: 200px;
+        width: 80vw;
+    }
+
+    /* fixing height of all spans under doctor profile details div */
+    .doctor-profile-details .doctor-name-span,
+    .degree-span,
+    .speciality-span,
+    .hospital-name-span,
+    .address-value {
+
+        height: 35px;
+    }
+
+    /* doctor name */
+    /* .doctor-profile-details .doctor-name-span {
+        font-size: .5rem;
+    } */
+
+    /* doctor degree, doctor speciality, doctor working hospital section, doctor address section font size */
+    .doctor-profile-details .doctor-degree-section .degree-span, .speciality-span, .hospital-name-span, .address-value {
+        font-size: 3.5vw;
+    }
+
+    
+
+    /* doctor consultation Starts here */
+    .consultation-days-section {
+        height: 65px;
+        width: 80vw;
+    }
+
+    /* heading customization */
+    /* .consultation-days-section .consultation-day-heading {
+        font-size: .34rem;
+    } */
+
+    /* day value custimization */
+    /* .consultation-days-section .consultation-day-values {
+        font-size: .44rem;
+    } */
+
+    /* time and fees container */
+    .consultation-time-fees-section {
+        width: 80vw;
+    }
+
+    .consultation-time-section,
+    .consultation-fees-section {
+        width: 38vw;
+    }
+
+    /* consultation time and fees section headings */
+    /* .consultation-time-heading,
+    .consultation-fees-heading {
+        font-size: 0.34rem;
+    } */
+
+    /* consultation time and fees section values */
+    /* .consultation-time-values,
+    .consultation-fees-values {
+        font-size: .42rem;
+    } */
+
+    /* contact info STARTS*/
+
+    /* full contact container that contains both contact number section and email section */
+    .doctor-contact-information-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 80vw;
+        height: 145px;
+        margin: auto;
+    }
+
+    /* width, height of the contact and email div */
+    .doctor-contact-information-section .contact-email-section,
+    .contact-phone-number-section {
+        width: 80vw;
+        height: 65px;
+    }
+
+    /* heading of contact number and email */
+    .contact-headings {
+        height: 15px;
+        /* font-size: 0.34rem; */
+    }
+
+    /* values of contact number and email */
+    .contact-email,
+    .contact-phone-number {
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    /* doctor book appointment button */
+    .doctor-book-appointment-button button {
+        width: 30vw;
+        height: 50px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 430px) {
+
+    /* main container having picture and all details */
+    .doctor-profile-main-container {
+        width: 94vw;
+        height: 800px;
+    }
+
+    /* profile picture container */
+    .doctor-profile-picture-container {
+        width: 25vw;
+        height: 100px;
+    }
+
+    /* profile picture */
+    .doctor-profile-picture-container img{
+        width: 22vw;
+        height: 22vw;
+    }
+
+    /* profile details container */
+    .doctor-profile-details-container {
+        height: 700px;
+        width: 93vw;
+    }
+
+    /* doctor information section */
+    .doctor-profile-details {
+        height: 200px;
+        width: 93vw;
+    }
+
+
+    /* doctor name font size */
+    .doctor-profile-details .doctor-name-span{
+        font-size: 5vw;
+    }
+    /* doctor degree, doctor speciality, doctor working hospital section, doctor address section font size */
+    .doctor-profile-details .doctor-degree-section .degree-span, .speciality-span, .hospital-name-span, .address-value {
+        font-size: 4vw;
+    }
+
+    /* consultation days custimization */
+    .consultation-days-section {
+        width: 92vw;
+        height: 80px;
+    }
+
+    /* heading customization */
+    .consultation-days-section .consultation-day-heading {
+        font-size: 4vw;
+    }
+
+    /* day value custimization */
+    .consultation-days-section .consultation-day-values {
+        font-size: 5vw;
+    }
+
+
+
+
+    /* time and fees container */
+    .consultation-time-fees-section {
+        width: 92vw;
+    }
+
+    .consultation-time-section,
+    .consultation-fees-section {
+        width: 45vw;
+    }
+
+    /* consultation time and fees section headings */
+    .consultation-time-heading,
+    .consultation-fees-heading {
+        font-size: 4vw;
+    }
+
+    /* consultation time and fees section values */
+    .consultation-time-values,
+    .consultation-fees-values {
+        font-size: 5vw;
+    }
+
+    /* contact info STARTS*/
+
+    /* full contact container that contains both contact number section and email section */
+    .doctor-contact-information-section {
+        width: 92vw;
+    }
+
+    /* width, height of the contact and email div */
+    .doctor-contact-information-section .contact-email-section,
+    .contact-phone-number-section {
+        width: 91vw;
+    }
+
+    /* heading of contact number and email */
+    .contact-headings {
+        font-size: 4vw;
+    }
+
+    /* values of contact number and email */
+    .contact-email,
+    .contact-phone-number {
+        font-size: 5vw;
+    }
+
+    /* doctor book appointment button */
+    .doctor-book-appointment-button button {
+        width: 50vw;
+        height: 50px;
+        font-size: 3vw;
+    }
+}
