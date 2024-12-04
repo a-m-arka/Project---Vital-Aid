@@ -11,14 +11,14 @@
     /* background-color: green; */
 }
 
-.doctor-container .heading h1{
+.doctor-container .heading h1 {
     color: var(--primary-color);
     font-weight: bold;
     font-size: 4vw;
     margin-top: 10px;
 }
 
-.filter-and-search{
+.filter-and-search {
     /* background-color: red; */
     width: 100%;
     display: flex;
@@ -39,7 +39,7 @@
     margin-top: 10px;
 }
 
-.filter-btn {
+/* .filter-btn {
     background-color: var(--primary-color);
     width: 8%;
     height: 100%;
@@ -63,7 +63,7 @@
     font-size: 1.3vw;
     color: white;
     padding: 0 10px;
-}
+} */
 
 /* .filter-btn i {
     color: white;
@@ -144,8 +144,8 @@
 }
 
 .doctor-cards .doctor-detail {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--4th-color);
+    color: var(--primary-color);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     width: 100%;
@@ -180,12 +180,13 @@
     font-weight: 400;
 }
 
-.doctor-data #doctor-hospital, .doctor-data #doctor-location {
+.doctor-data #doctor-hospital,
+.doctor-data #doctor-location {
     font-size: 1.2vw;
     font-weight: 400;
 }
 
-.doctor-cards .doctor-btn{
+.doctor-cards .doctor-btn {
     width: 100%;
     height: 30%;
     /* background-color: green; */
@@ -194,45 +195,58 @@
     align-items: center;
 }
 
-.doctor-cards .doctor-btn button{
+.doctor-cards .doctor-btn button {
     height: 60%;
     width: 45%;
     font-size: 1.3vw;
+    font-weight: 600;
     outline: none;
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 10px var(--secondary-color);
-    background: linear-gradient(to left, var(--secondary-color),var(--secondary-color), white, white);
+    /* background-image: linear-gradient(to right,
+            var(--primary-color) 0%,
+            var(--secondary-color) 51%,
+            var(--primary-color) 100%); */
+    background-color: var(--primary-color);
     background-size: 200%;
     transition: all 0.5s;
+    color: white;
 }
 
-.doctor-cards .doctor-btn button:hover{
-    color: white;
-    background-position: right;
+.doctor-cards .doctor-btn button:hover {
+    background-color: white;
+    color: var(--primary-color);
+    /* background-position: right; */
 }
 
 @media (max-width: 1200px) {
     .view-doctors {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .doctor-cards {
         height: 50vw;
     }
+
     .doctor-cards .img-section img {
         width: 20vw;
         height: 20vw;
     }
-    .doctor-data #doctor-name, .doctor-data #doctor-speciality, 
-    .doctor-data #doctor-hospital, .doctor-data #doctor-location {
+
+    .doctor-data #doctor-name,
+    .doctor-data #doctor-speciality,
+    .doctor-data #doctor-hospital,
+    .doctor-data #doctor-location {
         font-size: 1.5vw;
     }
 }
 
 @media (max-width: 768px) {
-    .doctor-container .heading h1{
+    .doctor-container .heading h1 {
         font-size: 6vw;
     }
+
     .filter-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -241,45 +255,59 @@
         height: auto;
         padding: 10px;
     }
-    .filter-btn, .filter {
+
+    .filter-btn,
+    .filter {
         width: 100%;
         justify-content: center;
         align-items: center;
         height: 40px;
     }
-    .filter-btn button{
+
+    .filter-btn button {
         font-size: 2.2vw;
     }
-    .filter label{
+
+    .filter label {
         font-size: 2.2vw;
     }
-    .filter-name, .filter-select {
+
+    .filter-name,
+    .filter-select {
         font-size: 1.2vw;
     }
+
     .view-doctors {
         grid-template-columns: 1fr;
         grid-gap: 5vw;
     }
+
     .doctor-cards {
         height: 60vw;
     }
+
     .doctor-cards .img-section img {
         width: 25vw;
         height: 25vw;
     }
-    .doctor-data #doctor-name, .doctor-data #doctor-speciality, 
-    .doctor-data #doctor-hospital, .doctor-data #doctor-location {
+
+    .doctor-data #doctor-name,
+    .doctor-data #doctor-speciality,
+    .doctor-data #doctor-hospital,
+    .doctor-data #doctor-location {
         font-size: 16px;
     }
-    .doctor-cards .doctor-btn button{
+
+    .doctor-cards .doctor-btn button {
         font-size: 2.2vw;
     }
 }
 
 @media (max-width: 480px) {
-    .doctor-container .heading h1{
+    .doctor-container .heading h1 {
         font-size: 8vw;
     }
+
     .filter-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -289,40 +317,52 @@
         padding: 10px;
     }
 
-    .filter-btn, .filter {
+    .filter-btn,
+    .filter {
         width: 100%;
         justify-content: center;
         align-items: center;
         height: 40px;
     }
-    .filter-btn button{
+
+    .filter-btn button {
         font-size: 3vw;
     }
-    .filter label{
+
+    .filter label {
         font-size: 3vw;
     }
-    .filter-name, .filter-select {
+
+    .filter-name,
+    .filter-select {
         font-size: 2vw;
     }
+
     .view-doctors {
         grid-template-columns: 1fr;
         grid-gap: 3vw;
     }
+
     .doctor-cards {
         height: 120vw;
     }
+
     .doctor-cards .img-section img {
         width: 30vw;
         height: 30vw;
     }
+
     .doctor-data #doctor-name {
         font-size: 5vw;
     }
-    .doctor-data #doctor-speciality, .doctor-data #doctor-hospital, 
+
+    .doctor-data #doctor-speciality,
+    .doctor-data #doctor-hospital,
     .doctor-data #doctor-location {
         font-size: 14px;
     }
-    .doctor-cards .doctor-btn button{
+
+    .doctor-cards .doctor-btn button {
         font-size: 2.5vw;
     }
 }
