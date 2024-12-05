@@ -34,26 +34,14 @@
   align-items: center;
 }
 
-/* .hero-content::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 1;
-} */
-
 .hero-content h4 {
   position: relative;
-  /* top: 20vh; */
-  color: white;
+  color: var(--primary-color);
   z-index: 2;
   font-family: 'Poppins', sans-serif;
-  padding-top: 5vh;
+  padding-top: 30px;
   font-size: 2.5vw;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
 }
 
 .highlight-name{
@@ -65,29 +53,28 @@
   font-size: 7vw;
   font-weight: 800;
   font-family: "Viga", sans-serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  line-height: 6vw;
-  color: white;
-  margin-bottom: 8vh;
-  margin-top: 5vh;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+  line-height: 7vw;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+  margin-top: 30px;
   z-index: 2;
 }
 
 .highlight {
-  color: var(--third-color);
+  color: black;
 }
 
 
 .appointment-btn {
-  padding: 2vh 2vw;
-  font-size: 1.2rem;
+  padding: 10px 2vw;
+  font-size: 1.5rem;
   font-weight: bold;
   color: rgb(255, 255, 255);
   background-color: var(--primary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  /* margin-top: 10vh; */
   transition: background-color 0.3s ease;
   position: relative;
   z-index: 2;
@@ -107,7 +94,7 @@
   }
 
   .hero-content p{
-    margin-bottom: 3vh;
+    margin-bottom: 15px;
     font-size: 3rem;
     line-height: 10vw;
   }
@@ -122,9 +109,6 @@
 
 .slider-container{
   width: 100vw;
-  /* height: 35vw; */
-  /* margin: 5vh 2vw 0; */
-  /* background-color: red; */
   margin: 20px 2vw 0;
 }
 

@@ -28,7 +28,7 @@
     /* margin: auto; */
     margin-top: -130px;
     margin-left: 80px;
-    background: #3f39ef1f;
+    background: var(--4th-color);
     font-weight: 600;
 }
 
@@ -38,7 +38,7 @@
     justify-content: center;
     margin: auto;
     font-size: 14px;
-    color: #030177;
+    color: var(--primary-color);
 }
 
 .appointment-checkbox-section input[type="checkbox"] {
@@ -48,7 +48,7 @@
     height: 14px;
     appearance: none;
     -webkit-appearance: none;
-    border: 2px solid #030177;
+    border: 2px solid var(--primary-color);
     border-radius: 3px;
     background-color: white;
     transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -85,7 +85,7 @@
     font-size: 30px;
     text-align: center;
     margin: 0 20px;
-    background: -webkit-linear-gradient(45deg, #070034, #10007a);
+    background: -webkit-linear-gradient(45deg, var(--primary-color), var(--primary-color));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -135,7 +135,7 @@
 .appointment-input-data input:focus~label,
 .appointment-input-data input:valid~label {
     transform: translateY(-40px);
-    color: #030177;
+    color: var(--primary-color);
     font-size: 12px;
     transition: all 0.3s ease;
 }
@@ -144,7 +144,7 @@
 .appointment-input-data select:focus~label,
 .appointment-input-data select:valid~label {
     transform: translateY(-40px);
-    color: #030177;
+    color: var(--primary-color);
     font-size: 12px;
     transition: all 0.3s ease;
 }
@@ -154,14 +154,14 @@
 .appointment-input-data textarea:valid~label {
     transform: translateY(-40px);
     font-size: 12px;
-    color: #030177;
+    color: var(--primary-color);
     transition: all 0.3s ease;
 }
 
 
 /* label of input */
 .appointment-input-data label {
-    color: #030177;
+    color: var(--primary-color);
     position: absolute;
     bottom: 6px;
     left: 15px;
@@ -177,7 +177,7 @@
 #dob input:not(:placeholder-shown)~label {
     transform: translateY(-40px);
     font-size: 12px;
-    color: #030177;
+    color: var(--primary-color);
     transition: all 0.3s ease;
 }
 
@@ -265,7 +265,7 @@
 
 /* while styling the option hover use these colors */
 .appointment-input-data select option:hover {
-    background: #a49cfb;
+    background: var(--4th-color);
     color: rgb(0, 0, 0);
 }
 

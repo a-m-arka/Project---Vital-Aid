@@ -54,7 +54,7 @@ export default function Home() {
             <div className="home-container">
                 <div className="hero-content">
                     <h4>Welcome to <span className="highlight highlight-name">Vital Aid</span></h4>
-                    <p>WE ARE <br /> <span className="highlight">ALWAYS</span><br />WITH YOU</p>
+                    <p>WE ARE <br /> <span className="highlight">ALWAYS</span> WITH<br /> YOU</p>
                     <Link to="/doctors" className="appointment-btn">
                         Book Appointment
                     </Link>
