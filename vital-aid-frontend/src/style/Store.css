@@ -98,11 +98,30 @@
     cursor: pointer;
 }
 
-.product-list{
-    /* background-color: red; */
+.product-list {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     grid-gap: 1vw;
-    padding: 0 0;
+    padding: 0;
+}
+
+
+
+
+@media (max-width: 768px){
+    .category-search-cart{
+        height: 100px;
+        gap: 10%;
+        /* background-color: red; */
+    }
+
+    .category-search-cart .product-category, .category-search-cart .store-cart{
+        width: 45%;
+        height: 50%;
+    }
+
+    .category-name label, .store-cart label,i{
+        font-size: 2.8vw;
+    }
 }

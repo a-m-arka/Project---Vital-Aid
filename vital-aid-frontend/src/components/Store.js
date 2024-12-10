@@ -50,7 +50,7 @@ export default function Store() {
 
         <div className="category-search-cart">
 
-          <SearchBox className="store-search" placeholder="Search Product" onSearch={handleSearch} style={{ width: isMobile ? '100%' : '60%', height: isMobile ? "40px" : "100%", boxShadow: "0 0 8px black", margin: "0 0" }} />
+          <SearchBox className="store-search" placeholder="Search Product" onSearch={handleSearch} style={{ width: isMobile ? '100%' : '60%', height: isMobile ? "40%" : "100%", boxShadow: "0 0 8px black", margin: "0 0" }} />
 
           <div className="product-category">
             <div className="category-name">

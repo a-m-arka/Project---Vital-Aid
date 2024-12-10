@@ -209,7 +209,7 @@
     font-weight: 600;
     outline: none;
     border: none;
-    border-radius: 30px;
+    border-radius: 15px;
     box-shadow: 0 0 10px var(--secondary-color);
     background-color: var(--primary-color);
     color: white;
@@ -263,6 +263,7 @@
     }
     .hospital-cards {
         height: 17vw;
+        border-radius: 5px;
     }
     .hospital-cards .img-section {
         width: 17vw;
@@ -276,6 +277,7 @@
     }
     .hospital-cards .hospital-btn button{
         font-size: 2.2vw;
+        border-radius: 5px;
     }
 }
 

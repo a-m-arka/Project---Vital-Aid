@@ -6,7 +6,7 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
-    width: 20vw;
+    width: 320px;
     height: 615px;
     margin: 50px auto;
 }
@@ -129,4 +129,10 @@
     /* background-position: right; */
     background-color: white;
     color: var(--primary-color);
+}
+
+@media (max-width: 300px) {
+    .medical-store-card-main-container{
+        width: 95%;
+    }
 }
