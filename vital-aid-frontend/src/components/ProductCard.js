@@ -32,9 +32,9 @@ const ProductCard = ({ product, onBuyNow, onAddToCart }) => {
           <div className="add-to-cart-button-section">
             <button className="add-to-cart-button">Add to Cart</button>
           </div>
-          <div className="buy-now-button-section">
+          {/* <div className="buy-now-button-section">
             <button className="buy-now-button">Buy Now</button>
-          </div>
+          </div> */}
         </div>
       </div>
 
