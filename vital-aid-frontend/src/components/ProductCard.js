@@ -1,7 +1,7 @@
 import React from "react";
 import '../style/ProductCard.css';
 
-const ProductCard = ({ product, onBuyNow, onAddToCart }) => {
+const ProductCard = ({ product, onBuyNow }) => {
   return (
     <div className="medical-store-card-main-container">
       <div className="product-photo-container">
@@ -29,12 +29,9 @@ const ProductCard = ({ product, onBuyNow, onAddToCart }) => {
           <span className="product-price">{`BDT ${product.product_price}`}</span>
         </div>
         <div className="cart-and-buy-now-button-section">
-          <div className="add-to-cart-button-section">
-            <button className="add-to-cart-button">Add to Cart</button>
+          <div className="buy-now-button-section">
+            <button className="buy-now-button">Order</button>
           </div>
-          {/* <div className="buy-now-button-section">
-            <button className="buy-now-button">Buy Now</button>
-          </div> */}
         </div>
       </div>
 

@@ -10,7 +10,7 @@ export default function Store() {
   const [selectedCategory, setSelectedCategory] = useState('');
 
   const categories = ['Medicine', 'Medical Equipment'];
-
+  
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -23,11 +23,6 @@ export default function Store() {
   const handleBuyNow = (product) => {
     console.log("Buying product:", product);
     // Handle Buy Now logic
-  };
-
-  const handleAddToCart = (product) => {
-    console.log("Adding product to cart:", product);
-    // Handle Add to Cart logic
   };
 
   const handleSearch = (term) => {
@@ -50,7 +45,7 @@ export default function Store() {
 
         <div className="category-search-cart">
 
-          <SearchBox className="store-search" placeholder="Search Product" onSearch={handleSearch} style={{ width: isMobile ? '100%' : '60%', height: isMobile ? "40%" : "100%", boxShadow: "0 0 8px black", margin: "0 0" }} />
+          <SearchBox className="store-search" placeholder="Search Product" onSearch={handleSearch} style={{ width: isMobile ? '100%' : '72%', height: isMobile ? "40%" : "100%", boxShadow: "0 0 8px black", margin: "0 0" }} />
 
           <div className="product-category">
             <div className="category-name">
@@ -70,10 +65,10 @@ export default function Store() {
             </select>
           </div>
 
-          <button className="store-cart">
+          {/* <button className="store-cart" onClick={() => handleMyCart()}>
             <label>My Cart</label>
             <i class="fa-solid fa-cart-shopping"></i>
-          </button>
+          </button> */}
 
         </div>
 
@@ -83,7 +78,6 @@ export default function Store() {
               key={product.product_id}
               product={product}
               onBuyNow={handleBuyNow}
-              onAddToCart={handleAddToCart}
             />
           ))}
         </div>

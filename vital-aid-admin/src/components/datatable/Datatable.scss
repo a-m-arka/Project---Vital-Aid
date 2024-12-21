@@ -1,0 +1,90 @@
+.datatable{
+    // margin-top: 10px;
+    padding: 20px;
+
+    .cellWithImg{
+        display: flex;
+        align-items: center;
+
+        .cellImg{
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+    }
+
+    .cellWithStatus{
+        margin-top: 10px;
+        height: 60%;
+        width: 70%;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cellWithAction{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        .viewButton{
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            width: max-content;
+            padding: 1px 5px;
+            border-radius: 5px;
+            color: darkgreen;
+            border: 1px solid rgba(0, 100, 0, 0.5);
+            cursor: pointer;
+
+            &:hover{
+                color: white;
+                background-color: darkgreen;
+            }
+        }
+
+        .updateButton{
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            width: max-content;
+            padding: 1px 5px;
+            border-radius: 5px;
+            color: darkgoldenrod;
+            border: 1px solid rgba(184, 135, 11, 0.5);
+            cursor: pointer;
+
+            &:hover{
+                color: white;
+                background-color: darkgoldenrod;
+            }
+        }
+
+        .deleteButton{
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            width: max-content;
+            padding: 1px 5px;
+            border-radius: 5px;
+            color: darkred;
+            border: 1px solid rgba(139, 0, 0, 0.5);
+            cursor: pointer;
+
+            &:hover{
+                color: white;
+                background-color: darkred;
+            }
+        }
+    }
+}

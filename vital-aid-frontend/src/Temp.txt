@@ -1,25 +1,32 @@
-<div className="filter-container">
-    {filters.map((filter, index) => (
-        <div key={index} className="filter">
-            <div className="filter-name">
-                <label>{filter.name}</label>
-            </div>
-            <select
-                value={selectedValues[index]}
-                onChange={(event) => handleSelectChange(index, event)}
-                className="filter-select"
-            >
-                <option value="">All</option>
-                {filter.options.map((option, i) => (
-                    <option key={i} value={option}>
-                        {option}
-                    </option>
-                ))}
-            </select>
-        </div>
-    ))}
-    <div className="filter-btn">
-        <button>Filter</button>
-        {/* <i className="fa-solid fa-filter"></i> */}
-    </div>
-</div>
+{
+        "id": 2,
+        "name": "Smartphone",
+        "description": "Latest model with cutting-edge features.",
+        "price": 999.99,
+        "quantity": 1,
+        "image": "/Images/Stethoscope.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Fitness Tracker",
+        "description": "Track your daily fitness activities and health metrics.",
+        "price": 49.99,
+        "quantity": 1,
+        "image": "/Images/Stethoscope.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Gaming Mouse",
+        "description": "Ergonomic mouse with customizable buttons and RGB lighting.",
+        "price": 59.99,
+        "quantity": 1,
+        "image": "/Images/Stethoscope.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Portable Charger",
+        "description": "High-capacity portable charger for all your devices.",
+        "price": 39.99,
+        "quantity": 1,
+        "image": "/Images/Stethoscope.jpg"
+    }

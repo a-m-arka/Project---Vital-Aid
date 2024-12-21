@@ -1,0 +1,47 @@
+.list {
+    display: flex;
+    width: 100%;
+
+    .listContainer {
+        flex: 6;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 20px;
+
+        .top {
+            // background-color: red;
+            margin-top: 20px;
+            margin-left: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 95%;
+
+            h1 {
+                // background-color: blue;
+                flex: 10;
+                color: rgb(83, 82, 82);
+            }
+
+            .addButton {
+                background-color: darkblue;
+                color: white;
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 22px;
+                font-weight: 600;
+                border-radius: 10px;
+                padding: 5px 5px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: blue;
+                }
+            }
+        }
+    }
+}

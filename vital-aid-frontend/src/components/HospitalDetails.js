@@ -107,7 +107,7 @@ export default function HospitalDetails() {
 
                 <div className="hospital-photo-container">
                     <div className="image-box">
-                        <img src={hospital.img}/>
+                        <img src={hospital.image}/>
                     </div>
                 </div>
             </div>

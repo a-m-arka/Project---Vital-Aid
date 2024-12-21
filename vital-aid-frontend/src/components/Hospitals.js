@@ -82,7 +82,7 @@ export default function Hospitals() {
           {filteredHospitals.map((hospital, index) => (
             <div className="hospital-cards" key={index}>
               <div className="img-section">
-                <img src={hospital.img || 'placeholder.jpg'} alt='' />
+                <img src={hospital.image || 'placeholder.jpg'} alt='' />
               </div>
               <div className="hospital-detail">
                 <div className="hospital-data">
