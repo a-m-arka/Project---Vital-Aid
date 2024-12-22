@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './Login.scss'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,13 +15,14 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
 
-    if (email === "user@example.com" && password === "password123") {
-      alert("Login successful!");
-      // Add your navigation logic or further functionality here
+    if (email === "arka@admin.com" && password === "1234") {
+      navigate('/');
     } else {
       setError("Invalid email or password");
     }
@@ -52,6 +54,11 @@ const Login = () => {
           />
         </div>
         <button type="submit" className="login-button">Login</button>
+        <Link to='/signup' style={{ textDecoration: "none" }}>
+          <div className="go-to-signup">
+            Register as an admin
+          </div>
+        </Link>
       </form>
     </div>
   );
