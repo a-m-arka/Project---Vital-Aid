@@ -14,9 +14,8 @@
         justify-content: space-evenly;
 
         .title{
-            font-size: 16px;
+            font-size: 20px;
             font-weight: bold;
-            color: gray;
         }
 
         .counter{
@@ -27,6 +26,7 @@
         .link{
             width: max-content;
             font-size: 14px;
+            color: gray;
             border-bottom: 1px solid gray;
             cursor: pointer;
         }
@@ -38,11 +38,11 @@
         align-items: center;
         
         .icon{
-            font-size: 48px;
+            font-size: 64px;
             padding: 5px;
-            border-radius: 5px;
-            color: #4e0c83;
-            background-color: rgba(255, 0, 0, 0.459);
+            border-radius: 20px;
+            // color:dodgerblue;
+            // background-color: rgba(30, 143, 255, 0.3);
         }
     }
 }

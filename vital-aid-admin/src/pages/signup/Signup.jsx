@@ -37,7 +37,7 @@ const Signup = () => {
         setError("");
 
         if (password === confirmPassword) {
-            navigate('/');
+            navigate('/home');
         } else {
             setError("The passwords entered do not match. Please try again.");
         }

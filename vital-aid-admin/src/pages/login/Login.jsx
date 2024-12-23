@@ -22,7 +22,7 @@ const Login = () => {
     setError("");
 
     if (email === "arka@admin.com" && password === "1234") {
-      navigate('/');
+      navigate('/home');
     } else {
       setError("Invalid email or password");
     }
