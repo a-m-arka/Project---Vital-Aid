@@ -1,0 +1,50 @@
+.forget-pass-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    width: 500px;
+    margin-top: 80px;
+    z-index: 15;
+    color: var(--primary-color);
+}
+
+.forget-pass-container .forget-pass-form {
+    background: var(--4th-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forget-pass-container .forget-pass-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.forget-pass-container .forget-pass-form .btn {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 600;    background-color: var(--primary-color);;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 15px;
+}
+
+.forget-pass-container .forget-pass-form .btn:hover {
+    background-color: white;
+    color: var(--primary-color);
+    box-shadow: 0 0 2px var(--primary-color);
+}
+
+@media ((max-width: 768px)){
+    .forget-pass-container{
+        margin: 50px 20px;
+    }
+}

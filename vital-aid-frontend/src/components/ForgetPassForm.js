@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import './ForgetPassForm.scss'
-import Timer from '../timer/Timer'
+import '../style/ForgetPassForm.css'
+import Timer from './Timer'
 
 export const EnterEmail = (props) => {
     const [errorMessage, setErrorMessage] = useState("");
@@ -20,7 +20,7 @@ export const EnterEmail = (props) => {
     };
 
     return (
-        <>
+        <div className='forget-pass-input-container'>
             <div className='forget-pass-input'>
                 <label>
                     Enter Your Email
@@ -33,7 +33,7 @@ export const EnterEmail = (props) => {
             <button className="btn" onClick={handleNext}>
                 Next
             </button>
-        </>
+        </div>
     )
 }
 
@@ -68,7 +68,7 @@ export const EnterOtp = (props) => {
     };
 
     return (
-        <>
+        <div className='forget-pass-input-container'>
             <div className='forget-pass-input'>
                 <label>
                     Enter OTP
@@ -91,7 +91,7 @@ export const EnterOtp = (props) => {
                     Get New OTP
                 </button>
             )}
-        </>
+        </div>
     )
 }
 
@@ -118,7 +118,7 @@ export const NewPassword = (props) => {
     };
 
     return (
-        <>
+        <div className='forget-pass-input-container'>
             <div className='forget-pass-input'>
                 <label>
                     Enter New Password
@@ -135,7 +135,7 @@ export const NewPassword = (props) => {
             <button className="btn" onClick={handleNext}>
                 Next
             </button>
-        </>
+        </div>
     )
 }
 

@@ -56,6 +56,16 @@ form.sign-in-form {
     z-index: 2;
 }
 
+.sign-in-form .forget-pass{
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.sign-in-form .forget-pass:hover{
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
 .auth-title {
     font-size: 2.2rem;
     color: var(--primary-color);

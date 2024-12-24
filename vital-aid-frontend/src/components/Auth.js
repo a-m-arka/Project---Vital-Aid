@@ -45,7 +45,11 @@ function Auth() {
                 <i className="input-icon fa fa-lock"></i>
               </div>
               <input type="submit" value="Log In" className="btn solid auth-submit-btn" />
-              <Link to="/forgotpassword">Forgot Password?</Link>
+              <Link to="/forgotpassword" style={{textDecoration: "none"}}>
+                <div className="forget-pass">
+                  Forgot Password?
+                </div>
+              </Link>
             </form>
             <form className="sign-up-form">
               <h2 className="auth-title">Sign Up</h2>

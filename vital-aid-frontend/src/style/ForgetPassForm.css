@@ -1,0 +1,46 @@
+.forget-pass-input-container{
+    z-index: 15;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forget-pass-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.forget-pass-input label {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.forget-pass-input input {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: white;
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+.error-message {
+    font-size: 18px;
+    margin: 20px 0;
+    color: red;
+}
+
+.success-message {
+    font-size: 20px;
+    margin: 20px 0;
+    color: var(--primary-color);
+    text-align: center;
+}
