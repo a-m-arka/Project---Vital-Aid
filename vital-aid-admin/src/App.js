@@ -6,6 +6,7 @@ import New from './pages/new/New';
 import Single from './pages/single/Single';
 import Update from './pages/update/Update';
 import Profile from './pages/profile/Profile';
+import ForgetPass from './pages/forgetPass/ForgetPass';
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,6 +20,7 @@ import { productColumns, productRows } from './datasource/productData';
 import { ambulanceColumns, ambulanceRows } from './datasource/ambulanceData';
 
 
+
 function App() {
   return (
     <div className="App">
@@ -29,6 +31,7 @@ function App() {
           <Route path='/'>
             <Route index element={<Navigate to="/login" />}></Route>
             <Route path='login' element={<Login />}></Route>
+            <Route path='forgetpassword' element={<ForgetPass />}></Route>
             <Route path='signup' element={<Signup />}></Route>
             <Route path='home' element={<Home />}></Route>
             <Route path='profile' element={<Profile />}></Route>

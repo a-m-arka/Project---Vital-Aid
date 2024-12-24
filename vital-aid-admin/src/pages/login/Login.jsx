@@ -32,7 +32,11 @@ const Login = () => {
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Admin Login</h2>
-        {error && <p className="error-message">{error}</p>}
+        <Link to='/forgetpassword' style={{ textDecoration: "none" }}>
+          <div className="go-to-forgetpass">
+            Forgot Password?
+          </div>
+        </Link>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -53,6 +57,7 @@ const Login = () => {
             required
           />
         </div>
+        {error && <p className="error-message">{error}</p>}
         <button type="submit" className="login-button">Login</button>
         <Link to='/signup' style={{ textDecoration: "none" }}>
           <div className="go-to-signup">
