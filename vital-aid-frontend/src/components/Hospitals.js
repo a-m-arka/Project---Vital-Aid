@@ -88,7 +88,7 @@ export default function Hospitals() {
                 <div className="hospital-data">
                   <p>
                     <span id="hospital-name">{hospital.name}</span><br />
-                    <span id="hospital-location">{hospital.address}</span>
+                    <span id="hospital-location">{hospital.location}</span>
                   </p>
                 </div>
                 <div className="hospital-btn">

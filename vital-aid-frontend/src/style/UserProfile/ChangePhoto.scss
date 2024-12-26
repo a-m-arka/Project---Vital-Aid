@@ -1,0 +1,90 @@
+.changePhoto {
+    // flex: 5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .changePhoto-heading {
+        font-size: 28px;
+        font-weight: 600;
+        margin-top: 10px;
+        color: var(--primary-color);
+
+        @media(max-width: 500px){
+            font-size: 25px;
+        }
+
+        @media(max-width: 400px){
+            font-size: 20px;
+        }
+
+        @media(max-width: 300px){
+            font-size: 16px;
+        }
+    }
+
+    img {
+        margin: 30px;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        background-color: var(--primary-color);
+    }
+
+    .imgUpload {
+        label {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            width: max-content;
+            height: max-content;
+            padding: 0px 15px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 20px;
+            border: 2px solid #f1faee;
+            cursor: pointer;
+            transition: 0.3s;
+
+            .icon {
+                font-size: 30px;
+            }
+
+            &:hover {
+                background-color: var(--4th-color);
+                color: var(--primary-color);
+                border: 2px solid var(--primary-color);
+            }
+        }
+    }
+
+    .update-btn {
+        background-color: var(--primary-color);
+        color: white;
+        width: max-content;
+        height: max-content;
+        padding: 10px 15px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 20px;
+        border: 2px solid #f1faee;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: var(--4th-color);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+    }
+}

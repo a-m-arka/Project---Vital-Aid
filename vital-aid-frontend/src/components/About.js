@@ -20,12 +20,12 @@ export default function About() {
 
         <section>
           <h2>Our Mission</h2>
-          <p>Our mission is to provide compassionate, high-quality healthcare to our community. We strive to be a trusted partner in health and wellness, ensuring that every patient receives personalized care and support. By integrating advanced medical technologies and compassionate service, we aim to enhance the health and well-being of all we serve. We are committed to improving access to healthcare and advancing medical education to build a healthier future.</p>
+          <p className='paragraph'>Our mission is to provide compassionate, high-quality healthcare to our community. We strive to be a trusted partner in health and wellness, ensuring that every patient receives personalized care and support. By integrating advanced medical technologies and compassionate service, we aim to enhance the health and well-being of all we serve. We are committed to improving access to healthcare and advancing medical education to build a healthier future.</p>
         </section>
 
         <section>
           <h2>Our Vision</h2>
-          <p>To be the leading provider of integrated healthcare services in the region, fostering an environment where patients receive exceptional care, medical professionals thrive, and communities flourish. We envision a world where quality healthcare is accessible to all, where innovation and patient-centric care drive excellence, and where we continuously improve the health standards of our society. Our vision extends to empowering individuals to make informed health decisions, supporting healthier lifestyles, and promoting sustainable healthcare practices.</p>
+          <p className='paragraph'>To be the leading provider of integrated healthcare services in the region, fostering an environment where patients receive exceptional care, medical professionals thrive, and communities flourish. We envision a world where quality healthcare is accessible to all, where innovation and patient-centric care drive excellence, and where we continuously improve the health standards of our society. Our vision extends to empowering individuals to make informed health decisions, supporting healthier lifestyles, and promoting sustainable healthcare practices.</p>
         </section>
 
         <section>
@@ -43,7 +43,7 @@ export default function About() {
 
         <section>
           <h2>Our History</h2>
-          <p>Founded in 2024, our organization began with a simple yet profound goal: to provide accessible, high-quality healthcare to underserved communities. In just a few months, we have grown from a small team of dedicated healthcare professionals to a robust organization, serving thousands of patients each year. With each milestone, we expanded our services, built state-of-the-art facilities, and forged partnerships with leading medical institutions. Our journey has been one of innovation, compassion, and resilience, and we remain steadfast in our commitment to improving healthcare access and quality for generations to come.</p>
+          <p className='paragraph'>Founded in 2024, our organization began with a simple yet profound goal: to provide accessible, high-quality healthcare to underserved communities. In just a few months, we have grown from a small team of dedicated healthcare professionals to a robust organization, serving thousands of patients each year. With each milestone, we expanded our services, built state-of-the-art facilities, and forged partnerships with leading medical institutions. Our journey has been one of innovation, compassion, and resilience, and we remain steadfast in our commitment to improving healthcare access and quality for generations to come.</p>
         </section>
 
         <section>
@@ -58,12 +58,12 @@ export default function About() {
         <section>
           <h2>Contact Us</h2>
           <p>{`Phone: ${teamMembers[0].phone}, ${teamMembers[1].phone}, ${teamMembers[2].phone}`}</p>
-          <p>Email: vitalaid@gmail.com</p>
+          <p>Email: vitalaid2104@gmail.com</p>
         </section>
 
         <section>
           <h2>Get in Touch</h2>
-          <p>Contact us today to register as a doctor or to be our partner!</p>
+          <p className='paragraph'>Contact us today to register as a doctor or to be our partner!</p>
         </section>
 
       </div>

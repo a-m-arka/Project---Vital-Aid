@@ -31,7 +31,7 @@ export const EnterEmail = (props) => {
                 {errorMessage}
             </div>
             <button className="btn" onClick={handleNext}>
-                Next
+                Get OTP
             </button>
         </div>
     )
@@ -76,14 +76,14 @@ export const EnterOtp = (props) => {
                 <input type="text" value={otp} onChange={handleOtp} />
             </div>
             {!timeOver && (
-                <Timer startTime={120} onComplete={handleTimerComplete} />
+                <Timer startTime={5} onComplete={handleTimerComplete} />
             )}
             <div className="error-message">
                 {errorMessage}
             </div>
             {!timeOver && (
                 <button className="btn" onClick={handleNext}>
-                    Next
+                    Verify OTP
                 </button>
             )}
             {timeOver && (
