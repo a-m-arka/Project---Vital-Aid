@@ -27,8 +27,8 @@ const ViewProfile = () => {
     };
 
     const updateUserData = (updatedData) => {
-        setUserData((prev) => ({ ...prev, ...updatedData })); // Update user data
-        setCurrentPage('details'); // Go back to details page
+        setUserData((prev) => ({ ...prev, ...updatedData }));
+        setCurrentPage('details');
     };
 
     const renderComponent = () => {

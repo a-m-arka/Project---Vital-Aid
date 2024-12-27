@@ -73,6 +73,36 @@
                 font-weight: 400;
                 color: var(--secondary-color);
             }
+
+            @media(max-width: 610px){
+                .value{
+                    font-size: 18px;
+                }
+
+                .key{
+                    font-size: 14px;
+                }
+            }
+
+            @media(max-width: 465px){
+                .value{
+                    font-size: 14px;
+                }
+
+                .key{
+                    font-size: 12px;
+                }
+            }
+
+            @media(max-width: 370px){
+                .value{
+                    font-size: 12px;
+                }
+
+                .key{
+                    font-size: 10px;
+                }
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ export default function Appoinment() {
               <h1>VITAL AID APPOINTMENT</h1>
             </div>
           </div>
-          <div class="appointment-form-row appointment-checkbox-section">
+          <div className="appointment-form-row appointment-checkbox-section">
             <input type="checkbox" id="appointment-for-myself"/>
               <label htmlFor="appointment-for-myself">Appointment for myself</label>
           </div>

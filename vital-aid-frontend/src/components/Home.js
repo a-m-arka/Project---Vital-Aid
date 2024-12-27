@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../style/Home.css';
+import Footer from './Footer';
 
 import servicesData from '../data/services.json';
 import doctorsData from '../data/doctors.json';
@@ -115,6 +116,7 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
+                <Footer />
             </div>
         </div>
     );
