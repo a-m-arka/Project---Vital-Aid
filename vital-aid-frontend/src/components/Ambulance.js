@@ -1,41 +1,48 @@
 import React from 'react';
-import '../style/Ambulance.css';
-import ambulanceIcon from '../Images/ambulance_icon.png';
+import '../style/Ambulance.scss';
+import { useNavigate } from 'react-router-dom';
+import ambulanceData from '../data/ambulanceData';
+// import AmbulanceForm from './AmbulanceForm';
 
 export default function Ambulance() {
+  const navigate = useNavigate();
+  // const [isCalled, setIsCalled] = useState(false);
+
+  const handleCall = (ambulanceData) => {
+    navigate('/ambulanceform', { state: { ambulanceData: ambulanceData } });
+  }
+
   return (
-    <div className='rout-container'>
-      <div className="parent-container-of-ambulance-form-main-container">
-        <div className="main-container-of-ambulance-form">
-          <div className="ambulance-form-container">
-            <form className="ambulance-form" action="#">
-              <div className="ambulance-form-row">
-                <div className="ambulance-form-data-input-section">
-                  <input type="text" required />
-                  <label>Address</label>
-                </div>
-              </div>
-              <div className="ambulance-form-row">
-                <div className="ambulance-form-data-input-section">
-                  <input type="number" required />
-                  <label>Contact</label>
-                </div>
-              </div>
-              <div className="ambulance-form-row ambulance-form-button-container">
-                <div className="ambulance-form-data-input-section">
-                  <div className="inner"></div>
-                  <input type="submit" value="Call Ambulance" />
-                </div>
-              </div>
-            </form>
-          </div>
-          <div className="right-side-icon-design-container">
-            <div className="ambulance-icon-container">
-              <img src={ambulanceIcon} alt="Ambulance Icon" />
-            </div>
-          </div>
+    <div className="rout-container">
+      <div className="ambulance-container">
+        <div className="heading caption">
+          <h1>Vital Aid Ambulance</h1>
+        </div>
+        <div className="ambulance-table-container">
+          <table className="ambulance-table">
+            <thead>
+              <tr>
+                <th>Ambulance Number Plate</th>
+                <th>Driver Contact</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {ambulanceData.map((ambulance, index) => (
+                <tr key={index}>
+                  <td>{ambulance.id}</td>
+                  <td>{ambulance.ambulanceDriverContact}</td>
+                  <td>
+                    <button className='ambulance-call-btn' onClick={() => handleCall(ambulance)}>
+                      <i className="fa-solid fa-phone"></i>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-  )
+  );
 }

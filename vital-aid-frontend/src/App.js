@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import Store from './components/Store';
 import Ambulance from './components/Ambulance';
+import AmbulanceForm from './components/AmbulanceForm';
 import Doctors from './components/Doctors';
 import DoctorDetails from './components/DoctorDetails';
 import Hospitals from './components/Hospitals';
@@ -35,6 +36,7 @@ function App() {
           <Route path='/hospitals' element={<Hospitals />}></Route>
           <Route path='/hospital_details' element={<HospitalDetails />}></Route>
           <Route path='/ambulance' element={<Ambulance />}></Route>
+          <Route path='/ambulanceform' element={<AmbulanceForm />}></Route>
           <Route path='/about' element={<About />}></Route>
           <Route path='/store' element={<Store />}></Route>
           <Route path='/profile' element={<ViewProfile />}></Route>

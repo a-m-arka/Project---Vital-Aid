@@ -348,11 +348,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: var(--4th-color);
   color: var(--primary-color);
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 0 10px var(--primary-color);
+  /* box-shadow: 0 0 10px var(--primary-color); */
   height: 100%;
   width: 100%;
 }

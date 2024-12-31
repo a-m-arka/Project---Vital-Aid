@@ -64,10 +64,6 @@ export default function Navbar() {
                             </ul>
                         </div>
 
-                        {/* <div className="search-icon" onClick={isSearchOpen ? null : toggleSearchBox}>
-                            <i className="fa-solid fa-magnifying-glass"></i>
-                        </div> */}
-
                         <div className="sidebar">
                             <button onClick={toggleSidebar}>
                                 <i className={!sidebarOpen ? "fa-solid fa-bars" : "fa-solid fa-xmark"}></i>
@@ -77,18 +73,6 @@ export default function Navbar() {
                     </div>
 
                 </div>
-
-                {/* <div className={`search-box ${isSearchOpen  ? 'pop-out' : isSearched ? 'pop-in' : ''}`}>
-                    <div className="search-input">
-                        <input type="text" placeholder="Search Here" />
-                    </div>
-                    <div className="search-btn">
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <div className="search-cancel" onClick={toggleSearchBox}>
-                        <i className="fa-solid fa-xmark"></i>
-                    </div>
-                </div> */}
 
             </div>
         </>

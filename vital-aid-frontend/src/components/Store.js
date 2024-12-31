@@ -20,11 +20,6 @@ export default function Store() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleBuyNow = (product) => {
-    console.log("Buying product:", product);
-    // Handle Buy Now logic
-  };
-
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
@@ -77,7 +72,6 @@ export default function Store() {
             <ProductCard
               key={product.product_id}
               product={product}
-              onBuyNow={handleBuyNow}
             />
           ))}
         </div>
