@@ -5,6 +5,7 @@ import java.util.Set;
 import com.vital_aid_crud_api.Entity.ConsultingTimes;
 import com.vital_aid_crud_api.Validation.ValidConsultDay;
 import com.vital_aid_crud_api.Validation.ValidConsultTimes;
+import com.vital_aid_crud_api.Validation.ValidGender;
 import com.vital_aid_crud_api.Validation.ValidCity;
 
 import jakarta.validation.constraints.Email;
@@ -30,6 +31,7 @@ public class DoctorDTO {
     private Integer doctorFee;
 
     @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Gender must contain only letters")
+    @ValidGender(message = "It is not a valid gender")
     private String doctorGender;
 
     @ValidCity(message = "Invalid City")

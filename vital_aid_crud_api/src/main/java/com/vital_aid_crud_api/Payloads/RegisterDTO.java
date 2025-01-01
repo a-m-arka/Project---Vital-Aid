@@ -17,10 +17,10 @@ public class RegisterDTO {
     private String personEmail;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Size(min = 5,max = 300, message = "Password must be at least 5 characters")
+    @Size(min = 5,max = 300, message = "Password must be at least 5 characters long.")
     @Pattern(
     regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{5,}$",
-    message = "Password must be at least 5 characters long, include an uppercase letter, a lowercase letter, a digit, and a special character(@$!%*?&).")
+    message = "Password must include an uppercase letter, a lowercase letter, a digit, and a special character(@$!%*?&).")
     private String loginPassword;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

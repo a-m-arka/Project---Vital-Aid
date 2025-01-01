@@ -20,7 +20,7 @@ public class CallsAmbulance {
     
     @ManyToOne
     @MapsId("personId")
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "called_by_user")
     private User calledByUser;
 
     @ManyToOne
