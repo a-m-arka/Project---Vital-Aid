@@ -1,0 +1,6 @@
+                                                //  1. CALL AN AMBULANCE INPUT BY PASSING THE NUMBER PLATE AS PATH VARIABLE     //
+
+                                {
+                                    "address":"Lane 2, Road 1, Chittagong",
+                                    "contact":"01234567890"
+                                }

@@ -1,0 +1,17 @@
+                                                //  1. REGISTERING A NEW AMBULANCE  INPUT   //
+                                            
+                                {
+                                    "id":"CTG-12-2122",
+                                    "ambulanceDriverContact":"01234567891"
+                                }
+
+
+
+                                                //  2. UPDATING DETAILS OF AN AMBULANCE INPUT USING NUMBER PLATE AS PATH VARIABLE//
+
+                             
+                                            
+                                {
+                                    "id":"CTG-12-2122",
+                                    "ambulanceDriverContact":"01234567891"
+                                }

@@ -1,0 +1,162 @@
+                                                //  1. REGISTERING A NEW DOCTOR INPUT WITOUT IMAGE //
+
+                                (CONTENT TYPE -> application/json)
+                                KEY -> "doctorDTO",
+
+                      VALUE->   {
+                                    "doctorName": "Dr. Zahirul Iqbal",
+                                    "doctorEmail": "zahirul.iqbal@example.com",
+                                    "doctorPhone": "01312347890",
+                                    "hospitalName": "Chittagong Medical College Hospital",
+                                    "doctorFee": 3200,
+                                    "specializationField": "Oncologist",
+                                    "doctorSpecialization": ["Cancer Specialist"],
+                                    "consultationDays": ["Friday", "Sunday"],
+                                    "consultingTime": {
+                                        "startTime": "09:00",
+                                        "endTime": "12:00"
+                                    },
+                                    "doctorGender": "Male",
+                                    "doctorCity": "Sylhet"
+                                }
+
+
+
+
+                                                //  2. REGISTERING A NEW DOCTOR INPUT WITH IMAGE //
+
+                                (CONTENT TYPE -> application/json)
+                                KEY -> "doctorDTO",
+
+                      VALUE->   {
+                                    "doctorName": "Dr. Zahirul Iqbal",
+                                    "doctorEmail": "zahirul.iqbal@example.com",
+                                    "doctorPhone": "01312347890",
+                                    "hospitalName": "Chittagong Medical College Hospital",
+                                    "doctorFee": 3200,
+                                    "specializationField": "Oncologist",
+                                    "doctorSpecialization": ["Cancer Specialist"],
+                                    "consultationDays": ["Friday", "Sunday"],
+                                    "consultingTime": {
+                                        "startTime": "09:00",
+                                        "endTime": "12:00"
+                                    },
+                                    "doctorGender": "Male",
+                                    "doctorCity": "Sylhet"
+                                }
+                                
+
+                                (CONTENT TYPE -> multipart/form-data)                
+                                KEY -> "file",
+
+                                VALUE->   ACTUAL PHOTO
+
+
+
+                                                // 3. UPDATE DOCTOR DETAILS INPUT
+                                
+                                (CONTENT TYPE -> application/json)
+                                KEY -> "doctorDTO",
+
+                      VALUE->   {
+                                    "doctorName": "Dr. Zahirul Iqbal",
+                                    "doctorEmail": "zahirul.iqbal@example.com",
+                                    "doctorPhone": "01312347890",
+                                    "hospitalName": "Chittagong Medical College Hospital",
+                                    "doctorFee": 3200,
+                                    "specializationField": "Oncologist",
+                                    "doctorSpecialization": ["Cancer Specialist"],
+                                    "consultationDays": ["Friday", "Sunday"],
+                                    "consultingTime": {
+                                        "startTime": "09:00",
+                                        "endTime": "12:00"
+                                    },
+                                    "doctorGender": "Male",
+                                    "doctorCity": "Sylhet"
+                                }
+                                
+
+                                (CONTENT TYPE -> multipart/form-data)                
+                                KEY -> "file",
+
+                                VALUE->   ACTUAL PHOTO
+
+
+
+                                                //  4. DOCTOR PROFILE DETAILS OUTPUT    //
+
+                                {
+                                    "doctorName": "Dr. Zahirul Iqbal",
+                                    "doctorEmail": "zahirul.iqbal@example.com",
+                                    "doctorPhone": "01312347890",
+                                    "doctorFee": 3200,
+                                    "doctorGender": "Male",
+                                    "doctorCity": "Sylhet",
+                                    "specializationField": "Oncologist",
+                                    "doctorPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+                                    "doctorSpecialization": [
+                                        "Cancer Specialist"
+                                    ],
+                                    "consultationDays": [
+                                        "Friday",
+                                        "Sunday"
+                                    ],
+                                    "consultingTime": {
+                                        "startTime": "09:00",
+                                        "endTime": "12:00"
+                                    },
+                                    "hospitalName": "Apollo Medical College Hospital",
+                                    "id": 1
+                                }
+
+
+                                                //  5. LIST OF ALL DOCTORS  //
+
+                                {
+                                    {
+                                        "doctorName": "Dr. Zahirul Iqbal",
+                                        "doctorEmail": "zahirul.iqbal@example.com",
+                                        "doctorPhone": "01312347890",
+                                        "doctorFee": 3200,
+                                        "doctorGender": "Male",
+                                        "doctorCity": "Sylhet",
+                                        "specializationField": "Oncologist",
+                                        "doctorPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+                                        "doctorSpecialization": [
+                                            "Cancer Specialist"
+                                        ],
+                                        "consultationDays": [
+                                            "Friday",
+                                            "Sunday"
+                                        ],
+                                        "consultingTime": {
+                                            "startTime": "09:00",
+                                            "endTime": "12:00"
+                                        },
+                                        "hospitalName": "Apollo Medical College Hospital",
+                                        "id": 1
+                                    },
+                                    {
+                                        "doctorName": "Dr. Zahirul Iqbal",
+                                        "doctorEmail": "zahirul.iqbal@example.com",
+                                        "doctorPhone": "01312347890",
+                                        "doctorFee": 3200,
+                                        "doctorGender": "Male",
+                                        "doctorCity": "Sylhet",
+                                        "specializationField": "Oncologist",
+                                        "doctorPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+                                        "doctorSpecialization": [
+                                            "Cancer Specialist"
+                                        ],
+                                        "consultationDays": [
+                                            "Friday",
+                                            "Sunday"
+                                        ],
+                                        "consultingTime": {
+                                            "startTime": "09:00",
+                                            "endTime": "12:00"
+                                        },
+                                        "hospitalName": "Apollo Medical College Hospital",
+                                        "id": 1
+                                    }
+                                }

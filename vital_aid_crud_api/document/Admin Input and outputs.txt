@@ -1,0 +1,100 @@
+                                                 //    1. ADMIN REGISTER INPUT   //
+
+                                {
+                                    "personName": "Dummy",
+                                    "personEmail": "u210400@student.cuet.ac.bd",
+                                    "loginPassword": "Dummy00!",
+                                    "confirmPassword" : "Dummy00!",
+                                    "personPhone": "01234567899"
+                                }   
+
+
+
+
+                                                //     2. ADMIN LOGIN INPUT  //
+
+                                {
+                                    "personEmail": "u2104031@student.cuet.ac.bd",
+                                    "loginPassword": "Fahim31!"
+                                }
+
+
+
+
+                                               //     3. ADMIN PROFILE UPDATE INPUT  //
+
+                                {
+                                    "personName": "Fahim Shahriar",
+                                    "personEmail": "fahim.shahriar.1014@gmail.com",
+                                    "personPhone": "01234567892"
+                                }
+
+
+
+                                                 //   4. CHANGE ADMIN PASSWORD INPUT //
+
+                                {
+                                    "oldPassword": "Onim29!",
+                                    "newPassword" : "Onim29!!!",
+                                    "confirmPassword" : "Onim29!!!"
+                                }
+
+
+
+                                                 //   5. ADMIN SEND OTP REQUEST INPUT    //
+                                {
+                                    "email": "u2104031@student.cuet.ac.bd"
+                                }
+
+                                                 //   6. OTP VERIFYING INPUT    //
+                                {
+                                    "otp" : "213360"
+                                }
+
+                                                //    7. RESET PASSWORD INPUT   //
+
+                                {
+                                    "newPassword" : "Fahim31!",
+                                    "confirmPassword" : "Fahim31!"
+                                }
+
+
+
+
+                                                // 8. ADMIN PROFILE OUTPUT
+
+                                {
+                                    "Id": 01
+                                    "personName": "Shahriar Fahim",
+                                    "personEmail": "u2104031@student.cuet.ac.bd",
+                                    "personPhone": "01234567891"
+                                }
+
+
+                                               // 9. VIEW ADMIN DETAILS BY PASSING ADMIN ID AS PATH VARIABLE
+
+                                {
+                                    "Id": 01
+                                    "personName": "Shahriar Fahim",
+                                    "personEmail": "u2104031@student.cuet.ac.bd",
+                                    "personPhone": "01234567891"
+                                }
+
+
+
+                                                // 10. LIST OF ALL ADMINS
+
+                                {
+                                    {
+                                        "Id": 01
+                                        "personName": "Shahriar Fahim",
+                                        "personEmail": "u2104031@student.cuet.ac.bd",
+                                        "personPhone": "01234567891"
+                                    },
+                                    {
+                                        "Id": 01
+                                        "personName": "Shahriar Fahim",
+                                        "personEmail": "u2104031@student.cuet.ac.bd",
+                                        "personPhone": "01234567891"
+                                    }
+                                }

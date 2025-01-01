@@ -1,0 +1,124 @@
+                                                 //    1. USER REGISTER INPUT   //
+
+                                {
+                                    "personName": "Dummy",
+                                    "personEmail": "u210400@student.cuet.ac.bd",
+                                    "loginPassword": "Dummy00!",
+                                    "confirmPassword" : "Dummy00!",
+                                    "personPhone": "01234567899"
+                                }   
+
+
+
+
+                                                //     2. USER LOGIN INPUT  //
+
+                                {
+                                    "personEmail": "u2104031@student.cuet.ac.bd",
+                                    "loginPassword": "Fahim31!"
+                                }
+
+
+
+
+                                               //     3. USER PROFILE UPDATE INPUT  //
+
+                                {
+                                    "personName": "Shahriar Fahim",
+                                    "personEmail": "u2104031@student.cuet.ac.bd",
+                                    "personPhone": "01234567891",
+                                    "userGender": "Male",
+                                    "userAddress": "Earth",
+                                    "userBloodGroup": "B+",
+                                    "userDob": "2000-01-01"
+                                }
+
+
+
+                                                 //   4. CHANGE USER PASSWORD INPUT //
+
+                                {
+                                    "oldPassword": "Onim29!",
+                                    "newPassword" : "Onim29!!!",
+                                    "confirmPassword" : "Onim29!!!"
+                                }
+
+
+
+                                                 //   5. USER SEND OTP REQUEST INPUT    //
+                                {
+                                    "email": "u2104031@student.cuet.ac.bd"
+                                }
+
+                                                 //   6. OTP VERIFYING INPUT    //
+                                {
+                                    "otp" : "213360"
+                                }
+
+                                                //    7. RESET PASSWORD INPUT   //
+
+                                {
+                                    "newPassword" : "Fahim31!",
+                                    "confirmPassword" : "Fahim31!"
+                                }
+
+
+
+
+                                                // 8. USER PROFILE OUTPUT
+
+                                {
+                                    "Id": 01
+                                    "personName": "Shahriar Fahim",
+                                    "personEmail": "u2104031@student.cuet.ac.bd",
+                                    "personPhone": "01234567891",
+                                    "userGender": "Male",
+                                    "userAddress": "Earth",
+                                    "userBloodGroup": "B+",
+                                    "userDob": "2000-01-01"
+                                }
+
+
+                                               // 9. VIEW USER DETAILS BY PASSING USER ID AS PATH VARIABLE
+
+                                {
+                                    "Id": 01
+                                    "personName": "Shahriar Fahim",
+                                    "personEmail": "u2104031@student.cuet.ac.bd",
+                                    "personPhone": "01234567891",
+                                    "userGender": "Male",
+                                    "userAddress": "Earth",
+                                    "userBloodGroup": "B+",
+                                    "userDob": "2000-01-01"
+                                }
+
+
+
+                                                // 10. LIST OF ALL USERS
+
+                                {
+                                    {
+                                        "Id": 01
+                                        "personName": "Shahriar Fahim",
+                                        "personEmail": "u2104031@student.cuet.ac.bd",
+                                        "personPhone": "01234567891",
+                                        "userGender": "Male",
+                                        "userAddress": "Earth",
+                                        "userBloodGroup": "B+",
+                                        "userDob": "2000-01-01"
+                                    },
+                                    {
+                                        "Id": 01
+                                        "personName": "Shahriar Fahim",
+                                        "personEmail": "u2104031@student.cuet.ac.bd",
+                                        "personPhone": "01234567891",
+                                        "userGender": "Male",
+                                        "userAddress": "Earth",
+                                        "userBloodGroup": "B+",
+                                        "userDob": "2000-01-01"
+                                    }
+                                }
+
+                                                //  11. USER PHOTO UPLOAD
+                                                
+                                          -> PASS THE ACUTAL FILE(PHOTO) AS INPUT

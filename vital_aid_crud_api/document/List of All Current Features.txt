@@ -1,0 +1,62 @@
+1. User Register
+2. User Login
+3. User Change Password
+4. User Upload/update profile photo
+5. User update profile details
+6. User view profile
+7. User view profile by passing id (only admin)
+8. All User List (Only Admin)
+9. User Delete
+
+10. Send OTP
+11. Verify OTP
+12. Reset Password
+
+13. Register Admin
+14. Admin Login
+15. All Admin List
+16. Admin Profile
+17. Admin Profile update
+18. Admin Change Password
+19. Admin Delete
+
+20. Register Hospital
+21. Delete Hospital By Id
+22. Registering Hospital With Image
+23. Update Hospital
+24. All Hospital List
+25. Single Hospital Profile
+
+26. Register Doctor
+27. Register Doctor With Image
+28. Single Doctor Profile
+29. All Doctor List
+30. Delete Doctor
+
+31. Make An Appointment
+32. Viewing Details of an appointment
+33. List of all appointments of an user
+34. List of all Appointment made with a doctor
+35. List of All Appointments
+
+36. Register Product
+37. List of all Products
+38. Update product details
+39. Delete Product
+
+40. Make an Order
+41. Details of an order
+42. List of all orders
+43. List of all orders made by an user
+44. Delete order
+
+45. Register Ambulance
+46. List of all ambulance
+47. View ambulance details
+48. Update Ambulance Details(Only driver contact number)
+49. Ambulance Delete
+
+50. Call Ambulance
+51. Details of a call
+52. List of All Calls
+
