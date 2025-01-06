@@ -2,15 +2,20 @@ import React, { useState, useEffect } from 'react';
 import '../style/Store.css';
 import SearchBox from './SearchBox';
 import ProductCard from './ProductCard';
-import productList from '../data/products.json';
+import Popup from './PopUp';
+import AccessDeniedPopUp from './AccessDeniedPopUp';
+import { useGlobalContext } from '../context/GlobalContext';
 
 export default function Store() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobile, setIsMobile] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('');
-
+  const [orderConfirmed, setOrderConfirmed] = useState(false);
+  const [unauthorizedOrder, setUnauthorizedOrder] = useState(false);
+  const { productData } = useGlobalContext();
+  const productList = productData;
   const categories = ['Medicine', 'Medical Equipment'];
-  
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -25,10 +30,28 @@ export default function Store() {
   };
 
   const filteredProducts = productList.filter((product) => {
-    const matchesSearch = product.product_name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory ? product.product_category === selectedCategory : true;
+    const matchesSearch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory ? product.productCategory === selectedCategory : true;
     return matchesSearch && matchesCategory;
   });
+
+  const onOrderConfirmed = () => {
+    setOrderConfirmed(true);
+  };
+
+  const onUnauthorizedOrder = () => {
+    setUnauthorizedOrder(true);
+  };
+
+  const onClose = () => {
+    if (orderConfirmed) {
+      window.location.reload();
+    }
+    if (unauthorizedOrder) {
+      setUnauthorizedOrder(false);
+    }
+  };
+
 
   return (
     <div className="rout-container">
@@ -70,13 +93,17 @@ export default function Store() {
         <div className="product-list">
           {filteredProducts.map((product) => (
             <ProductCard
-              key={product.product_id}
+              key={product.id}
               product={product}
+              onOrderConfirmed={onOrderConfirmed}
+              onUnauthorizedOrder={onUnauthorizedOrder}
             />
           ))}
         </div>
 
       </div>
+      {orderConfirmed && <Popup message="Order Confirmed!" onClose={onClose} />}
+      {unauthorizedOrder && <AccessDeniedPopUp onClose={onClose} />}
     </div>
   );
 }

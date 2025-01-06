@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import './ChangePass.scss'
+import { useNavigate } from 'react-router-dom'
+import { useGlobalContext } from '../../context/GlobalContext';
 
-const ChangePass = ({ password }) => {
+const ChangePass = () => {
 
     const [oldPass, setOldPass] = useState("");
     const [newPass, setNewPass] = useState("");
     const [confirmPass, setConfirmPass] = useState("");
-    const [message, setMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const [status, setStatus] = useState("");
+    const { setIsLoggedIn } = useGlobalContext();
+    const navigate = useNavigate();
 
     const handleOldPassChange = (e) => {
         setOldPass(e.target.value);
@@ -21,18 +25,44 @@ const ChangePass = ({ password }) => {
         setConfirmPass(e.target.value);
     };
 
-    const handleSubmit = () => {
-        if (oldPass !== password) {
-            setMessage("The old password you entered is incorrect");
-            setStatus("not ok");
-        }
-        else if (newPass !== confirmPass) {
-            setMessage("The confirmation password does not match your new password");
-            setStatus("not ok");
-        }
-        else {
-            setMessage("Your password has been successfully changed");
-            setStatus("ok");
+    const handleSubmit = async () => {
+        setErrorMessage('');
+        const token = localStorage.getItem('adminToken');
+        const url = 'http://localhost:8080/vital_aid/admin/changePassword';
+
+        try {
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    oldPassword: oldPass,
+                    newPassword: newPass,
+                    confirmPassword: confirmPass
+                }),
+            });
+
+            if (!response.ok) {
+                // throw new Error(`HTTP error! status: ${response.status}`);
+                const error = await response.text();
+                setErrorMessage(error || 'Failed to change password');
+            }
+            else {
+                // const data = await response.json();
+                // console.log('Success: ', data);
+                // window.location.reload();
+                setIsLoggedIn(false);
+                localStorage.removeItem('adminToken');
+                navigate('/login', {
+                    state: { message: 'Your password has been successfully changed. Please log in again.' },
+                });
+            }
+
+        } catch (err) {
+            setErrorMessage(err.message);
+            console.error('Error fetching profile:', err.message);
         }
     };
 
@@ -59,7 +89,7 @@ const ChangePass = ({ password }) => {
                 className="message"
                 style={{ color: status === "ok" ? "green" : "red" }}
             >
-                <p>{message}</p>
+                <p>{errorMessage}</p>
             </div>
             {status !== "ok" && (
                 <div className="button" onClick={handleSubmit}>

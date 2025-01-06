@@ -28,6 +28,7 @@
     font-size: 18px;
     margin: 20px 0;
     color: red;
+    text-align: center;
 }
 
 .btn {
@@ -45,7 +46,7 @@
     }
 }
 
-.success-message{
+.success-message, .loading-message{
     font-size: 18px;
     margin: 20px 0;
     color: darkgreen;

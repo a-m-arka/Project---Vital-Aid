@@ -1,66 +1,66 @@
-                                                //  1. ADDING A NEW PRODUCT INPUT WITOUT IMAGE //
+                            //  1. ADDING A NEW PRODUCT INPUT WITOUT IMAGE //
 
-                                (CONTENT TYPE -> application/json)
-                                KEY -> "productDTO",
+            (CONTENT TYPE -> application/json)
+            KEY -> "productDTO",
 
-                      VALUE->   {
-                                    "productName": "Napa",
-                                    "productCategory":"Medicine",
-                                    "productPrice": 100
-                                }
-
-
-
-
-                                                //  2.  ADDING A NEW PRODUCT INPUT WITH IMAGE //
-
-                                (CONTENT TYPE -> application/json)
-                                KEY -> "productDTO",
-
-                      VALUE->   {
-                                    "productName": "Napa",
-                                    "productCategory":"Medicine",
-                                    "productPrice": 100
-                                }
-                                
-
-                                (CONTENT TYPE -> multipart/form-data)                
-                                KEY -> "file",
-
-                                VALUE->   ACTUAL PHOTO
+    VALUE->   {
+                "productName": "Napa",
+                "productCategory":"Medicine",
+                "productPrice": 100
+            }
 
 
 
-                                                // 3. UPDATE PRODUCT DETAILS INPUT USING PRODUCT ID AS PATH VARIABLE //
 
-                                
-                                (CONTENT TYPE -> application/json)
-                                KEY -> "productDTO",
+                            //  2.  ADDING A NEW PRODUCT INPUT WITH IMAGE //
 
-                      VALUE->   {
-                                    "productName": "Napa",
-                                    "productCategory":"Medicine",
-                                    "productPrice": 100
-                                }
-                                
+            (CONTENT TYPE -> application/json)
+            KEY -> "productDTO",
 
-                                (CONTENT TYPE -> multipart/form-data)                
-                                KEY -> "file",
+    VALUE->   {
+                "productName": "Napa",
+                "productCategory":"Medicine",
+                "productPrice": 100
+            }
+            
 
-                                VALUE->   ACTUAL PHOTO
+            (CONTENT TYPE -> multipart/form-data)                
+            KEY -> "file",
+
+            VALUE->   ACTUAL PHOTO
 
 
 
-                                                //  4. LIST OF ALL DOCTORS  //
+                            // 3. UPDATE PRODUCT DETAILS INPUT USING PRODUCT ID AS PATH VARIABLE //
 
-                                {
-                                    
-                                    {
-                                        "id": 1,
-                                        "productName": "Napa",
-                                        "productCategory": "Medicine",
-                                        "productPrice": 100,
-                                        "productPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735576951/vital_aid/products/cwpcewrh9vk6k9o3jblc.png"
-                                    }
+            
+            (CONTENT TYPE -> application/json)
+            KEY -> "productDTO",
 
-                                }
+    VALUE->   {
+                "productName": "Napa",
+                "productCategory":"Medicine",
+                "productPrice": 100
+            }
+            
+
+            (CONTENT TYPE -> multipart/form-data)                
+            KEY -> "file",
+
+            VALUE->   ACTUAL PHOTO
+
+
+
+                            //  4. LIST OF ALL DOCTORS  //
+
+            {
+                
+                {
+                    "id": 1,
+                    "productName": "Napa",
+                    "productCategory": "Medicine",
+                    "productPrice": 100,
+                    "productPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735576951/vital_aid/products/cwpcewrh9vk6k9o3jblc.png"
+                }
+
+            }

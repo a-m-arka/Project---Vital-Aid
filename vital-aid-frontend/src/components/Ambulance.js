@@ -1,12 +1,11 @@
 import React from 'react';
 import '../style/Ambulance.scss';
 import { useNavigate } from 'react-router-dom';
-import ambulanceData from '../data/ambulanceData';
-// import AmbulanceForm from './AmbulanceForm';
+import { useGlobalContext } from '../context/GlobalContext';
 
 export default function Ambulance() {
   const navigate = useNavigate();
-  // const [isCalled, setIsCalled] = useState(false);
+  const { ambulanceData } = useGlobalContext();
 
   const handleCall = (ambulanceData) => {
     navigate('/ambulanceform', { state: { ambulanceData: ambulanceData } });

@@ -185,7 +185,7 @@ public class AdminServiceImpl implements AdminService {
         Admin admin = adminRepository.findByPersonEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Admin", "email", email));
 
-        String otp = otpService.generateOtp(email, SecurityConstants.OTP_EXPIRY_TIME_MINUTES);
+        String otp = otpService.generateOtp(email, (SecurityConstants.OTP_EXPIRY_TIME_MINUTES) + 1);
 
         String subject = "Vital Aid - Verification Code";
         String body = String.format(

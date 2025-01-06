@@ -5,8 +5,8 @@ export const productColumns = [
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
-                    <img src={params.row.image} alt="" className="cellImg" />
-                    {params.row.product_name}
+                    <img src={params.row.productPhotoUrl} alt="" className="cellImg" />
+                    {params.row.productName}
                 </div>
             )
         }

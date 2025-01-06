@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import '../style/ProductCard.css';
-import Popup from './PopUp';
+import { useGlobalContext } from "../context/GlobalContext";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onOrderConfirmed, onUnauthorizedOrder }) => {
   const [isOdered, setIsOrdered] = useState(false);
-  const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [quantity, setQuantity] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(product.product_price);
+  const [totalPrice, setTotalPrice] = useState(product.productPrice);
   const [userLocation, setUserLocation] = useState(null);
   const [error, setError] = useState(null);
+  const { isLoggedIn } = useGlobalContext();
 
   const handleOrder = () => {
-    setIsOrdered(true);
+    if(isLoggedIn){
+      setIsOrdered(true);
+    }
+    else{
+      onUnauthorizedOrder();
+    }
   };
 
   const handleCancelOrder = () => {
     setIsOrdered(false);
     setQuantity(1);
-    setTotalPrice(product.product_price);
+    setTotalPrice(product.productPrice);
     setUserLocation(null);
     setError(null);
   };
@@ -28,53 +33,49 @@ const ProductCard = ({ product }) => {
       return;
     }
     else {
-      setOrderConfirmed(true);
+      onOrderConfirmed();
     }
   };
 
   const handlePlus = () => {
-    setQuantity(Math.min(product.product_quantity, quantity + 1));
-    setTotalPrice(product.product_price * (Math.min(product.product_quantity, quantity + 1)));
+    setQuantity(quantity + 1);
+    setTotalPrice(product.productPrice * (quantity + 1));
   };
 
   const handleMinus = () => {
     setQuantity(Math.max(1, quantity - 1));
-    setTotalPrice(product.product_price * (Math.max(1, quantity - 1)));
+    setTotalPrice(product.productPrice * (Math.max(1, quantity - 1)));
   };
 
   const handleLocationChange = (e) => {
     setUserLocation(e.target.value);
   };
 
-  const onClose = () => {
-    window.location.reload();
-  };
-
   return (
     <div className="medical-store-card-main-container">
       <div className="product-photo-container">
         <div className="product-photo-box">
-          <img src={product.product_photo} alt="" />
+          <img src={product.productPhotoUrl} alt="" />
         </div>
       </div>
       <div className="product-info-and-button-container">
 
         <div className="product-name-section">
-          <span className="product-name">{product.product_name}</span>
+          <span className="product-name">{product.productName}</span>
         </div>
         <div className="product-category-section">
           <span className="product-heading">Category</span>
-          <span className="product-Category">{product.product_category}</span>
+          <span className="product-Category">{product.productCategory}</span>
         </div>
 
-        <div className="product-stock-number-section">
+        {/* <div className="product-stock-number-section">
           <span className="product-heading">Stock</span>
           <span className="product-stock-number">{product.product_quantity}</span>
-        </div>
+        </div> */}
 
         <div className="product-price-section">
           <span className="product-heading">Price:</span>
-          <span className="product-price">{`BDT ${product.product_price}`}</span>
+          <span className="product-price">{`BDT ${product.productPrice}`}</span>
         </div>
         {isOdered && (
           <div className="oreder-section">
@@ -117,7 +118,6 @@ const ProductCard = ({ product }) => {
           )}
         </div>
       </div>
-      {orderConfirmed && <Popup message="Order Confirmed!" onClose={onClose}/>}
     </div>
   );
 };

@@ -61,14 +61,23 @@ public class AdminAuthenticationFilter extends UsernamePasswordAuthenticationFil
 
         response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + adminToken);
         SecurityContextHolder.getContext().setAuthentication(authResult);
+
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        // Write the JSON object to the response
+        response.getWriter().write(String.format(
+                "{ \"token\": \"%s\", \"role\": \"%s\", \"email\": \"%s\" }",
+                adminToken, role, authResult.getName()));
+
     }
 
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response,
             AuthenticationException failed) throws IOException, ServletException {
-                SecurityContextHolder.clearContext(); // Clear the SecurityContext
-                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                response.getWriter().write("Authentication failed: " + failed.getMessage());
-                response.getWriter().flush();
+        SecurityContextHolder.clearContext(); // Clear the SecurityContext
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.getWriter().write("Authentication failed: " + failed.getMessage());
+        response.getWriter().flush();
     }
 }

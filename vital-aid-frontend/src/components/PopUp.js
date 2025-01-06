@@ -7,7 +7,9 @@ const PopUp = ({ message, onClose }) => {
             <div className="popup-content" onClick={(e) => e.stopPropagation()}>
                 <i className="fa-regular fa-circle-check"></i>
                 <p>{message}</p>
-                <button className="close-button" onClick={onClose}>Close</button>
+                <div className="pop-up-buttons">
+                    <button className="close-button" onClick={onClose}>Close</button>
+                </div>
             </div>
         </div>
     );

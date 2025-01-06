@@ -3,7 +3,7 @@ import './Signup.scss'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Signup = () => {
-    const [error, setError] = useState("");
+    const [signupErrorMessage, setSignupErrorMessage] = useState("");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -32,14 +32,41 @@ const Signup = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setError("");
+        setSignupErrorMessage("");
 
-        if (password === confirmPassword) {
-            navigate('/home');
-        } else {
-            setError("The passwords entered do not match. Please try again.");
+        if (password !== confirmPassword) {
+            setSignupErrorMessage('Passwords do not match');
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:8080/vital_aid/admin/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    personName: name,
+                    personEmail: email,
+                    personPhone: phone,
+                    loginPassword: password,
+                    confirmPassword: confirmPassword,
+                }),
+            });
+
+            if (response.ok) {
+                const data = await response.text(); // Adjust if the API response differs
+                console.log('Sign-Up Successful:', data);
+                setSignupErrorMessage('');
+                navigate('/');
+            } else {
+                const error = await response.text();
+                setSignupErrorMessage(error || 'Failed to sign up');
+            }
+        } catch (error) {
+            setSignupErrorMessage('An error occurred. Please try again.');
         }
     };
 
@@ -47,7 +74,6 @@ const Signup = () => {
         <div className="signup-container">
             <form onSubmit={handleSubmit} className="signup-form">
                 <h2>Admin Signup</h2>
-                {error && <p className="error-message">{error}</p>}
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
                     <input
@@ -98,6 +124,7 @@ const Signup = () => {
                         required
                     />
                 </div>
+                {signupErrorMessage && <p className="error-message">{signupErrorMessage}</p>}
                 <button type="submit" className="signup-button">Sign Up</button>
                 <Link to='/login' style={{ textDecoration: "none" }}>
                     <div className="go-to-login">

@@ -166,10 +166,32 @@
     justify-content: baseline;
     align-items: center;
     text-align: center;
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    /* font-size: 20px; */
 }
 
-.doctor-data #doctor-name {
+#doctor-name{
+    font-size: 1.8vw;
+    font-weight: bold;
+}
+
+#doctor-hospital{
+    font-size: 1.4vw;
+    font-weight: 600;
+}
+
+#doctor-location{
+    font-size: 1.3vw;
+    font-weight: 600;
+}
+
+#doctor-speciality{
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: black;
+}
+
+/* .doctor-data #doctor-name {
     font-size: 1.5vw;
     font-weight: 600;
     margin-top: 10px;
@@ -178,13 +200,14 @@
 .doctor-data #doctor-speciality {
     font-size: 1.3vw;
     font-weight: 400;
+    margin-top: 10px;
 }
 
 .doctor-data #doctor-hospital,
 .doctor-data #doctor-location {
     font-size: 1.2vw;
     font-weight: 400;
-}
+} */
 
 .doctor-cards .doctor-btn {
     width: 100%;

@@ -2,21 +2,22 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../style/Navbar.css';
 import logo from "../Images/logo.png";
+import { useGlobalContext } from '../context/GlobalContext';
 
 export default function Navbar() {
     const location = useLocation();
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    // const [isSearchOpen, setIsSearchOpen] = useState(false);
-    // const [isSearched, setIsSearched] = useState(false);
+    const { isLoggedIn, setIsLoggedIn } = useGlobalContext();
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
 
-    // const toggleSearchBox = () => {
-    //     setIsSearchOpen(!isSearchOpen);
-    //     setIsSearched(true);
-    // };
+    const handleLogOut = () => {
+        setIsLoggedIn(false);
+        localStorage.removeItem('token');
+    };
+
 
     return (
         <>
@@ -56,11 +57,20 @@ export default function Navbar() {
                                 <Link to="/profile">
                                     <li className={location.pathname === "/profile" ? "nav-active" : ""}>Profile</li>
                                 </Link>
-                                <Link to="/login" className="login-btn">
-                                    <button>
-                                        Log In
-                                    </button>
-                                </Link>
+                                {!isLoggedIn && (
+                                    <Link to="/login" className="login-btn">
+                                        <button>
+                                            Log In
+                                        </button>
+                                    </Link>
+                                )}
+                                {isLoggedIn && (
+                                    <Link to="/" className="login-btn">
+                                        <button onClick={handleLogOut}>
+                                            Log Out
+                                        </button>
+                                    </Link>
+                                )}
                             </ul>
                         </div>
 

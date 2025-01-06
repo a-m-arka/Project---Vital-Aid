@@ -15,11 +15,11 @@ export default function ForgotPass() {
   const steps = [
     {
       name: "Email",
-      Component: <EnterEmail email="arka@user.com" onSubmit={handleNext} />,
+      Component: <EnterEmail onSubmit={handleNext} />,
     },
     {
       name: "Otp",
-      Component: <EnterOtp otp="1234" onSubmit={handleNext} />,
+      Component: <EnterOtp onSubmit={handleNext} />,
     },
     {
       name: "New Password",
@@ -33,6 +33,7 @@ export default function ForgotPass() {
 
   const handleFinish = () => {
     navigate('/login');
+    localStorage.removeItem('userForgotPassEmail');
   };
 
   const ActiveComponent = steps[currentStep - 1]?.Component;

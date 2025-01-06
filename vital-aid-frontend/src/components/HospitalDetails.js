@@ -17,23 +17,23 @@ export default function HospitalDetails() {
                     <div className="hospital-name-contact-address-section">
                         <div className="hospital-name-section">
                             <span className="name-of-the-hospital">
-                                {hospital.name}
+                                {hospital.hospitalName}
                             </span>
                         </div>
                         <div className="hospital-address-section">
                             <span className="address-of-the-hospital">
-                                {hospital.address}
+                                {hospital.hospitalLocation}
                             </span>
                         </div>
                         <div className="hopital-contact-phone-section">
 
                             <span className="phone-number">
-                                {hospital.phone}
+                                {hospital.hospitalContact}
                             </span>
                         </div>
                         <div className="hospital-contact-email-section">
                             <span className="hospital-email">
-                                {hospital.email}
+                                {hospital.hospitalEmail}
                             </span>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ export default function HospitalDetails() {
 
                         <div className="doctor-number-section">
                             <div className="total-doctors">
-                                <span className="doctor-number numbers">{hospital.details.totalDoctors}</span>
+                                <span className="doctor-number numbers">{hospital.hospitalTotalDoctor}</span>
                             </div>
                             <span className="heading">
                                 Total Doctors
@@ -55,7 +55,7 @@ export default function HospitalDetails() {
 
                         <div className="total-beds-section">
                             <div className="total-beds">
-                                <span className="bed-number numbers">{hospital.details.totalBeds}</span>
+                                <span className="bed-number numbers">{hospital.totalGeneralBeds}</span>
                             </div>
                             <span className="heading">
                                 Total Beds
@@ -69,45 +69,37 @@ export default function HospitalDetails() {
 
                         <div className="icu-bed-number-section">
                             <div className="total-icu-beds">
-                                <span className="icu-bed-number numbers">{hospital.details.icuBeds}</span>
+                                <span className="icu-bed-number numbers">{hospital.totalIcuBeds}</span>
                             </div>
                             <span className="heading">
                                 ICU Beds
                             </span>
                         </div>
 
-                        <div className="mri-machine-number-section">
-                            <div className="total-mri-machines">
-                                <span className="mri-machine-number numbers">{hospital.details.mriMachines}</span>
-                            </div>
-                            <span className="heading">
-                                MRI
-                            </span>
-                        </div>
-
-                        <div className="xray-machine-number-section">
-                            <div className="total-xray-machines">
-                                <span className="xray-machine-number numbers">{hospital.details.xRayMachines}</span>
-                            </div>
-                            <span className="heading">
-                                X-Ray
-                            </span>
-                        </div>
-
                         <div className="ventilator-number-section">
                             <div className="total-ventilators">
-                                <span className="ventilator-number numbers">{hospital.details.ventilators}</span>
+                                <span className="ventilator-number numbers">{hospital.totalVentilators}</span>
                             </div>
                             <span className="heading">
                                 Ventilators
                             </span>
                         </div>
                     </div>
+
+                    <div className="other-facilities">
+                        <h3 className="title">Other Facilities</h3>
+                        <ul>
+                            {hospital.hospitalFacilities.map((facility, index) => (
+                                <li key={index}>{facility}</li>
+                            ))}
+                        </ul>
+                    </div>
+
                 </div>
 
                 <div className="hospital-photo-container">
                     <div className="image-box">
-                        <img src={hospital.image}/>
+                        <img src={hospital.hospitalPhotoUrl} />
                     </div>
                 </div>
             </div>
