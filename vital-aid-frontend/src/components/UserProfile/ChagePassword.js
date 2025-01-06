@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useGlobalContext } from '../../context/GlobalContext'
 import { useNavigate } from 'react-router-dom'
 import '../../style/UserProfile/ChangePassword.scss'
