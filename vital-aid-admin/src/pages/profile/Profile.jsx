@@ -4,10 +4,12 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import View from '../../components/adminAcoount/View'
 import Update from '../../components/adminAcoount/Update'
 import ChangePass from '../../components/adminAcoount/ChangePass'
+import { useGlobalContext } from '../../context/GlobalContext'
 
 const Profile = () => {
 
     const [status, setStatus] = useState("view");
+    const { profile } = useGlobalContext();
 
     const handleViewClick = () => {
         setStatus("view");
@@ -21,13 +23,7 @@ const Profile = () => {
         setStatus("changePass");
     };
 
-    const adminData = {
-        name: "A. M. Arka",
-        id: "2104028",
-        email: "arka@admin.com",
-        phone: "01234567890",
-        password: "1234"
-    };
+    const adminData = profile;
 
     return (
         <div className='profile'>
@@ -48,7 +44,7 @@ const Profile = () => {
                             <ChangePass password={adminData.password} />
                         )}
                     </div>
-                    <div div className="right" >
+                    <div className="right" >
                         {status !== 'view' && (
                             <div className="view-btn" onClick={handleViewClick}>
                                 View Profile

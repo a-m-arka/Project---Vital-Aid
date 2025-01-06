@@ -24,11 +24,15 @@ const Datatable = ({ type, rows, columns, adminControl }) => {
             renderCell: (params) => {
                 return (
                     <div className="cellWithAction">
-                        <div className="viewButton" onClick={() => handleViewClick(params.row)}>View</div>
-                        {adminControl && (
-                            <div className="updateButton" onClick={() => handleUpdateClick(params.row)}>Update</div>
+                        {type !== 'ambulance' && (
+                            <div className="viewButton" onClick={() => handleViewClick(params.row)}>View</div>
                         )}
-                        <div className="deleteButton">Delete</div>
+                        {adminControl && (
+                            <>
+                                <div className="updateButton" onClick={() => handleUpdateClick(params.row)}>Update</div>
+                                <div className="deleteButton">Delete</div>
+                            </>
+                        )}
                     </div>
                 )
             }
@@ -42,7 +46,7 @@ const Datatable = ({ type, rows, columns, adminControl }) => {
                     rows={rows}
                     columns={columns.concat(actionColumn)}
                     initialState={{ pagination: { paginationModel } }}
-                    pageSizeOptions={[ 10, 20 ]}
+                    pageSizeOptions={[10, 20]}
                     checkboxSelection
                     sx={{ border: 0 }}
                 />

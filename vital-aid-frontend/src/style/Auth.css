@@ -4,14 +4,16 @@
     position: relative;
     width: 60vw;
     background-color: #fff;
-    min-height: 75vh;
+    min-height: 570px;
+    /* height: max-content; */
     overflow: hidden;
     /* background: transparent; */
     /* backdrop-filter: blur(30px); */
     border-radius: 50px;
     z-index: 2;
     box-shadow: 0px 0px 15px 1px black;
-    margin-top: 6vh;
+    margin-top: 25px;
+    /* padding-top: 15px; */
     /* top: -15vh; */
 }
 
@@ -21,6 +23,15 @@
     height: 100%;
     top: 0;
     left: 0;
+}
+
+.passed-message {
+    color: green;
+    font-size: 20px;
+    /* font-weight: 600; */
+    margin-top: 0px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .signin-signup {
@@ -56,12 +67,12 @@ form.sign-in-form {
     z-index: 2;
 }
 
-.sign-in-form .forget-pass{
+.sign-in-form .forget-pass {
     font-size: 18px;
     color: var(--primary-color);
 }
 
-.sign-in-form .forget-pass:hover{
+.sign-in-form .forget-pass:hover {
     color: var(--secondary-color);
     text-decoration: underline;
 }

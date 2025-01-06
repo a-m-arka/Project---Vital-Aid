@@ -12,7 +12,7 @@ const View = ({ data }) => {
                     :
                 </div>
                 <div className="value">
-                    {data.name}
+                    {data.personName}
                 </div>
             </div>
             <div className="data">
@@ -34,7 +34,7 @@ const View = ({ data }) => {
                     :
                 </div>
                 <div className="value">
-                    {data.email}
+                    {data.personEmail}
                 </div>
             </div>
             <div className="data">
@@ -45,7 +45,7 @@ const View = ({ data }) => {
                     :
                 </div>
                 <div className="value">
-                    {data.phone}
+                    {data.personPhone}
                 </div>
             </div>
         </div>

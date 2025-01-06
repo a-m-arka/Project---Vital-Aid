@@ -1,6 +1,7 @@
 export const ambulanceColumns = [
     // { field: 'id', headerName: 'ID', width: 70 },
     { field: 'id', headerName: 'Number Plate', width: 200 },
+    { field: 'ambulanceDriverContact', headerName: 'Driver Contact Number', width: 200 },
     // {
     //     field: 'status', headerName: 'Status', width: 200,
     //     renderCell: (params) => {

@@ -7,11 +7,13 @@ import '../style/Home.css';
 import Footer from './Footer';
 
 import servicesData from '../data/services.json';
-import doctorsData from '../data/doctors.json';
 import testimonialsData from '../data/testimonials.json';
+
+import { useGlobalContext } from '../context/GlobalContext';
 
 export default function Home() {
     const [isMobile, setIsMobile] = useState(false);
+    const { doctorData } = useGlobalContext();
 
     useEffect(() => {
         const handleResize = () => {
@@ -48,7 +50,7 @@ export default function Home() {
         nextArrow: !isMobile ? <NextArrow /> : null
     };
 
-    const doctorToShow = doctorsData.slice(0,5);
+    const doctorToShow = doctorData.slice(0, 5);
 
     return (
         <div className="rout-container">
@@ -87,16 +89,16 @@ export default function Home() {
                             {doctorToShow.map((doctor, index) => (
                                 <div className="doctor-item" key={index}>
                                     <div className="doctor-content">
-                                        <img src={doctor.img} alt="" className="doctor-photo" />
-                                        <h4 className="doctor-name">{doctor.name}</h4>
-                                        <p className="doctor-hospital">{doctor.hospital}</p>
-                                        <p className="doctor-speciality"><span className='doctor-highlight'>Speciality: </span>{doctor.speciality}</p>
+                                        <img src={doctor.doctorPhotoUrl} alt="" className="doctor-photo" />
+                                        <h4 className="doctor-name">{doctor.doctorName}</h4>
+                                        <p className="doctor-hospital">{doctor.hospitalName}</p>
+                                        <p className="doctor-speciality"><span className='doctor-highlight'>Field: </span>{doctor.specializationField}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
                         <Link to="/doctors" className="more-btn">
-                            <div>View All Doctors</div>  
+                            <div>View All Doctors</div>
                             <i className="fa-solid fa-arrow-right"></i>
                         </Link>
                     </div>

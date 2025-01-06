@@ -1,21 +1,21 @@
-                                                //  1. PLACE AN ORDER INPUT //
+            //  1. PLACE AN ORDER INPUT //
 
-                                {
-                                    "quantity": 5,
-                                    "totalPrice": 50,
-                                    "location": "Chittagong"
-                                }
-
-
+{
+"quantity": 5,
+"totalPrice": 50,
+"location": "Chittagong"
+}
 
 
-                                                //  2. DETAILS OF AN ORDER  //
 
-                                    {
-                                        "quantity": 5,
-                                        "totalPrice": 50,
-                                        "location": "Chittagong",
-                                        "orderMadeBy": "Fahim",
-                                        "orderMadeFor": "Napa",
-                                        "id": 1
-                                    }
+
+            //  2. DETAILS OF AN ORDER  //
+
+{
+    "quantity": 5,
+    "totalPrice": 50,
+    "location": "Chittagong",
+    "orderMadeBy": "Fahim",
+    "orderMadeFor": "Napa",
+    "id": 1
+}

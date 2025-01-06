@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../style/Doctors.css';
 import SearchBox from './SearchBox';
-import doctorList from '../data/doctors.json';
 import filters from '../data/doctorFilters.json';
+import { useGlobalContext } from '../context/GlobalContext';
 
 export default function Doctors() {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedValues, setSelectedValues] = useState(Array(4).fill('')); // Update for the number of filters
     const navigate = useNavigate();
+    const { doctorData } = useGlobalContext();
+    const doctorList = doctorData;
 
     const handleSearch = (term) => {
         setSearchTerm(term);
@@ -21,12 +23,12 @@ export default function Doctors() {
     };
 
     const filteredDoctors = doctorList.filter((doctor) => {
-        const matchesSearch = doctor.name.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesSearch = doctor.doctorName.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesFilters = filters.every((filter, index) => {
             if (selectedValues[index] === '') return true; // No filter selected
-            if (filter.name === 'Location') return doctor.location === selectedValues[index];
-            if (filter.name === 'Field') return doctor.medicalField === selectedValues[index];
-            if (filter.name === 'Hospital') return doctor.hospital === selectedValues[index];
+            if (filter.name === 'Location') return doctor.doctorCity === selectedValues[index];
+            if (filter.name === 'Field') return doctor.specializationField === selectedValues[index];
+            if (filter.name === 'Hospital') return doctor.hospitalName === selectedValues[index];
             if (filter.name === 'Availability') return doctor.consultationDays.includes(selectedValues[index]);
             return true;
         });
@@ -74,15 +76,15 @@ export default function Doctors() {
                     {filteredDoctors.map((doctor, index) => (
                         <div className="doctor-cards" key={index}>
                             <div className="img-section">
-                                <img src={doctor.img} alt="" />
+                                <img src={doctor.doctorPhotoUrl} alt="" />
                             </div>
                             <div className="doctor-detail">
                                 <div className="doctor-data">
                                     <p>
-                                        <span id="doctor-name">{doctor.name}</span><br />
-                                        <span id="doctor-speciality">{doctor.speciality}</span><br />
-                                        <span id="doctor-hospital">{doctor.hospital}</span><br />
-                                        <span id="doctor-location">{doctor.location}</span>
+                                        <span id="doctor-name">{doctor.doctorName}</span><br />
+                                        <span id="doctor-hospital">{doctor.hospitalName}</span><br />
+                                        <span id="doctor-location">{doctor.doctorCity}</span><br />
+                                        <span id="doctor-speciality">{doctor.doctorSpecialization.join(', ')}</span>
                                     </p>
                                 </div>
                                 <div className="doctor-btn">

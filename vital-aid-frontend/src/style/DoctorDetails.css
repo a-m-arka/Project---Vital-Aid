@@ -17,7 +17,7 @@
     position: absolute;
     width: 100vw;
     height: 874px;
-    background: rgba(0, 0, 0, 0.396);
+    /* background: rgba(0, 0, 0, 0.396); */
     z-index: 1;
 }
 
@@ -29,10 +29,12 @@
     align-items: center;
     width: 80vw;
     margin: 30px auto;
-    height: 650px;
-    backdrop-filter: blur(10px);
+    padding-bottom: 20px;
+    height: max-content;
+    background-color: var(--4th-color);
+    backdrop-filter: blur(80px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.697);
+    border: none;
     /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
     /* box-shadow: rgb(18, 22, 27) 0px 20px 30px -10px; */
     box-shadow: rgba(19, 17, 17, 0.56) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -84,7 +86,7 @@
     width: 49vw;
     height: 250px;
     text-align: center;
-    color: #9bf6ff;
+    color: var(--primary-color);
 }
 
 /* fixing height of all spans under doctor profile details div */
@@ -95,16 +97,19 @@
 .address-value {
     height: 45px;
     display: block;
+    margin-top: 5px;
 }
 
 /* doctor name */
 .doctor-profile-details .doctor-name-span {
     font-size: 1.8rem;
+    font-weight: bold;
 }
 
 /* doctor degree, doctor speciality, doctor working hospital section, doctor address section font size */
 .doctor-profile-details .doctor-degree-section .degree-span, .speciality-span, .hospital-name-span, .address-value {
     font-size: 1.5rem;
+    font-weight: 600;
 }
 
 
@@ -124,14 +129,14 @@
 
 /* heading customization */
 .consultation-days-section .consultation-day-heading {
-    color: #f5ffc6;
+    color: black;
     margin: 5px;
     font-size: 1.2rem;
 }
 
 /* day value custimization */
 .consultation-days-section .consultation-day-values {
-    color: #9bf6ff;
+    color: var(--primary-color);
     font-size: 1.6rem;
     text-align: center;
 }
@@ -160,7 +165,7 @@
 /* consultation time and fees section headings */
 .consultation-time-heading,
 .consultation-fees-heading {
-    color: #f5ffc6;
+    color: black;
     margin: 15px;
     height: 15px;
     font-size: 1.2rem;
@@ -171,7 +176,7 @@
 .consultation-fees-values {
     display: block;
     height: 50px;
-    color: #9bf6ff;
+    color: var(--primary-color);
     font-size: 1.6rem;
     text-align: center;
 }
@@ -202,7 +207,7 @@
 
 /* heading of contact number and email */
 .contact-headings {
-    color: #f5ffc6;
+    color: black;
     margin: 15px;
     height: 15px;
     font-size: 1.2rem;
@@ -212,7 +217,7 @@
 .contact-email,
 .contact-phone-number {
     text-align: center;
-    color: #9bf6ff;
+    color: var(--primary-color);
     font-size: 1.4rem;
     display: block;
     height: 50px;

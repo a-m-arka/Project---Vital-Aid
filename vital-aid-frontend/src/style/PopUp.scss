@@ -45,19 +45,27 @@
     }
 }
 
-.close-button {
-    margin-top: 15px;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 18px;
+.pop-up-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
 
-    &:hover {
-        background-color: white;
-        color: var(--primary-color);
+    .close-button, .ok-button {
+        margin-top: 15px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        border: 2px solid var(--primary-color);
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 18px;
+    
+        &:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
     }
 }

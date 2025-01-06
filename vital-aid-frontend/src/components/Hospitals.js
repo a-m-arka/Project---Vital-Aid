@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../style/Hospitals.css';
-import hospitalList from '../data/hospitals.json';
 import SearchBox from './SearchBox';
+import { useGlobalContext } from '../context/GlobalContext';
 
 export default function Hospitals() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobile, setIsMobile] = useState(false);
   const [selectedValues, setSelectedValues] = useState(Array(5).fill(''));
   const navigate = useNavigate();
+  const { hospitalData } = useGlobalContext();
+  const hospitalList = hospitalData;
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,7 +32,7 @@ export default function Hospitals() {
   };
 
   const filters = [
-    { name: 'Location', options: ['Dhaka', 'Chattogram', 'Rajshahi', 'Khulna', 'Barisal', 'Sylhet', 'Rangpur', 'Mymensingh'] },
+    { name: 'Location', options: ['Dhaka', 'Chittagong', 'Rajshahi', 'Khulna', 'Barisal', 'Sylhet', 'Rangpur', 'Mymensingh'] },
   ];
 
   const handleSearch = (term) => {
@@ -38,10 +40,10 @@ export default function Hospitals() {
   };
 
   const filteredHospitals = hospitalList.filter((hospital) => {
-    const matchesSearch = hospital.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = hospital.hospitalName.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesFilters = filters.every((filter, index) => {
       if (selectedValues[index] === '') return true; // No filter selected
-      if (filter.name === 'Location') return hospital.location === selectedValues[index];
+      if (filter.name === 'Location') return hospital.hospitalLocation === selectedValues[index];
       return true;
     });
     return matchesSearch && matchesFilters;
@@ -82,13 +84,13 @@ export default function Hospitals() {
           {filteredHospitals.map((hospital, index) => (
             <div className="hospital-cards" key={index}>
               <div className="img-section">
-                <img src={hospital.image || 'placeholder.jpg'} alt='' />
+                <img src={hospital.hospitalPhotoUrl || 'placeholder.jpg'} alt='' />
               </div>
               <div className="hospital-detail">
                 <div className="hospital-data">
                   <p>
-                    <span id="hospital-name">{hospital.name}</span><br />
-                    <span id="hospital-location">{hospital.location}</span>
+                    <span id="hospital-name">{hospital.hospitalName}</span><br />
+                    <span id="hospital-location">{hospital.hospitalLocation}</span>
                   </p>
                 </div>
                 <div className="hospital-btn">

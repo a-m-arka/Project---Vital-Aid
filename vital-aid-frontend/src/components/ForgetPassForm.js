@@ -5,22 +5,43 @@ import Timer from './Timer'
 export const EnterEmail = (props) => {
     const [errorMessage, setErrorMessage] = useState("");
     const [email, setEmail] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
     };
 
-    const handleNext = () => {
-        if (email === props.email) {
-            props.onSubmit();
-        }
-        else {
-            setErrorMessage("Invalid email address");
+    const handleNext = async () => {
+        setErrorMessage("");
+        setIsLoading(true);
+
+        try {
+            const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/sendCode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                }),
+            });
+
+            if (response.ok) {
+                props.onSubmit();
+                localStorage.setItem('userForgotPassEmail', email);
+            } else {
+                const error = await response.text();
+                setErrorMessage(error || 'Failed to send OTP');
+            }
+        } catch (error) {
+            setErrorMessage('Failed to send OTP');
+        } finally {
+            setIsLoading(false);
         }
     };
 
     return (
-        <div className='forget-pass-input-container'>
+        <div className='forget-pass-input'>
             <div className='forget-pass-input'>
                 <label>
                     Enter Your Email
@@ -30,17 +51,25 @@ export const EnterEmail = (props) => {
             <div className="error-message">
                 {errorMessage}
             </div>
-            <button className="btn" onClick={handleNext}>
-                Get OTP
-            </button>
+            {isLoading ? (
+                <div className="loading-message" disabled>
+                    Sending OTP to your email...
+                </div>
+            ) : (
+                <button className="btn" onClick={handleNext}>
+                    Get OTP
+                </button>
+            )}
         </div>
-    )
-}
+    );
+};
 
 export const EnterOtp = (props) => {
     const [errorMessage, setErrorMessage] = useState("");
     const [timeOver, setTimeOver] = useState(false);
     const [otp, setOtp] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [loadingMessage, setLoadingMessage] = useState("");
 
     const handleTimerComplete = () => {
         setTimeOver(true);
@@ -51,24 +80,75 @@ export const EnterOtp = (props) => {
         setOtp(e.target.value);
     };
 
-    const handleNext = () => {
-        if (timeOver || otp !== props.otp) {
-            setErrorMessage("OTP does not match");
+    const handleNext = async () => {
+        if (timeOver) {
+            setErrorMessage("Time is over");
             setTimeOver(true);
-        }
-        else {
-            props.onSubmit();
+        } else {
+            setIsLoading(true);
+            setLoadingMessage("Verifying OTP...");
+            setErrorMessage("");
+            setTimeOver(false);
+
+            try {
+                const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/validateOtp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        otp: otp,
+                    }),
+                });
+
+                if (response.ok) {
+                    props.onSubmit();
+                } else {
+                    const error = await response.text();
+                    setErrorMessage(error || 'Failed to verify OTP');
+                }
+            } catch (error) {
+                setErrorMessage('Failed to verify OTP');
+            } finally {
+                setIsLoading(false);
+                setLoadingMessage("");
+            }
         }
     };
 
-    const handleGetNewOtp = () => {
-        setTimeOver(false);
-        setErrorMessage("");
-        setOtp("");
+    const handleGetNewOtp = async () => {
+        setIsLoading(true);
+        setLoadingMessage("Sending new OTP...");
+
+        try {
+            const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/sendCode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: localStorage.getItem('userForgotPassEmail'),
+                }),
+            });
+
+            if (response.ok) {
+                setTimeOver(false);
+                setErrorMessage("");
+                setOtp("");
+            } else {
+                const error = await response.text();
+                setErrorMessage(error || 'Failed to send OTP');
+            }
+        } catch (error) {
+            setErrorMessage('Failed to send OTP');
+        } finally {
+            setIsLoading(false);
+            setLoadingMessage("");
+        }
     };
 
     return (
-        <div className='forget-pass-input-container'>
+        <div className='forget-pass-input'>
             <div className='forget-pass-input'>
                 <label>
                     Enter OTP
@@ -76,24 +156,31 @@ export const EnterOtp = (props) => {
                 <input type="text" value={otp} onChange={handleOtp} />
             </div>
             {!timeOver && (
-                <Timer startTime={5} onComplete={handleTimerComplete} />
+                <Timer startTime={120} onComplete={handleTimerComplete} />
             )}
             <div className="error-message">
                 {errorMessage}
             </div>
-            {!timeOver && (
-                <button className="btn" onClick={handleNext}>
-                    Verify OTP
-                </button>
-            )}
-            {timeOver && (
-                <button className="btn" onClick={handleGetNewOtp}>
-                    Get New OTP
-                </button>
+            {isLoading ? (
+                <div className="loading-message">{loadingMessage}</div>
+            ) : (
+                <>
+                    {!timeOver && (
+                        <button className="btn" onClick={handleNext}>
+                            Verify OTP
+                        </button>
+                    )}
+                    {timeOver && (
+                        <button className="btn" onClick={handleGetNewOtp}>
+                            Get New OTP
+                        </button>
+                    )}
+                </>
             )}
         </div>
-    )
-}
+    );
+};
+
 
 export const NewPassword = (props) => {
     const [errorMessage, setErrorMessage] = useState("");
@@ -108,17 +195,34 @@ export const NewPassword = (props) => {
         setConfirmPass(e.target.value);
     };
 
-    const handleNext = () => {
-        if (newPass === confirmPass) {
-            props.onSubmit();
-        }
-        else {
-            setErrorMessage("Passwords do not match");
+    const handleNext = async () => {
+        setErrorMessage("");
+
+        try {
+            const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/resetPassword', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    newPassword: newPass,
+                    confirmPassword: confirmPass,
+                }),
+            });
+
+            if (response.ok) {
+                props.onSubmit();
+            } else {
+                const error = await response.text();
+                setErrorMessage(error || 'Failed to reset password');
+            }
+        }catch (error) {
+            setErrorMessage('Failed to reset password');
         }
     };
 
     return (
-        <div className='forget-pass-input-container'>
+        <div className='forget-pass-input'>
             <div className='forget-pass-input'>
                 <label>
                     Enter New Password

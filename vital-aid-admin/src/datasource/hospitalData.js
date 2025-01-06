@@ -5,8 +5,8 @@ export const hospitalColumns = [
         renderCell: (params) => {
             return (
                 <div className="cellWithImg">
-                    <img src={params.row.image} alt="" className="cellImg" />
-                    {params.row.name}
+                    <img src={params.row.hospitalPhotoUrl} alt="" className="cellImg" />
+                    {params.row.hospitalName}
                 </div>
             )
         }

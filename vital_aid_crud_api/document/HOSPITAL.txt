@@ -1,125 +1,125 @@
-                                                //  1. REGISTERING A NEW HOSPITAL INPUT WITOUT IMAGE //
+                                    //  1. REGISTERING A NEW HOSPITAL INPUT WITOUT IMAGE //
 
-                                (CONTENT TYPE -> application/json)
-                                KEY -> "hospitalDTO",
+                    (CONTENT TYPE -> application/json)
+                    KEY -> "hospitalDTO",
 
-                      VALUE->   {
-                                    "hospitalName" : "Apollo Medical College Hospital",
-                                    "hospitalLocation" : "Chittagong",
-                                    "hospitalContact" : "012454685557",
-                                    "hospitalEmail" : "apollohospital@gmail.com",
-                                    "totalGeneralBeds": 150,
-                                    "totalIcuBeds": 35,
-                                    "totalVentilators": 35,
-                                    "hospitalFacilities": ["X-Ray", "MRI", "ECG"]
-                                }
-
-
-
-
-                                                //  2. REGISTERING A NEW HOSPITAL INPUT WITH IMAGE //
-
-                                (CONTENT TYPE -> application/json)
-                                KEY -> "hospitalDTO",
-
-                      VALUE->   {
-                                    "hospitalName" : "Apollo Medical College Hospital",
-                                    "hospitalLocation" : "Chittagong",
-                                    "hospitalContact" : "012454685557",
-                                    "hospitalEmail" : "apollohospital@gmail.com",
-                                    "totalGeneralBeds": 150,
-                                    "totalIcuBeds": 35,
-                                    "totalVentilators": 35,
-                                    "hospitalFacilities": ["X-Ray", "MRI", "ECG"]
-                                }
-                                
-
-                                (CONTENT TYPE -> multipart/form-data)                
-                                KEY -> "file",
-
-                                VALUE->   ACTUAL PHOTO
+            VALUE->   {
+                        "hospitalName" : "Apollo Medical College Hospital",
+                        "hospitalLocation" : "Chittagong",
+                        "hospitalContact" : "012454685557",
+                        "hospitalEmail" : "apollohospital@gmail.com",
+                        "totalGeneralBeds": 150,
+                        "totalIcuBeds": 35,
+                        "totalVentilators": 35,
+                        "hospitalFacilities": ["X-Ray", "MRI", "ECG"]
+                    }
 
 
 
-                                                // 3. UPDATE HOSPITAL DETAILS INPUT
-                                
-                                (CONTENT TYPE -> application/json)
-                                KEY -> "hospitalDTO",
 
-                      VALUE->   {
-                                    "hospitalName" : "Apollo Medical College Hospital",
-                                    "hospitalLocation" : "Chittagong",
-                                    "hospitalContact" : "012454685557",
-                                    "hospitalEmail" : "apollohospital@gmail.com",
-                                    "totalGeneralBeds": 150,
-                                    "totalIcuBeds": 35,
-                                    "totalVentilators": 35,
-                                    "hospitalFacilities": ["X-Ray", "MRI", "ECG"]
-                                }
-                                
+                                    //  2. REGISTERING A NEW HOSPITAL INPUT WITH IMAGE //
 
-                                (CONTENT TYPE -> multipart/form-data)                
-                                KEY -> "file",
+                    (CONTENT TYPE -> application/json)
+                    KEY -> "hospitalDTO",
 
-                                VALUE->   ACTUAL PHOTO
+            VALUE->   {
+                        "hospitalName" : "Apollo Medical College Hospital",
+                        "hospitalLocation" : "Chittagong",
+                        "hospitalContact" : "012454685557",
+                        "hospitalEmail" : "apollohospital@gmail.com",
+                        "totalGeneralBeds": 150,
+                        "totalIcuBeds": 35,
+                        "totalVentilators": 35,
+                        "hospitalFacilities": ["X-Ray", "MRI", "ECG"]
+                    }
+                    
 
+                    (CONTENT TYPE -> multipart/form-data)                
+                    KEY -> "file",
 
-                                                //  4. HOSPITAL DETAILS OUTPUT  //
-                                                
-                                {
-                                    "hospitalName": "Apollo Medical College Hospital",
-                                    "hospitalLocation": "Chittagong",
-                                    "hospitalContact": "012454685557",
-                                    "hospitalEmail": "apollohospital@gmail.com",
-                                    "totalGeneralBeds": 150,
-                                    "totalIcuBeds": 35,
-                                    "totalVentilators": 35,
-                                    "hospitalFacilities": [
-                                        "MRI",
-                                        "X-Ray",
-                                        "ECG"
-                                    ],
-                                    "hospitalPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498588/vital_aid/hospitals/shflxkncziiudjffyjoo.png",
-                                    "hospitalTotalDoctor": 0,
-                                    "id": 1
-                                }   
-
-                                                //  5. LIST OF ALL HOSPITALS    //
+                    VALUE->   ACTUAL PHOTO
 
 
-                                {
-                                    {
-                                        "hospitalName": "Apollo Medical College Hospital",
-                                        "hospitalLocation": "Chittagong",
-                                        "hospitalContact": "012454685557",
-                                        "hospitalEmail": "apollohospital@gmail.com",
-                                        "totalGeneralBeds": 150,
-                                        "totalIcuBeds": 35,
-                                        "totalVentilators": 35,
-                                        "hospitalFacilities": [
-                                            "MRI",
-                                            "X-Ray",
-                                            "ECG"
-                                        ],
-                                        "hospitalPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498588/vital_aid/hospitals/shflxkncziiudjffyjoo.png",
-                                        "hospitalTotalDoctor": 0,
-                                        "id": 1
-                                    },
-                                    {
-                                        "hospitalName": "Apollo Medical College Hospital",
-                                        "hospitalLocation": "Chittagong",
-                                        "hospitalContact": "012454685557",
-                                        "hospitalEmail": "apollohospital@gmail.com",
-                                        "totalGeneralBeds": 150,
-                                        "totalIcuBeds": 35,
-                                        "totalVentilators": 35,
-                                        "hospitalFacilities": [
-                                            "MRI",
-                                            "X-Ray",
-                                            "ECG"
-                                        ],
-                                        "hospitalPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498588/vital_aid/hospitals/shflxkncziiudjffyjoo.png",
-                                        "hospitalTotalDoctor": 0,
-                                        "id": 1
-                                    }
-                                }
+
+                                    // 3. UPDATE HOSPITAL DETAILS INPUT
+                    
+                    (CONTENT TYPE -> application/json)
+                    KEY -> "hospitalDTO",
+
+            VALUE->   {
+                        "hospitalName" : "Apollo Medical College Hospital",
+                        "hospitalLocation" : "Chittagong",
+                        "hospitalContact" : "012454685557",
+                        "hospitalEmail" : "apollohospital@gmail.com",
+                        "totalGeneralBeds": 150,
+                        "totalIcuBeds": 35,
+                        "totalVentilators": 35,
+                        "hospitalFacilities": ["X-Ray", "MRI", "ECG"]
+                    }
+                    
+
+                    (CONTENT TYPE -> multipart/form-data)                
+                    KEY -> "file",
+
+                    VALUE->   ACTUAL PHOTO
+
+
+                                    //  4. HOSPITAL DETAILS OUTPUT  //
+                                    
+                    {
+                        "hospitalName": "Apollo Medical College Hospital",
+                        "hospitalLocation": "Chittagong",
+                        "hospitalContact": "012454685557",
+                        "hospitalEmail": "apollohospital@gmail.com",
+                        "totalGeneralBeds": 150,
+                        "totalIcuBeds": 35,
+                        "totalVentilators": 35,
+                        "hospitalFacilities": [
+                            "MRI",
+                            "X-Ray",
+                            "ECG"
+                        ],
+                        "hospitalPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498588/vital_aid/hospitals/shflxkncziiudjffyjoo.png",
+                        "hospitalTotalDoctor": 0,
+                        "id": 1
+                    }   
+
+                                    //  5. LIST OF ALL HOSPITALS    //
+
+
+                    {
+                        {
+                            "hospitalName": "Apollo Medical College Hospital",
+                            "hospitalLocation": "Chittagong",
+                            "hospitalContact": "012454685557",
+                            "hospitalEmail": "apollohospital@gmail.com",
+                            "totalGeneralBeds": 150,
+                            "totalIcuBeds": 35,
+                            "totalVentilators": 35,
+                            "hospitalFacilities": [
+                                "MRI",
+                                "X-Ray",
+                                "ECG"
+                            ],
+                            "hospitalPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498588/vital_aid/hospitals/shflxkncziiudjffyjoo.png",
+                            "hospitalTotalDoctor": 0,
+                            "id": 1
+                        },
+                        {
+                            "hospitalName": "Apollo Medical College Hospital",
+                            "hospitalLocation": "Chittagong",
+                            "hospitalContact": "012454685557",
+                            "hospitalEmail": "apollohospital@gmail.com",
+                            "totalGeneralBeds": 150,
+                            "totalIcuBeds": 35,
+                            "totalVentilators": 35,
+                            "hospitalFacilities": [
+                                "MRI",
+                                "X-Ray",
+                                "ECG"
+                            ],
+                            "hospitalPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498588/vital_aid/hospitals/shflxkncziiudjffyjoo.png",
+                            "hospitalTotalDoctor": 0,
+                            "id": 1
+                        }
+                    }

@@ -14,13 +14,22 @@ import HospitalDetails from './components/HospitalDetails';
 import ForgotPass from './components/ForgotPass';
 import ScrollToTop from './components/ScrollToTop';
 import ViewProfile from './components/UserProfile/View';
+import PrivateRoute from './components/PrivateRoute';
+
+// import { useGlobalContext } from './context/GlobalContext';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from 'react-router-dom';
 
+
 function App() {
+
+  // localStorage.removeItem('token');
+  // const token = localStorage.getItem('token');
+  // console.log('Token:', token);
+
   return (
     <>
       <Router>
@@ -30,16 +39,22 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/appoinment' element={<Appoinment />}></Route>
+          <Route element={<PrivateRoute />}>
+            <Route path='/appoinment' element={<Appoinment />}></Route>
+          </Route>
           <Route path='/doctors' element={<Doctors />}></Route>
           <Route path='/doctor_details' element={<DoctorDetails />}></Route>
           <Route path='/hospitals' element={<Hospitals />}></Route>
           <Route path='/hospital_details' element={<HospitalDetails />}></Route>
           <Route path='/ambulance' element={<Ambulance />}></Route>
-          <Route path='/ambulanceform' element={<AmbulanceForm />}></Route>
+          <Route element={<PrivateRoute />}>
+            <Route path='/ambulanceform' element={<AmbulanceForm />}></Route>
+          </Route>
           <Route path='/about' element={<About />}></Route>
           <Route path='/store' element={<Store />}></Route>
-          <Route path='/profile' element={<ViewProfile />}></Route>
+          <Route element={<PrivateRoute />}>
+            <Route path='/profile' element={<ViewProfile />} />
+          </Route>
           <Route path='/login' element={<Auth />}></Route>
           <Route path='/forgotpassword' element={<ForgotPass />}></Route>
         </Routes>

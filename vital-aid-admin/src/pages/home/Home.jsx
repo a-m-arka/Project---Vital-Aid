@@ -11,11 +11,11 @@ const Home = () => {
         <Sidebar />
         <div className="homeContainer">
           <div className="widgets">
-            <Widget type="user"/>
-            <Widget type="doctor"/>
-            <Widget type="hospital"/>
-            <Widget type="ambulance"/>
-            <Widget type="product"/>
+            <Widget type="user" />
+            <Widget type="doctor" />
+            <Widget type="hospital" />
+            <Widget type="ambulance" />
+            <Widget type="product" />
           </div>
         </div>
 

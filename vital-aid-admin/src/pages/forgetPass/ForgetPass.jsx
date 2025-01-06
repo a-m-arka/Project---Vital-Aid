@@ -15,11 +15,11 @@ const ForgetPass = () => {
     const steps = [
         {
             name: "Email",
-            Component: <EnterEmail email="arka@admin.com" onSubmit={handleNext}/>,
+            Component: <EnterEmail onSubmit={handleNext}/>,
         },
         {
             name: "Otp",
-            Component: <EnterOtp otp="1234" onSubmit={handleNext}/>,
+            Component: <EnterOtp onSubmit={handleNext}/>,
         },
         {
             name: "New Password",
@@ -33,6 +33,7 @@ const ForgetPass = () => {
 
     const handleFinish = () => {
         navigate('/login');
+        localStorage.removeItem('adminForgotPassEmail');
     };
 
     const ActiveComponent = steps[currentStep - 1]?.Component;

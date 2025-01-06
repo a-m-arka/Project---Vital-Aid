@@ -61,20 +61,16 @@ public class UserAuthenticationFilter extends UsernamePasswordAuthenticationFilt
                 .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
                 .sign(Algorithm.HMAC512(SecurityConstants.SECRET_KEY));
         response.addHeader(SecurityConstants.HEADER_STRING,
-        SecurityConstants.TOKEN_PREFIX + userToken);
+                SecurityConstants.TOKEN_PREFIX + userToken);
         SecurityContextHolder.getContext().setAuthentication(authResult);
 
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
 
-
-
-        
-        // response.setContentType("application/json");
-        // response.setCharacterEncoding("UTF-8");
-
-        // // Write the JSON object to the response
-        // response.getWriter().write(String.format(
-        //         "{ \"token\": \"%s\", \"role\": \"%s\", \"email\": \"%s\" }",
-        //         userToken, role, authResult.getName()));
+        // Write the JSON object to the response
+        response.getWriter().write(String.format(
+                "{ \"token\": \"%s\", \"role\": \"%s\", \"email\": \"%s\" }",
+                userToken, role, authResult.getName()));
 
         // SecurityContextHolder.getContext().setAuthentication(authResult);
 

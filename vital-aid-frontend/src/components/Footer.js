@@ -2,8 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../style/Footer.scss';
 import logo from '../Images/logo.png';
+import { useGlobalContext } from '../context/GlobalContext';
 
 const Footer = () => {
+  const { isLoggedIn, setIsLoggedIn } = useGlobalContext();
+  const handleLogOut = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('token');
+  };
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -19,7 +26,11 @@ const Footer = () => {
             <Link style={{ textDecoration: "none" }} to="/ambulance"><li>Ambulance</li></Link>
             <Link style={{ textDecoration: "none" }} to="/doctors"><li>Make Appointment</li></Link>
             <Link style={{ textDecoration: "none" }} to="/store"><li>Medical Store</li></Link>
-            <Link style={{ textDecoration: "none" }} to="/login"><li>Log in</li></Link>
+            {isLoggedIn ? (
+              <Link style={{ textDecoration: "none" }} to="/"><li onClick={handleLogOut}>Log Out</li></Link>
+            ):(
+              <Link style={{ textDecoration: "none" }} to="/login"><li>Log in</li></Link>
+            )}
           </ul>
         </div>
         <div className="footer-section">

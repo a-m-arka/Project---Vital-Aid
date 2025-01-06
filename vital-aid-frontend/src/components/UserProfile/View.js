@@ -4,22 +4,11 @@ import Details from './Details';
 import Update from './Update';
 import ChangePassword from './ChagePassword';
 import ChangePhoto from './ChangePhoto';
-import ProfileIcon from '../../Images/profileIcon.png';
 import coverPhoto from '../../Images/coverPhoto.jpg';
+import { useGlobalContext } from '../../context/GlobalContext';
 
 const ViewProfile = () => {
-    const [userData, setUserData] = useState({
-        name: "A. M. Arka",
-        userId: "2104028",
-        email: "arka@user.com",
-        address: "Mars colony, Road 1, Mars city, Mars",
-        dateOfBirth: "2002-12-23",
-        contact: "01234567890",
-        bloodGroup: "O+",
-        gender: "Male",
-        image: ProfileIcon,
-    });
-
+    const { profile, setProfile } = useGlobalContext();
     const [currentPage, setCurrentPage] = useState('details');
 
     const handleViewProfile = () => {
@@ -27,22 +16,22 @@ const ViewProfile = () => {
     };
 
     const updateUserData = (updatedData) => {
-        setUserData((prev) => ({ ...prev, ...updatedData }));
+        setProfile((prev) => ({ ...prev, ...updatedData }));
         setCurrentPage('details');
     };
 
     const renderComponent = () => {
         switch (currentPage) {
             case 'details':
-                return <Details data={userData} />;
+                return <Details data={profile} />;
             case 'edit':
-                return <Update data={userData} updateUserData={updateUserData} />;
+                return <Update data={profile} updateUserData={updateUserData} />;
             case 'changePhoto':
-                return <ChangePhoto data={userData} updateUserData={updateUserData} />;
+                return <ChangePhoto data={profile} updateUserData={updateUserData} />;
             case 'changePass':
                 return <ChangePassword />;
             default:
-                return <Details data={userData} />;
+                return <Details data={profile} />;
         }
     };
 
