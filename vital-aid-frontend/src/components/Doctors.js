@@ -88,7 +88,7 @@ export default function Doctors() {
                                     </p>
                                 </div>
                                 <div className="doctor-btn">
-                                    <button onClick={() => navigate('/appoinment', { state: { doctor } })}>
+                                    <button onClick={() => navigate('/appointment', { state: { doctor } })}>
                                         Book Appointment
                                     </button>
                                     <button onClick={() => navigate('/doctor_details', { state: { doctor } })}>

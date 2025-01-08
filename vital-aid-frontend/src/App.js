@@ -15,6 +15,9 @@ import ForgotPass from './components/ForgotPass';
 import ScrollToTop from './components/ScrollToTop';
 import ViewProfile from './components/UserProfile/View';
 import PrivateRoute from './components/PrivateRoute';
+import OrderList from './components/OrderList';
+import AppoinmentList from './components/AppoinmentList';
+import AppoinmentDetails from './components/AppoinmentDetails';
 
 // import { useGlobalContext } from './context/GlobalContext';
 import {
@@ -40,7 +43,13 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route element={<PrivateRoute />}>
-            <Route path='/appoinment' element={<Appoinment />}></Route>
+            <Route path='/appointment' element={<Appoinment />}></Route>
+          </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path='/appointmentlist' element={<AppoinmentList />} />
+          </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path='/appointmentdetails' element={<AppoinmentDetails />} />
           </Route>
           <Route path='/doctors' element={<Doctors />}></Route>
           <Route path='/doctor_details' element={<DoctorDetails />}></Route>
@@ -52,6 +61,9 @@ function App() {
           </Route>
           <Route path='/about' element={<About />}></Route>
           <Route path='/store' element={<Store />}></Route>
+          <Route element={<PrivateRoute />}>
+            <Route path='/orders' element={<OrderList />} />
+          </Route>
           <Route element={<PrivateRoute />}>
             <Route path='/profile' element={<ViewProfile />} />
           </Route>

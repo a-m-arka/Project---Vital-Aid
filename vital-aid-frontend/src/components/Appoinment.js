@@ -81,8 +81,8 @@ export default function Appoinment() {
       });
 
       if (response.ok) {
-        const appoinmentData = await response.json();
-        console.log(appoinmentData);
+        // const appoinmentData = await response.json();
+        // console.log(appoinmentData);
         setShowPopUp(true);
       } else {
         const error = await response.text();

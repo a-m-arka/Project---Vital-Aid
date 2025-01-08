@@ -8,7 +8,7 @@ export default function DoctorDetails() {
     const navigate = useNavigate();
 
     const handleAppoinment = (doctor) => {
-        navigate('/appoinment', { state: { doctor } });
+        navigate('/appointment', { state: { doctor } });
     };
 
     // Function to convert 24-hour format to 12-hour format

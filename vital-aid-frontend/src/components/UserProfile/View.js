@@ -6,13 +6,19 @@ import ChangePassword from './ChagePassword';
 import ChangePhoto from './ChangePhoto';
 import coverPhoto from '../../Images/coverPhoto.jpg';
 import { useGlobalContext } from '../../context/GlobalContext';
+import { useNavigate } from 'react-router-dom';
 
 const ViewProfile = () => {
     const { profile, setProfile } = useGlobalContext();
     const [currentPage, setCurrentPage] = useState('details');
+    const navigate = useNavigate();
 
     const handleViewProfile = () => {
         setCurrentPage('details');
+    };
+
+    const handleMyAppoinments = () => {
+        navigate('/appointmentlist');
     };
 
     const updateUserData = (updatedData) => {
@@ -55,6 +61,7 @@ const ViewProfile = () => {
                         {currentPage !== 'changePass' && (
                             <div className="btn" onClick={() => setCurrentPage('changePass')}>Change Password</div>
                         )}
+                        <div className="btn" onClick={() => handleMyAppoinments()}>My Appointments</div>
                     </div>
                     <div className="page">{renderComponent()}</div>
                 </div>

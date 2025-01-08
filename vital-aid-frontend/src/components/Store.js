@@ -5,6 +5,7 @@ import ProductCard from './ProductCard';
 import Popup from './PopUp';
 import AccessDeniedPopUp from './AccessDeniedPopUp';
 import { useGlobalContext } from '../context/GlobalContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Store() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,6 +16,7 @@ export default function Store() {
   const { productData } = useGlobalContext();
   const productList = productData;
   const categories = ['Medicine', 'Medical Equipment'];
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -52,8 +54,8 @@ export default function Store() {
     }
   };
 
-  const handleMyCart = () => {
-
+  const handleMyOrder = () => {
+    navigate('/orders');
   };
 
 
@@ -87,9 +89,9 @@ export default function Store() {
             </select>
           </div>
 
-          <button className="store-cart" onClick={() => handleMyCart()}>
+          <button className="store-cart" onClick={() => handleMyOrder()}>
             <label>My Orders</label>
-            {/* <i class="fa-solid fa-cart-shopping"></i> */}
+            {/* <i className="fa-solid fa-cart-shopping"></i> */}
           </button>
 
         </div>
