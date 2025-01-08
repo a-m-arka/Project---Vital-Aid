@@ -20,15 +20,11 @@ import com.vital_aid_crud_api.Entity.User;
 import com.vital_aid_crud_api.Exception.BadCredentialsException;
 import com.vital_aid_crud_api.Payloads.UserDTO;
 import com.vital_aid_crud_api.repository.AdminRepository;
-import com.vital_aid_crud_api.repository.PersonRepository;
 import com.vital_aid_crud_api.repository.UserRepository;
-import com.vital_aid_crud_api.service.Interfaces.UserService;
 
 @Component
 public class CustomAuthenticationManager implements AuthenticationManager {
 
-    @Autowired
-    private PersonRepository personRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -36,8 +32,6 @@ public class CustomAuthenticationManager implements AuthenticationManager {
     @Autowired
     private AdminRepository adminRepository;
 
-    @Autowired
-    private UserService userService;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;

@@ -41,6 +41,8 @@ public class AppointmentDTO {
 
     private String appointmentWith;
 
+    private Integer patientAge;
+
     public AppointmentDTO() {
     }
 
@@ -107,6 +109,14 @@ public class AppointmentDTO {
 
     public void setVisitDay(String visitDay) {
         this.visitDay = visitDay;
+    }
+
+    public Integer getPatientAge() {
+        return this.patientAge;
+    }
+
+    public void setPatientAge(Integer patientAge) {
+        this.patientAge = patientAge;
     }
 
     public String getAppointmentBy() {

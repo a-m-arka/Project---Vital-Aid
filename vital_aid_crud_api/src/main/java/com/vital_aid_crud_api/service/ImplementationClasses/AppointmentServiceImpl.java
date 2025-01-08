@@ -1,5 +1,7 @@
 package com.vital_aid_crud_api.service.ImplementationClasses;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -134,6 +136,10 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         appointmentDTO.setAppointmentWith(doctorName);
         appointmentDTO.setAppointmentBy(userName);
+        if (appointment.getPatientDob() != null) {
+                int age = Period.between(appointment.getPatientDob(), LocalDate.now()).getYears();
+                appointmentDTO.setPatientAge(age);
+                }
         return appointmentDTO;
     }
 

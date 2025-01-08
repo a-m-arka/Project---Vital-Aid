@@ -109,6 +109,8 @@ public class SecurityConstants {
 
     public static final String HOSPITAL_DELETE_PATH = "/vital_aid/hospitals/deleteHospital/*"; // Deleting a Hospital by ID Path (Accessible to Admin)
 
+    public static final String ALL_DOCTORS_OF_A_HOSPITAL = "/vital_aid/hospitals/allDoctors/*"; // Getting all Doctors of a Hospital Path (Accessible to all)
+
 
 
     // APPOINTMENT PATHS
