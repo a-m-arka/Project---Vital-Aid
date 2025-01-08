@@ -52,6 +52,10 @@ export default function Store() {
     }
   };
 
+  const handleMyCart = () => {
+
+  };
+
 
   return (
     <div className="rout-container">
@@ -63,7 +67,7 @@ export default function Store() {
 
         <div className="category-search-cart">
 
-          <SearchBox className="store-search" placeholder="Search Product" onSearch={handleSearch} style={{ width: isMobile ? '100%' : '72%', height: isMobile ? "40%" : "100%", boxShadow: "0 0 8px black", margin: "0 0" }} />
+          <SearchBox className="store-search" placeholder="Search Product" onSearch={handleSearch} style={{ width: isMobile ? '100%' : '60%', height: isMobile ? "40%" : "100%", boxShadow: "0 0 8px black", margin: "0 0" }} />
 
           <div className="product-category">
             <div className="category-name">
@@ -83,10 +87,10 @@ export default function Store() {
             </select>
           </div>
 
-          {/* <button className="store-cart" onClick={() => handleMyCart()}>
-            <label>My Cart</label>
-            <i class="fa-solid fa-cart-shopping"></i>
-          </button> */}
+          <button className="store-cart" onClick={() => handleMyCart()}>
+            <label>My Orders</label>
+            {/* <i class="fa-solid fa-cart-shopping"></i> */}
+          </button>
 
         </div>
 

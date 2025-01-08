@@ -110,7 +110,7 @@ const AddProductForm = () => {
                                     onChange={(event) => handleInputChange(event, key)}
                                 >
                                     <option value="">Select Category</option>
-                                    <option value="medicine">Medicine</option>
+                                    <option value="Medicine">Medicine</option>
                                     <option value="Medical Equipment">Medical Equipment</option>
                                 </select>
                             </div>
