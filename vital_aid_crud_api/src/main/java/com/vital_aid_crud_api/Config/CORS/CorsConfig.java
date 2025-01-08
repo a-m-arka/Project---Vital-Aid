@@ -1,6 +1,5 @@
 package com.vital_aid_crud_api.Config.CORS;
 
-import org.aspectj.weaver.ast.Or;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;

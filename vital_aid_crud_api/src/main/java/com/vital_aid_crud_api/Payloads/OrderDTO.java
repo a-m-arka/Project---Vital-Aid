@@ -16,6 +16,8 @@ public class OrderDTO {
 
     private String orderMadeBy;
     private String orderMadeFor;
+    private String orderedProductPhotoUrl;
+    private String orderedProductCategory;
 
     public OrderDTO() {
     }
@@ -66,5 +68,21 @@ public class OrderDTO {
 
     public void setOrderMadeFor(String orderMadeFor) {
         this.orderMadeFor = orderMadeFor;
+    }
+
+    public String getOrderedProductPhotoUrl() {
+        return this.orderedProductPhotoUrl;
+    }
+
+    public void setOrderedProductPhotoUrl(String orderedProductPhotoUrl) {
+        this.orderedProductPhotoUrl = orderedProductPhotoUrl;
+    }
+
+    public String getOrderedProductCategory() {
+        return this.orderedProductCategory;
+    }
+
+    public void setOrderedProductCategory(String orderedProductCategory) {
+        this.orderedProductCategory = orderedProductCategory;
     }
 }

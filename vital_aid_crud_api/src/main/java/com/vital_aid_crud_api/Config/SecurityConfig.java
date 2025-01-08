@@ -107,6 +107,7 @@ public class SecurityConfig {
                         .hasAuthority("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.DELETE, SecurityConstants.HOSPITAL_DELETE_PATH)
                         .hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.ALL_DOCTORS_OF_A_HOSPITAL).permitAll()
 
                         .requestMatchers(HttpMethod.GET, SecurityConstants.ALL_APPOINTMENTS_LIST_PATH)
                         .hasAuthority("ROLE_ADMIN")

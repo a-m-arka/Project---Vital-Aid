@@ -15,6 +15,7 @@ import com.vital_aid_crud_api.Entity.Doctor;
 import com.vital_aid_crud_api.Entity.Hospital;
 import com.vital_aid_crud_api.Exception.ResourceNotFoundException;
 import com.vital_aid_crud_api.ImageURLs.BaseImageUrls;
+import com.vital_aid_crud_api.Payloads.DoctorDTO;
 import com.vital_aid_crud_api.Payloads.HospitalDTO;
 import com.vital_aid_crud_api.Util.ApiResponse;
 import com.vital_aid_crud_api.repository.AdminRepository;
@@ -52,6 +53,22 @@ public class HospitalServiceImpl implements HospitalService {
                 .collect(Collectors.toList());
 
         return hospitalDTOs;
+    }
+
+                                            // ALL DOCTORS OF A HOSPITAL
+
+    @Transactional
+    @Override
+    public List<DoctorDTO> getAllDoctorsOfAHospital(Long hospitalId) {
+        Hospital hospital = hospitalRepository.findById(hospitalId)
+                .orElseThrow(() -> new ResourceNotFoundException("Hospital", "id", hospitalId));
+        List<Doctor> doctors = hospital.getDoctors();
+        List<DoctorDTO> doctorDTOs = doctors.stream().map(doctor -> {
+            DoctorDTO doctorDTO = this.modelMapper.map(doctor, DoctorDTO.class);
+            return doctorDTO;
+        }).collect(Collectors.toList());
+
+        return doctorDTOs;
     }
 
                                             // VIEW HOSPITAL DETAILS BY ID

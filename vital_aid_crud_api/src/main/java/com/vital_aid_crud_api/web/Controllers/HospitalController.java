@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.vital_aid_crud_api.ImageURLs.BaseImageUrls;
+import com.vital_aid_crud_api.Payloads.DoctorDTO;
 import com.vital_aid_crud_api.Payloads.HospitalDTO;
 import com.vital_aid_crud_api.Util.ApiResponse;
 import com.vital_aid_crud_api.service.Interfaces.HospitalService;
@@ -39,6 +40,14 @@ public class HospitalController {
         List<HospitalDTO> hospitalDTOs = hospitalService.getAllHospitals();
         // return hospitalService.getAllHospitals();
         return new ResponseEntity<>(hospitalDTOs, HttpStatus.OK);
+    }
+
+                                    // FETCHING ALL DOCTORS OF A HOSPITAL
+
+    @GetMapping("/allDoctors/{Id}")
+    public ResponseEntity<List<DoctorDTO>> listOfAllDoctorsOfAHospital(@PathVariable Long Id){
+        List<DoctorDTO> doctorDTOs = hospitalService.getAllDoctorsOfAHospital(Id);
+        return new ResponseEntity<>(doctorDTOs, HttpStatus.OK);
     }
 
                                     // FETCHING PROFILE OF A HOSPITAL

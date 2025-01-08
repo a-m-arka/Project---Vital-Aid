@@ -94,6 +94,15 @@ public class OrderServiceImpl implements OrderService {
     public void deleteOrder(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(
                         ()-> new ResourceNotFoundException("Order", "id", orderId));
+
+        User madeByUser = order.getOrderMadeByUser();
+        madeByUser.getMadeOrders().remove(order);
+        userRepository.save(madeByUser);
+                
+        Product madeForProduct = order.getOrderMadeForProduct();
+        madeForProduct.getProductOrders().remove(order);
+        productRepository.save(madeForProduct);
+        
         orderRepository.delete(order);
     }
                                                 // HELPER METHODS
@@ -111,6 +120,8 @@ public class OrderServiceImpl implements OrderService {
         OrderDTO orderDTO = ordeMapper.map(order, OrderDTO.class);
         orderDTO.setOrderMadeBy(order.getOrderMadeByUser().getPersonName());
         orderDTO.setOrderMadeFor(order.getOrderMadeForProduct().getProductName());
+        orderDTO.setOrderedProductPhotoUrl(order.getOrderMadeForProduct().getProductPhotoUrl());
+        orderDTO.setOrderedProductCategory(order.getOrderMadeForProduct().getProductCategory());
         return orderDTO;
     }                             
 }
