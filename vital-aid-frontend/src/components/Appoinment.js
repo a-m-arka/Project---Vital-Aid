@@ -5,6 +5,8 @@ import PopUp from './PopUp';
 import { useGlobalContext } from '../context/GlobalContext';
 
 export default function Appoinment() {
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
   const { state } = useLocation();
   const doctor = state?.doctor;
   const navigate = useNavigate();
@@ -54,9 +56,44 @@ export default function Appoinment() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowPopUp(true);
+    setMessage('');
+    setLoading(true);
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await fetch(`http://localhost:8080/vital_aid/appointment/makeAppointment/${doctor.id}`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          patientName: formData.fullName,
+          patientDob: formData.dob,
+          patientPhone: formData.phone,
+          patientEmail: formData.email,
+          patientGender: formData.gender,
+          reasonForVisit: formData.reason,
+          visitDay: formData.day
+        }),
+      });
+
+      if (response.ok) {
+        const appoinmentData = await response.json();
+        console.log(appoinmentData);
+        setShowPopUp(true);
+      } else {
+        const error = await response.text();
+        setMessage(error || 'Failed to book appoinment. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      setMessage(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const onClose = () => {
@@ -175,11 +212,18 @@ export default function Appoinment() {
               <label>Reason for Visit:</label>
             </div>
           </div>
-          <div className="appointment-form-row make-an-appointment-button-section">
-            <div className="appointment-input-data make-an-appointment-button">
-              <input type="submit" value="Make An Appointment" />
+          {message && (
+            <p className="message">{message}</p>
+          )}
+          {loading ? (
+            <p className="loading-message">Booking Appoinment...</p>
+          ) : (
+            <div className="appointment-form-row make-an-appointment-button-section">
+              <div className="appointment-input-data make-an-appointment-button">
+                <input type="submit" value="Make An Appointment" />
+              </div>
             </div>
-          </div>
+          )}
         </form>
       </div>
       {showPopUp && <PopUp message={successMessage} onClose={onClose} />}

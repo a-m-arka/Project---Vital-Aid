@@ -6,15 +6,16 @@ const ProductCard = ({ product, onOrderConfirmed, onUnauthorizedOrder }) => {
   const [isOdered, setIsOrdered] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(product.productPrice);
-  const [userLocation, setUserLocation] = useState(null);
+  const [userLocation, setUserLocation] = useState('');
   const [error, setError] = useState(null);
   const { isLoggedIn } = useGlobalContext();
+  const [loading, setLoading] = useState(false);
 
   const handleOrder = () => {
-    if(isLoggedIn){
+    if (isLoggedIn) {
       setIsOrdered(true);
     }
-    else{
+    else {
       onUnauthorizedOrder();
     }
   };
@@ -27,13 +28,43 @@ const ProductCard = ({ product, onOrderConfirmed, onUnauthorizedOrder }) => {
     setError(null);
   };
 
-  const handleConfirmOrder = () => {
+  const handleConfirmOrder = async () => {
     if (!userLocation) {
       setError('Please enter your location');
       return;
     }
     else {
-      onOrderConfirmed();
+      setError('');
+      setLoading(true);
+      const token = localStorage.getItem('token');
+
+      try {
+        const response = await fetch(`http://localhost:8080/vital_aid/orderProduct/makeOrder/${product.id}`, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            quantity: quantity,
+            totalPrice: totalPrice,
+            location: userLocation
+          }),
+        });
+
+        if (response.ok) {
+          console.log("Successfull order");
+          onOrderConfirmed();
+        } else {
+          const error = await response.text();
+          setError(error || 'Failed to book appoinment. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error updating profile:', error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -64,7 +95,7 @@ const ProductCard = ({ product, onOrderConfirmed, onUnauthorizedOrder }) => {
           <span className="product-name">{product.productName}</span>
         </div>
         <div className="product-category-section">
-          <span className="product-heading">Category</span>
+          <span className="product-heading">Category:</span>
           <span className="product-Category">{product.productCategory}</span>
         </div>
 
@@ -108,12 +139,18 @@ const ProductCard = ({ product, onOrderConfirmed, onUnauthorizedOrder }) => {
           )}
           {isOdered && (
             <>
-              <div className="buy-now-button-section">
-                <button className="buy-now-button" onClick={handleConfirmOrder}>Confirm Order</button>
-              </div>
-              <div className="cancel-order-button-section">
-                <button className="cancel-order-button" onClick={handleCancelOrder}>Cancel Order</button>
-              </div>
+              {loading ? (
+                <p className="loading-message">Placing Order...</p>
+              ) : (
+                <>
+                  <div className="buy-now-button-section">
+                    <button className="buy-now-button" onClick={handleConfirmOrder}>Place Order</button>
+                  </div>
+                  <div className="cancel-order-button-section">
+                    <button className="cancel-order-button" onClick={handleCancelOrder}>Cancel Order</button>
+                  </div>
+                </>
+              )}
             </>
           )}
         </div>

@@ -8,11 +8,13 @@ const AmbulanceForm = () => {
     const message = 'Our ambulance is dispatched and will arrive shortly at your location.';
     const [formData, setFormData] = useState({ address: '', contact: '' });
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
     const { state } = useLocation();
     const data = state?.ambulanceData;
 
-    console.log('Ambulance Data:', data);
+    // console.log('Ambulance Data:', data);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -23,11 +25,39 @@ const AmbulanceForm = () => {
         navigate('/');
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log('Form Submitted:', formData);
-        setSubmitted(true);
-        // You can add functionality here, such as sending the data to a backend
+        setLoading(true);
+        const token = localStorage.getItem('token');
+
+        try {
+            const response = await fetch(`http://localhost:8080/vital_aid/call_ambulance/makeCall/${data.id}`, {
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    address: formData.address,
+                    contact: formData.contact
+                }),
+            });
+
+            if (response.ok) {
+                const callData = await response.json();
+                console.log(callData);
+                setSubmitted(true);
+            } else {
+                const error = await response.text();
+                setErrorMessage('Failed to call ambulance. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error updating profile:', error);
+            setErrorMessage(error.message);
+        } finally {
+            setLoading(false);
+        }
+
     };
 
     return (
@@ -42,6 +72,9 @@ const AmbulanceForm = () => {
                             </div>
                         ) : (
                             <form className="ambulance-form" onSubmit={handleSubmit}>
+                                {errorMessage && (
+                                    <p style={{ color: "red", textAlign:"center", marginTop:"30px" }}>{errorMessage}</p>
+                                )}
                                 <div className="ambulance-form-row">
                                     <div className="ambulance-form-data-input-section">
                                         <input
@@ -67,10 +100,14 @@ const AmbulanceForm = () => {
                                     </div>
                                 </div>
                                 <div className="ambulance-form-row ambulance-form-button-container">
-                                    <div className="ambulance-form-data-input-section">
-                                        <div className="inner"></div>
-                                        <input type="submit" value="Call Ambulance" />
-                                    </div>
+                                    {loading ? (
+                                        <p className="loading-message">Calling Ambulance...</p>
+                                    ) : (
+                                        <div className="ambulance-form-data-input-section">
+                                            <div className="inner"></div>
+                                            <input type="submit" value="Call Ambulance" />
+                                        </div>
+                                    )}
                                 </div>
                             </form>
                         )}
