@@ -69,7 +69,7 @@ public class DoctorController {
                     @Valid @RequestPart(value = "doctorDTO", required = false) DoctorDTO doctorDTO,
                     @RequestPart(value = "file", required = false) MultipartFile file) {
 
-        DoctorDTO updatedDoctorDTO = doctorService.getDoctorbyId(Id);
+        DoctorDTO updatedDoctorDTO;
         if (doctorDTO == null && file == null) {
             throw new IllegalArgumentException("Please provide the details you want to update");
         }

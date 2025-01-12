@@ -15,7 +15,7 @@ import jakarta.validation.constraints.Size;
 public class AppointmentDTO {
     private Long appointmentToken;
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
-    @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Name must contain only letters")
+    @Pattern(regexp = "^[a-zA-Z.,\\-\\s]+$", message = "Name can not contain numbers")
     private String patientName;
 
     @Past(message = "Date of birth must be in the past")

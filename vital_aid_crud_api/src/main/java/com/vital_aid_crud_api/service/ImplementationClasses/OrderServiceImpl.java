@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.vital_aid_crud_api.Entity.Order;
 import com.vital_aid_crud_api.Entity.Product;
 import com.vital_aid_crud_api.Entity.User;
+import com.vital_aid_crud_api.Exception.InsufficientStockException;
 import com.vital_aid_crud_api.Exception.ResourceNotFoundException;
 import com.vital_aid_crud_api.Payloads.OrderDTO;
 import com.vital_aid_crud_api.repository.OrderRepository;
@@ -78,7 +79,15 @@ public class OrderServiceImpl implements OrderService {
                             orElseThrow(() -> new ResourceNotFoundException("User", "email", userEmail));
         Product orderedProduct = productRepository.findById(productId).
                             orElseThrow(() -> new ResourceNotFoundException("Product", "id", productId));
-    
+        
+        int productCurrentStock = orderedProduct.getProductStockQuantity();
+        int orderedQuantity = orderDTO.getOrderedQuantity();
+        if(productCurrentStock < orderedQuantity) {
+            throw new InsufficientStockException("Insufficient Stock. Only " + productCurrentStock + " left.");
+        }
+
+        orderedProduct.setProductStockQuantity(productCurrentStock - orderedQuantity);
+
         Order order = convertToEntity(orderDTO);
         order.setOrderMadeByUser(madeByUser);
         order.setOrderMadeForProduct(orderedProduct);
