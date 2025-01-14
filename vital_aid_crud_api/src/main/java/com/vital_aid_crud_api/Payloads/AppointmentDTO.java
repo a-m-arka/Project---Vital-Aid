@@ -1,13 +1,16 @@
 package com.vital_aid_crud_api.Payloads;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.vital_aid_crud_api.Validation.ValidGender;
 import com.vital_aid_crud_api.Validation.ValidVisitDay;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -37,11 +40,18 @@ public class AppointmentDTO {
     @ValidVisitDay
     private String visitDay;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Future(message = "Appointment date must be in the future")
+    private LocalDate appointmentDate;
+
     private String appointmentBy;
 
     private String appointmentWith;
 
     private Integer patientAge;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+    private LocalTime doctorAppointmentStartTime;
 
     public AppointmentDTO() {
     }
@@ -133,6 +143,22 @@ public class AppointmentDTO {
 
     public void setAppointmentWith(String appointmentWith) {
         this.appointmentWith = appointmentWith;
+    }
+
+    public LocalDate getAppointmentDate() {
+        return this.appointmentDate;
+    }
+
+    public void setAppointmentDate(LocalDate appointmentDate) {
+        this.appointmentDate = appointmentDate;
+    }
+
+    public LocalTime getDoctorAppointmentStartTime() {
+        return this.doctorAppointmentStartTime;
+    }
+
+    public void setDoctorAppointmentStartTime(LocalTime doctorAppointmentStartTime) {
+        this.doctorAppointmentStartTime = doctorAppointmentStartTime;
     }
 
 }

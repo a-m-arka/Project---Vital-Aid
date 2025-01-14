@@ -1,6 +1,7 @@
 package com.vital_aid_crud_api.service.ImplementationClasses;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Period;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -133,9 +134,11 @@ public class AppointmentServiceImpl implements AppointmentService {
         AppointmentDTO appointmentDTO = this.modelMapper.map(appointment, AppointmentDTO.class);
         String doctorName = appointment.getWithDoctor().getDoctorName();
         String userName = appointment.getMadeByUser().getPersonName();
+        LocalTime startTime = appointment.getWithDoctor().getConsultingTime().getStartTime();
 
         appointmentDTO.setAppointmentWith(doctorName);
         appointmentDTO.setAppointmentBy(userName);
+        appointmentDTO.setDoctorAppointmentStartTime(startTime);
         if (appointment.getPatientDob() != null) {
                 int age = Period.between(appointment.getPatientDob(), LocalDate.now()).getYears();
                 appointmentDTO.setPatientAge(age);

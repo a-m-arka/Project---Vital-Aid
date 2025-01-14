@@ -45,6 +45,10 @@ public class Appointment {
     @Column(length = 10,columnDefinition = "VARCHAR(10) DEFAULT ''")
     private String visitDay;
 
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate appointmentDate;
+
     @ManyToOne
     @JoinColumn(name = "madeByUser")
     private User madeByUser;
@@ -140,6 +144,14 @@ public class Appointment {
 
     public void setWithDoctor(Doctor withDoctor) {
         this.withDoctor = withDoctor;
+    }
+
+    public LocalDate getAppointmentDate() {
+        return this.appointmentDate;
+    }
+
+    public void setAppointmentDate(LocalDate appointmentDate) {
+        this.appointmentDate = appointmentDate;
     }
     
 }
