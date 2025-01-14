@@ -78,6 +78,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(InsufficientStockException.class)
+    public ResponseEntity<String> handleInsufficientStockException(InsufficientStockException ex) {
+        ApiResponse response = new ApiResponse(ex.getMessage(), false);
+        return new ResponseEntity<>(response.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleGeneralException(Exception ex) {
         ApiResponse response = new ApiResponse("Internal server error: " + ex.getMessage(), false);

@@ -48,16 +48,16 @@ public class MedicalStoreServiceImpl implements MedicalStoreService{
 
     @Transactional
     @Override
-    public ProductDTO addProductWithImage(ProductDTO medicalStoreDTO, MultipartFile file){
+    public ProductDTO addProductWithImage(ProductDTO productDTODTO, MultipartFile file){
         
         String adminEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         Admin storeManagingAdmin = adminRepository.findByPersonEmail(adminEmail)
                 .orElseThrow(() -> new ResourceNotFoundException("Admin", "email", adminEmail));
 
         String productPhotoUrl = imageUploadService.uploadImageToCloud(file, "vital_aid/products");
-        medicalStoreDTO.setProductPhotoUrl(productPhotoUrl);
+        productDTODTO.setProductPhotoUrl(productPhotoUrl);
 
-        Product newProduct = convertToEntity(medicalStoreDTO);
+        Product newProduct = convertToEntity(productDTODTO);
         newProduct.setStoreManagedBy(storeManagingAdmin);
 
         newProduct = medicalStoreRepository.save(newProduct);
@@ -68,14 +68,14 @@ public class MedicalStoreServiceImpl implements MedicalStoreService{
 
     @Transactional
     @Override
-    public ProductDTO addProduct(ProductDTO medicalStoreDTO){
+    public ProductDTO addProduct(ProductDTO productDTO){
                                         
     String adminEmail = SecurityContextHolder.getContext().getAuthentication().getName();
     Admin storeManagingAdmin = adminRepository.findByPersonEmail(adminEmail)
             .orElseThrow(() -> new ResourceNotFoundException("Admin", "email", adminEmail));
                                         
                                         
-    Product newProduct = convertToEntity(medicalStoreDTO);
+    Product newProduct = convertToEntity(productDTO);
     newProduct.setStoreManagedBy(storeManagingAdmin);
                                 
     newProduct = medicalStoreRepository.save(newProduct);
@@ -86,14 +86,14 @@ public class MedicalStoreServiceImpl implements MedicalStoreService{
 
     @Transactional
     @Override
-    public ProductDTO updateProductById(Long productId, ProductDTO medicalStoreDTO, MultipartFile file){
-        Product medicalStore = medicalStoreRepository.findById(productId)
+    public ProductDTO updateProductById(Long productId, ProductDTO productDTO, MultipartFile file){
+        Product product = medicalStoreRepository.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException("Medical Store", "id", productId));
         String adminEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         Admin storeManagingAdmin = adminRepository.findByPersonEmail(adminEmail)
                 .orElseThrow(() -> new ResourceNotFoundException("Admin", "email", adminEmail));
 
-        String productCurrentPhotoUrl = medicalStore.getProductPhotoUrl();
+        String productCurrentPhotoUrl = product.getProductPhotoUrl();
         if(productCurrentPhotoUrl != null && !productCurrentPhotoUrl.equals(BaseImageUrls.PRODUCT_PHOTO_BASE_URL)){
             String publicId = imageUploadService.extractPublicIdFromUrl(productCurrentPhotoUrl);
             if(publicId != null){
@@ -105,17 +105,23 @@ public class MedicalStoreServiceImpl implements MedicalStoreService{
                 }
             }
         }
+
+        int productCurrentStock = product.getProductStockQuantity();
+        int productNewStock = productDTO.getProductStockQuantity();
+        if(productCurrentStock != productNewStock){
+            product.setProductStockQuantity(productNewStock);
+        }
         
-        medicalStore.setProductName(medicalStoreDTO.getProductName());
-        medicalStore.setProductCategory(medicalStoreDTO.getProductCategory());
-        medicalStore.setProductPrice(medicalStoreDTO.getProductPrice());
+        product.setProductName(productDTO.getProductName());
+        product.setProductCategory(productDTO.getProductCategory());
+        product.setProductPrice(productDTO.getProductPrice());
 
         String productPhotoUrl = imageUploadService.uploadImageToCloud(file, "vital_aid/products");
-        medicalStore.setProductPhotoUrl(productPhotoUrl);
-        medicalStore.setStoreManagedBy(storeManagingAdmin);
+        product.setProductPhotoUrl(productPhotoUrl);
+        product.setStoreManagedBy(storeManagingAdmin);
 
-        medicalStore = medicalStoreRepository.save(medicalStore);
-        return convertToDTO(medicalStore);
+        product = medicalStoreRepository.save(product);
+        return convertToDTO(product);
     }
 
                                     // DELETE PRODUCT
@@ -150,15 +156,15 @@ public class MedicalStoreServiceImpl implements MedicalStoreService{
 
 
                                     // HELPER METHOD TO CONVERT ENTITY TO DTO
-    private ProductDTO convertToDTO(Product medicalStore){
-        ProductDTO medicalStoreDTO = productMapper.map(medicalStore, ProductDTO.class);
-        return medicalStoreDTO;
+    private ProductDTO convertToDTO(Product product){
+        ProductDTO productDTO = productMapper.map(product, ProductDTO.class);
+        return productDTO;
     }
 
                                     // HELPER METHOD TO CONVERT DTO TO ENTITY
-    private Product convertToEntity(ProductDTO medicalStoreDTO){
-        Product medicalStore = productMapper.map(medicalStoreDTO, Product.class);
-        return medicalStore;
+    private Product convertToEntity(ProductDTO productDTO){
+        Product product = productMapper.map(productDTO, Product.class);
+        return product;
     }                         
 
 }

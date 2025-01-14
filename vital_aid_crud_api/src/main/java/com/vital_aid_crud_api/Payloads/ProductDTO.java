@@ -16,6 +16,9 @@ public class ProductDTO {
     @Min(value = 0, message = "Product price can not be negative")
     private Integer productPrice;
 
+    @Min(value = 0, message = "Product stock quantity can not be negative")
+    private Integer productStockQuantity;
+
     private String productPhotoUrl;
 
     public ProductDTO() {
@@ -61,6 +64,13 @@ public class ProductDTO {
         this.productPhotoUrl = productPhotoUrl;
     }
 
+    public Integer getProductStockQuantity() {
+        return this.productStockQuantity;
+    }
+
+    public void setProductStockQuantity(Integer productStockQuantity) {
+        this.productStockQuantity = productStockQuantity;
+    }
     
 
     

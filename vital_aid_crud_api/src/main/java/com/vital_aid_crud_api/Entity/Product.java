@@ -27,6 +27,8 @@ public class Product {
 
     private Integer productPrice;
 
+    private Integer productStockQuantity;
+
     private String productPhotoUrl;
 
     @ManyToOne
@@ -93,6 +95,14 @@ public class Product {
 
     public void setProductOrders(Set<Order> productOrders) {
         this.productOrders = productOrders;
+    }
+
+    public Integer getProductStockQuantity() {
+        return this.productStockQuantity;
+    }
+
+    public void setProductStockQuantity(Integer productStockQuantity) {
+        this.productStockQuantity = productStockQuantity;
     }
 
 

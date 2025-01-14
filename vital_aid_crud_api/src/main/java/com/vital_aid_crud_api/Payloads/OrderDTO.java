@@ -7,7 +7,7 @@ public class OrderDTO {
     private Long Id;
 
     @Positive(message = "Quantity should be positive")
-    private Integer quantity;
+    private Integer orderedQuantity;
 
     @Positive(message = "Total price should be positive")
     private Integer totalPrice;
@@ -30,12 +30,12 @@ public class OrderDTO {
         this.Id = Id;
     }
 
-    public Integer getQuantity() {
-        return this.quantity;
+    public Integer getOrderedQuantity() {
+        return this.orderedQuantity;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setOrderedQuantity(Integer orderedQuantity) {
+        this.orderedQuantity = orderedQuantity;
     }
 
     public Integer getTotalPrice() {
