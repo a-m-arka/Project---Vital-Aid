@@ -9,6 +9,7 @@
     width: 65vw;
     height: 700px;
     margin: 50px auto;
+    /* background-color: red; */
 }
 
 /* name contact address description container */
@@ -19,6 +20,7 @@
     width: 65vw;
     height: 330px;
     margin: 10px 0;
+    padding: 20px 10px;
     /* background: linear-gradient(to left, #67b99a, #248277); */
     background-color: var(--4th-color);
     /* border: 5px solid var(--primary-color); */
@@ -39,6 +41,7 @@
     margin: 10px 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
     /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
 }
 
@@ -200,6 +203,30 @@
     color: var(--secondary-color);
 }
 
+.view-doctor-btn{
+    background-color: white;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    width: max-content;
+    height: max-content;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 5px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.view-doctor-btn:hover{
+    background-color: var(--secondary-color);
+    color: white;
+}
 
 @media (max-width: 1500px) {
 

@@ -11,7 +11,7 @@ export default function Appoinment() {
   const doctor = state?.doctor;
   const navigate = useNavigate();
   const [showPopUp, setShowPopUp] = useState(false);
-  const { profile } = useGlobalContext(); // Access the profile data
+  const { profile } = useGlobalContext();
   const [formData, setFormData] = useState({
     fullName: '',
     gender: '',
@@ -19,41 +19,52 @@ export default function Appoinment() {
     phone: '',
     email: '',
     day: '',
+    appointmentDate: '',
     reason: '',
     isForSelf: false,
   });
+
   const successMessage = `Appointment with ${doctor.doctorName} has been successfully booked!`;
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
     if (name === 'isForSelf') {
-      if (checked) {
-        setFormData({
-          ...formData,
-          fullName: profile.personName,
-          gender: profile.userGender,
-          dob: profile.userDob,
-          phone: profile.personPhone,
-          email: profile.personEmail,
-          isForSelf: checked,
-        });
-      } else {
-        setFormData({
-          ...formData,
-          fullName: '',
-          gender: '',
-          dob: '',
-          phone: '',
-          email: '',
-          isForSelf: checked,
-        });
-      }
+      setFormData((prev) => ({
+        ...prev,
+        fullName: checked ? profile.personName : '',
+        gender: checked ? profile.userGender : '',
+        dob: checked ? profile.userDob : '',
+        phone: checked ? profile.personPhone : '',
+        email: checked ? profile.personEmail : '',
+        isForSelf: checked,
+      }));
+    } else if (name === 'day') {
+      const nextAppointmentDate = getNextDateForDay(value);
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+        appointmentDate: nextAppointmentDate,
+      }));
     } else {
-      setFormData({
-        ...formData,
+      setFormData((prev) => ({
+        ...prev,
         [name]: type === 'checkbox' ? checked : value,
-      });
+      }));
     }
+  };
+
+  const getNextDateForDay = (day) => {
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const currentDate = new Date();
+    const currentDayIndex = currentDate.getDay();
+    const selectedDayIndex = daysOfWeek.indexOf(day);
+
+    const daysUntilNext = (selectedDayIndex - currentDayIndex + 7) % 7 || 7;
+    const nextDate = new Date();
+    nextDate.setDate(currentDate.getDate() + daysUntilNext);
+
+    return nextDate.toISOString().split('T')[0]; // Format as 'YYYY-MM-DD'
   };
 
   const handleSubmit = async (e) => {
@@ -76,17 +87,16 @@ export default function Appoinment() {
           patientEmail: formData.email,
           patientGender: formData.gender,
           reasonForVisit: formData.reason,
-          visitDay: formData.day
+          visitDay: formData.day,
+          // appointmentDate: formData.appointmentDate,
         }),
       });
 
       if (response.ok) {
-        // const appoinmentData = await response.json();
-        // console.log(appoinmentData);
         setShowPopUp(true);
       } else {
         const error = await response.text();
-        setMessage(error || 'Failed to book appoinment. Please try again.');
+        setMessage(error || 'Failed to book appointment. Please try again.');
       }
     } catch (error) {
       console.error('Error updating profile:', error);
@@ -126,7 +136,6 @@ export default function Appoinment() {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                readOnly={formData.isForSelf}
                 required
               />
               <label>Patient's Full Name:</label>
@@ -134,15 +143,17 @@ export default function Appoinment() {
           </div>
           <div className="appointment-form-row patient-gender-date-of-birth-section">
             <div className="appointment-input-data">
-              <input
-                type="text"
+              <select
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                readOnly={formData.isForSelf}
                 required
-              />
-              <label>Gender</label>
+              >
+                <option value="" disabled hidden></option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <label>Gender:</label>
             </div>
             <div className="appointment-input-data" id="dob">
               <input
@@ -154,7 +165,6 @@ export default function Appoinment() {
                   if (!e.target.value) e.target.type = 'text';
                 }}
                 onChange={handleChange}
-                readOnly={formData.isForSelf}
                 required
               />
               <label>Date of Birth:</label>
@@ -167,7 +177,6 @@ export default function Appoinment() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                readOnly={formData.isForSelf}
                 required
               />
               <label>Phone:</label>
@@ -178,7 +187,6 @@ export default function Appoinment() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                readOnly={formData.isForSelf}
                 required
               />
               <label>Email:</label>
@@ -199,8 +207,19 @@ export default function Appoinment() {
                   </option>
                 ))}
               </select>
-              <label>Day:</label>
+              <label>Appointment Day (Upcoming Week):</label>
             </div>
+            <div className="appointment-input-data">
+              <input
+                type="text"
+                name="appointmentDate"
+                value={formData.appointmentDate}
+                readOnly
+              />
+              <label>Appointment Date:</label>
+            </div>
+          </div>
+          <div className="appointment-form-row patient-name-section">
             <div className="appointment-input-data">
               <textarea
                 name="reason"
@@ -212,11 +231,9 @@ export default function Appoinment() {
               <label>Reason for Visit:</label>
             </div>
           </div>
-          {message && (
-            <p className="message">{message}</p>
-          )}
+          {message && <p className="message">{message}</p>}
           {loading ? (
-            <p className="loading-message">Booking Appoinment...</p>
+            <p className="loading-message">Booking Appointment...</p>
           ) : (
             <div className="appointment-form-row make-an-appointment-button-section">
               <div className="appointment-input-data make-an-appointment-button">

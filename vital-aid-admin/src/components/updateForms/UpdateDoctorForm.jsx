@@ -109,8 +109,8 @@ const UpdateDoctorForm = ({data}) => {
         console.log('Success');
         navigate('/doctor');
       } else {
-        const errorData = await response.json();
-        setErrorMessages(errorData.message || 'An error occurred');
+        const errorData = await response.text();
+        setErrorMessages(errorData || 'An error occurred');
       }
     } catch (error) {
       console.log('Error:', error);

@@ -18,6 +18,7 @@ import PrivateRoute from './components/PrivateRoute';
 import OrderList from './components/OrderList';
 import AppoinmentList from './components/AppoinmentList';
 import AppoinmentDetails from './components/AppoinmentDetails';
+import HospitalDoctors from './components/HospitalDoctors';
 
 // import { useGlobalContext } from './context/GlobalContext';
 import {
@@ -55,6 +56,7 @@ function App() {
           <Route path='/doctor_details' element={<DoctorDetails />}></Route>
           <Route path='/hospitals' element={<Hospitals />}></Route>
           <Route path='/hospital_details' element={<HospitalDetails />}></Route>
+          <Route path='/hospital_doctors' element={<HospitalDoctors />} />
           <Route path='/ambulance' element={<Ambulance />}></Route>
           <Route element={<PrivateRoute />}>
             <Route path='/ambulanceform' element={<AmbulanceForm />}></Route>

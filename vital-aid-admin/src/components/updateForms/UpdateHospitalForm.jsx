@@ -90,12 +90,12 @@ const UpdateHospitalForm = ({ data }) => {
         navigate('/hospital');
         // Handle success (e.g., clear form, show success message, etc.)
       } else {
-        const errorData = await response.json();
-        setErrorMessages(errorData.message || 'An error occurred');
+        const errorData = await response.text();
+        setErrorMessages(errorData || 'An error occurred');
       }
     } catch (error) {
       console.log('Error:', error);
-      setErrorMessages('Failed to submit form');
+      setErrorMessages(error || 'Failed to submit form');
     } finally {
       setLoading(false);
     }

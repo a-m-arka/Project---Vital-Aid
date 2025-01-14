@@ -44,11 +44,11 @@ const UpdateAmbulanceForm = ({ data }) => {
         navigate('/ambulance');
       } else {
         const errorData = await response.text();
-        setErrorMessages(errorData.message || 'An error occurred');
+        setErrorMessages(errorData || 'An error occurred');
       }
     } catch (error) {
       console.log('Error:', error);
-      setErrorMessages('Failed to submit form');
+      setErrorMessages(error || 'Failed to submit form');
     } finally {
       setLoading(false);  // Set loading to false after request completes
     }
