@@ -55,6 +55,11 @@ export default function HospitalDetails() {
                                 {hospital.hospitalLocation}
                             </span>
                         </div>
+                        <div className="hospital-address-section">
+                            <span className="address-of-the-hospital">
+                                {hospital.hospitalCity}
+                            </span>
+                        </div>
                         <div className="hopital-contact-phone-section">
                             <span className="phone-number">
                                 {hospital.hospitalContact}

@@ -11,6 +11,7 @@ const UpdateHospitalForm = ({ data }) => {
   const [formData, setFormData] = useState({
     hospitalName: data.hospitalName || '',
     hospitalLocation: data.hospitalLocation || '',
+    hospitalCity: data.hospitalCity || '',
     hospitalContact: data.hospitalContact || '',
     hospitalEmail: data.hospitalEmail || '',
     totalGeneralBeds: data.totalGeneralBeds || '',
@@ -46,7 +47,7 @@ const UpdateHospitalForm = ({ data }) => {
     setLoading(true);
 
     const token = localStorage.getItem('adminToken');
-    const { hospitalName, hospitalLocation, hospitalContact, hospitalEmail, totalGeneralBeds, totalIcuBeds, totalVentilators, hospitalFacilities } = formData;
+    const { hospitalName, hospitalLocation, hospitalCity, hospitalContact, hospitalEmail, totalGeneralBeds, totalIcuBeds, totalVentilators, hospitalFacilities } = formData;
     const { hospitalFile } = img ? { hospitalFile: img } : {};
 
     try {
@@ -60,6 +61,7 @@ const UpdateHospitalForm = ({ data }) => {
             JSON.stringify({
               hospitalName,
               hospitalLocation,
+              hospitalCity,
               hospitalContact,
               hospitalEmail,
               totalGeneralBeds: parseInt(totalGeneralBeds, 10),
@@ -103,7 +105,8 @@ const UpdateHospitalForm = ({ data }) => {
 
   const inputFields = [
     ["hospitalName", "Hospital Name"],
-    ["hospitalLocation", "Hospital Location"],
+    ["hospitalLocation", "Hospital Address"],
+    ["hospitalCity", "Hospital City"],
     ["hospitalContact", "Hospital Contact"],
     ["hospitalEmail", "Hospital Email"],
     ["totalGeneralBeds", "Total General Beds"],

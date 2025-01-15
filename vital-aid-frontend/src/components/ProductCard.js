@@ -83,81 +83,83 @@ const ProductCard = ({ product, onOrderConfirmed, onUnauthorizedOrder }) => {
     setUserLocation(e.target.value);
   };
 
-  return (
-    <div className="medical-store-card-main-container">
-      <div className="product-photo-container">
-        <div className="product-photo-box">
-          <img src={product.productPhotoUrl} alt="" />
+  if (product.productStockQuantity > 0) {
+    return (
+      <div className="medical-store-card-main-container">
+        <div className="product-photo-container">
+          <div className="product-photo-box">
+            <img src={product.productPhotoUrl} alt="" />
+          </div>
         </div>
-      </div>
-      <div className="product-info-and-button-container">
+        <div className="product-info-and-button-container">
 
-        <div className="product-name-section">
-          <span className="product-name">{product.productName}</span>
-        </div>
-        <div className="product-category-section">
-          <span className="product-heading">Category:</span>
-          <span className="product-Category">{product.productCategory}</span>
-        </div>
+          <div className="product-name-section">
+            <span className="product-name">{product.productName}</span>
+          </div>
+          <div className="product-category-section">
+            <span className="product-heading">Category:</span>
+            <span className="product-Category">{product.productCategory}</span>
+          </div>
 
-        <div className="product-stock-number-section">
-          <span className="product-heading">Stock</span>
-          <span className="product-stock-number">{product.productStockQuantity}</span>
-        </div>
+          <div className="product-stock-number-section">
+            <span className="product-heading">Stock:</span>
+            <span className="product-stock-number">{product.productStockQuantity}</span>
+          </div>
 
-        <div className="product-price-section">
-          <span className="product-heading">Price:</span>
-          <span className="product-price">{`BDT ${product.productPrice}`}</span>
-        </div>
-        {isOdered && (
-          <div className="oreder-section">
-            <div className="order-quantity-section">
-              <div className="quantity-title">Quantity:</div>
-              <div className="quantity-value-change">
-                <div className="minus" onClick={handleMinus}>-</div>
-                <div className="quantity-value">{quantity}</div>
-                <div className="plus" onClick={handlePlus}>+</div>
+          <div className="product-price-section">
+            <span className="product-heading">Price:</span>
+            <span className="product-price">{`BDT ${product.productPrice}`}</span>
+          </div>
+          {isOdered && (
+            <div className="oreder-section">
+              <div className="order-quantity-section">
+                <div className="quantity-title">Quantity:</div>
+                <div className="quantity-value-change">
+                  <div className="minus" onClick={handleMinus}>-</div>
+                  <div className="quantity-value">{quantity}</div>
+                  <div className="plus" onClick={handlePlus}>+</div>
+                </div>
+              </div>
+              <div className="total-price-section">
+                <div className="total-price-title">Total Price:</div>
+                <div className="total-price-value">{`BDT ${totalPrice}`}</div>
+              </div>
+              <div className="user-loction-section">
+                <div className="user-location-title">Location:</div>
+                <input type="text" className="user-location" value={userLocation} onChange={handleLocationChange} />
+              </div>
+              <div className="order-error-message">
+                {error && <span>{error}</span>}
               </div>
             </div>
-            <div className="total-price-section">
-              <div className="total-price-title">Total Price:</div>
-              <div className="total-price-value">{`BDT ${totalPrice}`}</div>
-            </div>
-            <div className="user-loction-section">
-              <div className="user-location-title">Location:</div>
-              <input type="text" className="user-location" value={userLocation} onChange={handleLocationChange} />
-            </div>
-            <div className="order-error-message">
-              {error && <span>{error}</span>}
-            </div>
+          )}
+          <div className="cart-and-buy-now-button-section">
+            {(!isOdered) && (
+              <div className="buy-now-button-section">
+                <button className="buy-now-button" onClick={handleOrder}>Order</button>
+              </div>
+            )}
+            {isOdered && (
+              <>
+                {loading ? (
+                  <p className="loading-message">Placing Order...</p>
+                ) : (
+                  <>
+                    <div className="buy-now-button-section">
+                      <button className="buy-now-button" onClick={handleConfirmOrder}>Place Order</button>
+                    </div>
+                    <div className="cancel-order-button-section">
+                      <button className="cancel-order-button" onClick={handleCancelOrder}>Cancel Order</button>
+                    </div>
+                  </>
+                )}
+              </>
+            )}
           </div>
-        )}
-        <div className="cart-and-buy-now-button-section">
-          {!isOdered && (
-            <div className="buy-now-button-section">
-              <button className="buy-now-button" onClick={handleOrder}>Order</button>
-            </div>
-          )}
-          {isOdered && (
-            <>
-              {loading ? (
-                <p className="loading-message">Placing Order...</p>
-              ) : (
-                <>
-                  <div className="buy-now-button-section">
-                    <button className="buy-now-button" onClick={handleConfirmOrder}>Place Order</button>
-                  </div>
-                  <div className="cancel-order-button-section">
-                    <button className="cancel-order-button" onClick={handleCancelOrder}>Cancel Order</button>
-                  </div>
-                </>
-              )}
-            </>
-          )}
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default ProductCard;

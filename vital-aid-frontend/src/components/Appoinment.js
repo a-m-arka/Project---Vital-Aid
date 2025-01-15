@@ -88,7 +88,7 @@ export default function Appoinment() {
           patientGender: formData.gender,
           reasonForVisit: formData.reason,
           visitDay: formData.day,
-          // appointmentDate: formData.appointmentDate,
+          appointmentDate: formData.appointmentDate,
         }),
       });
 
@@ -207,7 +207,7 @@ export default function Appoinment() {
                   </option>
                 ))}
               </select>
-              <label>Appointment Day (Upcoming Week):</label>
+              <label>Appointment Day (Upcoming 7 Days):</label>
             </div>
             <div className="appointment-input-data">
               <input

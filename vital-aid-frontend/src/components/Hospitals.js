@@ -43,7 +43,7 @@ export default function Hospitals() {
     const matchesSearch = hospital.hospitalName.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesFilters = filters.every((filter, index) => {
       if (selectedValues[index] === '') return true; // No filter selected
-      if (filter.name === 'Location') return hospital.hospitalLocation === selectedValues[index];
+      if (filter.name === 'Location') return hospital.hospitalCity === selectedValues[index];
       return true;
     });
     return matchesSearch && matchesFilters;
@@ -90,7 +90,7 @@ export default function Hospitals() {
                 <div className="hospital-data">
                   <p>
                     <span id="hospital-name">{hospital.hospitalName}</span><br />
-                    <span id="hospital-location">{hospital.hospitalLocation}</span>
+                    <span id="hospital-location">{hospital.hospitalCity}</span>
                   </p>
                 </div>
                 <div className="hospital-btn">
