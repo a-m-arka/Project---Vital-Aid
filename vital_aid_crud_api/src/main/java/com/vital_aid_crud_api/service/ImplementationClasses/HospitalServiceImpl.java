@@ -55,7 +55,7 @@ public class HospitalServiceImpl implements HospitalService {
         return hospitalDTOs;
     }
 
-                                            // ALL DOCTORS OF A HOSPITAL
+                                                // ALL DOCTORS OF A HOSPITAL
 
     @Transactional
     @Override
@@ -153,6 +153,7 @@ public class HospitalServiceImpl implements HospitalService {
         hospital.setTotalIcuBeds(hospitalDTO.getTotalIcuBeds());
         hospital.setTotalVentilators(hospitalDTO.getTotalVentilators());
         hospital.setHospitalFacilities(hospitalDTO.getHospitalFacilities());
+        hospital.setHospitalCity(hospitalDTO.getHospitalCity());
 
         String hospitalPhotoUrl = cloudinaryImageUploadService.uploadImageToCloud(file, "vital_aid/hospitals");
         hospital.setHospitalPhotoUrl(hospitalPhotoUrl);
@@ -185,6 +186,7 @@ public class HospitalServiceImpl implements HospitalService {
         hospital.setTotalIcuBeds(hospitalDTO.getTotalIcuBeds());
         hospital.setTotalVentilators(hospitalDTO.getTotalVentilators());
         hospital.setHospitalFacilities(hospitalDTO.getHospitalFacilities());
+        hospital.setHospitalCity(hospitalDTO.getHospitalCity());
         hospital.setHospitalManagedBy(admin);
 
         Hospital updatedHospital = hospitalRepository.save(hospital);

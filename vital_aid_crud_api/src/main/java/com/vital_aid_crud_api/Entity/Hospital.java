@@ -38,6 +38,9 @@ public class Hospital {
     @Column(length = 100,columnDefinition = "VARCHAR(100) DEFAULT ''")
     private String hospitalEmail;
 
+    @Column(length = 20,columnDefinition = "VARCHAR(20) DEFAULT ''")
+    private String hospitalCity;
+
     @Column(nullable = true, length = 500, columnDefinition = "VARCHAR(500) DEFAULT ''")
     private String hospitalPhotoUrl; // Optional field for storing the image URL
 
@@ -164,7 +167,15 @@ public class Hospital {
         this.hospitalManagedBy = hospitalManagedBy;
     }
 
-    
+    public String getHospitalCity() {
+        return this.hospitalCity;
+    }
+
+    public void setHospitalCity(String hospitalCity) {
+        this.hospitalCity = hospitalCity;
+    }
+
+
     @Override
     public String toString() {
         return "{" +
@@ -173,9 +184,18 @@ public class Hospital {
             ", hospitalLocation='" + getHospitalLocation() + "'" +
             ", hospitalContact='" + getHospitalContact() + "'" +
             ", hospitalEmail='" + getHospitalEmail() + "'" +
-            ", hospitalPhotoUrl='" + getHospitalPhotoUrl() + "'"  +
+            ", hospitalCity='" + getHospitalCity() + "'" +
+            ", hospitalPhotoUrl='" + getHospitalPhotoUrl() + "'" +
+            ", totalGeneralBeds='" + getTotalGeneralBeds() + "'" +
+            ", totalIcuBeds='" + getTotalIcuBeds() + "'" +
+            ", totalVentilators='" + getTotalVentilators() + "'" +
+            ", hospitalFacilities='" + getHospitalFacilities() + "'" +
+            ", doctors='" + getDoctors() + "'" +
+            ", hospitalManagedBy='" + getHospitalManagedBy() + "'" +
             "}";
     }
+    
+    
 
 
 }

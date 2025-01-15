@@ -18,6 +18,8 @@ public class HospitalDTO {
 
     private String hospitalLocation;
 
+    private String hospitalCity;
+
     @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "Invalid contact number")
     private String hospitalContact;
 
@@ -128,6 +130,14 @@ public class HospitalDTO {
 
     public void setHospitalTotalDoctor(Integer hospitalTotalDoctor) {
         this.hospitalTotalDoctor = hospitalTotalDoctor;
+    }
+
+    public String getHospitalCity() {
+        return this.hospitalCity;
+    }
+
+    public void setHospitalCity(String hospitalCity) {
+        this.hospitalCity = hospitalCity;
     }
 
 }
