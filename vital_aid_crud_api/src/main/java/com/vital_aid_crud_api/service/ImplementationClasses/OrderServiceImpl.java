@@ -79,7 +79,6 @@ public class OrderServiceImpl implements OrderService {
                             orElseThrow(() -> new ResourceNotFoundException("User", "email", userEmail));
         Product orderedProduct = productRepository.findById(productId).
                             orElseThrow(() -> new ResourceNotFoundException("Product", "id", productId));
-        
         int productCurrentStock = orderedProduct.getProductStockQuantity();
         int orderedQuantity = orderDTO.getOrderedQuantity();
         if(productCurrentStock < orderedQuantity) {
@@ -87,7 +86,7 @@ public class OrderServiceImpl implements OrderService {
         }
 
         orderedProduct.setProductStockQuantity(productCurrentStock - orderedQuantity);
-
+        
         Order order = convertToEntity(orderDTO);
         order.setOrderMadeByUser(madeByUser);
         order.setOrderMadeForProduct(orderedProduct);
@@ -103,14 +102,19 @@ public class OrderServiceImpl implements OrderService {
     public void deleteOrder(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(
                         ()-> new ResourceNotFoundException("Order", "id", orderId));
-
+        
         User madeByUser = order.getOrderMadeByUser();
         madeByUser.getMadeOrders().remove(order);
         userRepository.save(madeByUser);
-                
+
         Product madeForProduct = order.getOrderMadeForProduct();
         madeForProduct.getProductOrders().remove(order);
+        
+        int orderedQuantity = order.getOrderedQuantity();
+        int productCurrentStock = madeForProduct.getProductStockQuantity();
+        madeForProduct.setProductStockQuantity(productCurrentStock + orderedQuantity);
         productRepository.save(madeForProduct);
+
         
         orderRepository.delete(order);
     }
