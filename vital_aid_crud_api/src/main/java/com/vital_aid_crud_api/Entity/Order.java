@@ -14,7 +14,7 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     private Long oderId;
     private Integer orderedQuantity;
     private Integer totalPrice;
@@ -30,7 +30,6 @@ public class Order {
 
     public Order() {
     }
-
 
     public Long getOderId() {
         return this.oderId;
@@ -79,5 +78,4 @@ public class Order {
     public void setOrderMadeForProduct(Product orderMadeForProduct) {
         this.orderMadeForProduct = orderMadeForProduct;
     }
-    
 }

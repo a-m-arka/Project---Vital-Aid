@@ -11,7 +11,8 @@ const AddProductForm = () => {
     const [formData, setFormData] = useState({
         productName: '',
         productCategory: '', 
-        productPrice: ''
+        productPrice: '',
+        stock: '',
     });
     const [loading, setLoading] = useState(false);  // Added loading state
 
@@ -33,7 +34,7 @@ const AddProductForm = () => {
         setLoading(true); 
 
         const token = localStorage.getItem('adminToken');
-        const { productName, productCategory, productPrice } = formData;
+        const { productName, productCategory, productPrice, stock } = formData;
         const { productFile } = img ? { productFile: img } : {};
 
         try {
@@ -46,7 +47,8 @@ const AddProductForm = () => {
                         JSON.stringify({
                             productName,
                             productCategory,
-                            productPrice: parseInt(productPrice, 10) 
+                            productPrice: parseInt(productPrice, 10),
+                            productStockQuantity: parseInt(stock, 10),
                         })
                     ],
                     { type: 'application/json' }
@@ -83,7 +85,8 @@ const AddProductForm = () => {
     const inputFields = [
         ["productName", "Product Name"],
         ["productCategory", "Product Category"],
-        ["productPrice", "Product Price"]
+        ["productPrice", "Product Price"],
+        ["stock", "Stock"]
     ];
 
     return (

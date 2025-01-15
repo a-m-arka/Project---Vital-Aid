@@ -46,7 +46,7 @@ const ProductCard = ({ product, onOrderConfirmed, onUnauthorizedOrder }) => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            quantity: quantity,
+            orderedQuantity: quantity,
             totalPrice: totalPrice,
             location: userLocation
           }),
@@ -57,10 +57,11 @@ const ProductCard = ({ product, onOrderConfirmed, onUnauthorizedOrder }) => {
           onOrderConfirmed();
         } else {
           const error = await response.text();
-          setError(error || 'Failed to book appoinment. Please try again.');
+          console.log(error);
+          setError(error || 'Failed to order product. Please try again.');
         }
       } catch (error) {
-        console.error('Error updating profile:', error);
+        console.error('Error ordering product:', error);
         setError(error.message);
       } finally {
         setLoading(false);
@@ -69,8 +70,8 @@ const ProductCard = ({ product, onOrderConfirmed, onUnauthorizedOrder }) => {
   };
 
   const handlePlus = () => {
-    setQuantity(quantity + 1);
-    setTotalPrice(product.productPrice * (quantity + 1));
+    setQuantity(Math.min(quantity + 1, product.productStockQuantity));
+    setTotalPrice(product.productPrice * Math.min(quantity + 1, product.productStockQuantity));
   };
 
   const handleMinus = () => {
@@ -99,10 +100,10 @@ const ProductCard = ({ product, onOrderConfirmed, onUnauthorizedOrder }) => {
           <span className="product-Category">{product.productCategory}</span>
         </div>
 
-        {/* <div className="product-stock-number-section">
+        <div className="product-stock-number-section">
           <span className="product-heading">Stock</span>
-          <span className="product-stock-number">{product.product_quantity}</span>
-        </div> */}
+          <span className="product-stock-number">{product.productStockQuantity}</span>
+        </div>
 
         <div className="product-price-section">
           <span className="product-heading">Price:</span>
