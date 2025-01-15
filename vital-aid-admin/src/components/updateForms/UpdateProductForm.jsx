@@ -11,7 +11,8 @@ const UpdateProductForm = ({ data }) => {
   const [formData, setFormData] = useState({
     productName: data.productName,
     productCategory: data.productCategory,
-    productPrice: data.productPrice
+    productPrice: data.productPrice,
+    productStockQuantity: data.productStockQuantity || 0
   });
   const [loading, setLoading] = useState(false);
 
@@ -39,7 +40,7 @@ const UpdateProductForm = ({ data }) => {
     setLoading(true);
 
     const token = localStorage.getItem('adminToken');
-    const { productName, productCategory, productPrice } = formData;
+    const { productName, productCategory, productPrice, productStockQuantity } = formData;
 
     try {
       const multipartFormData = new FormData();
@@ -52,6 +53,7 @@ const UpdateProductForm = ({ data }) => {
               productName,
               productCategory,
               productPrice: parseInt(productPrice, 10),
+              productStockQuantity: parseInt(productStockQuantity, 10)
             }),
           ],
           { type: 'application/json' }
@@ -97,7 +99,8 @@ const UpdateProductForm = ({ data }) => {
   const inputFields = [
     ["productName", "Product Name"],
     ["productCategory", "Product Category"],
-    ["productPrice", "Product Price"]
+    ["productPrice", "Product Price"],
+    ["productStockQuantity", "Stock"]
   ];
 
   return (

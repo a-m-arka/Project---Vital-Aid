@@ -14,9 +14,9 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     private Long oderId;
-    private Integer quantity;
+    private Integer orderedQuantity;
     private Integer totalPrice;
     private String location;
 
@@ -31,7 +31,6 @@ public class Order {
     public Order() {
     }
 
-
     public Long getOderId() {
         return this.oderId;
     }
@@ -40,12 +39,12 @@ public class Order {
         this.oderId = oderId;
     }
 
-    public Integer getQuantity() {
-        return this.quantity;
+    public Integer getOrderedQuantity() {
+        return this.orderedQuantity;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setOrderedQuantity(Integer orderedQuantity) {
+        this.orderedQuantity = orderedQuantity;
     }
 
     public Integer getTotalPrice() {
@@ -79,5 +78,4 @@ public class Order {
     public void setOrderMadeForProduct(Product orderMadeForProduct) {
         this.orderMadeForProduct = orderMadeForProduct;
     }
-    
 }

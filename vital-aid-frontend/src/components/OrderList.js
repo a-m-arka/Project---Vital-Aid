@@ -93,7 +93,7 @@ const OrderList = () => {
                     <div className="details">
                       <div className="attribute">Quantity</div>
                       <div className="colon">:</div>
-                      <div className="attribute-value">{order.quantity}</div>
+                      <div className="attribute-value">{order.orderedQuantity}</div>
                     </div>
                     <div className="details">
                       <div className="attribute">Total Price</div>
