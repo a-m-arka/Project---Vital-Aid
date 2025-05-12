@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  color: #6b46c1;
+  margin-bottom: 2px;
+}
+
+.sidebar h1 {
+  color: #6b46c1;
+  margin-bottom: 20px;
+}
+
+.sidebar h4 {
+  margin: 20px 0 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.sidebar li {
+  padding: 8px 0;
+  color: #444;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.sidebar li:hover {
+  background-color: #b6b6b6;
+  border-radius: 4px;
+}
+
+.sidebar li.active {
+  background-color: #6b46c1;
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+}
+
+.main-content h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.patients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.patient-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.patient-card:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.patient-card h2 {
+  color: #6b46c1;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.patient-card p {
+  color: #555;
+  margin: 5px 0;
+}

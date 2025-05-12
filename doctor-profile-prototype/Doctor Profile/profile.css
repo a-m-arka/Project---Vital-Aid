@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    color: #6b46c1;
+    margin-bottom: 2px;
+}
+
+.sidebar h1 {
+    color: #6b46c1;
+    margin-bottom: 20px;
+}
+
+.sidebar h4 {
+    margin: 20px 0 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.sidebar li {
+    padding: 8px 0;
+    color: #444;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.sidebar li:hover {
+    background-color: #b6b6b6;
+    border-radius: 4px;
+}
+
+.sidebar li.active {
+    background-color: #6b46c1;
+    color: white;
+}
+
+.singleContainer {
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 50px;
+  margin-top: 20px;
+}
+
+.singleContainer .top {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.singleContainer .top h1 {
+  flex: 12;
+  color: rgb(83, 82, 82);
+}
+
+.singleContainer .top .updateButton {
+  background-color: darkgreen;
+  color: white;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+.singleContainer .top .updateButton:hover {
+  background-color: rgb(5, 157, 5);
+}
+
+.singleContainer .imgSection {
+  width: 100%;
+  flex: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.singleContainer .imgSection img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+              rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.singleContainer .detailSection {
+  width: 80%;
+  height: max-content;
+  flex: 6;
+  border: 0.5px solid lightgray;
+  margin-top: 20px;
+}
+
+.singleContainer .detailSection ul {
+  padding: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.singleContainer .detailSection ul li {
+  display: flex;
+  flex-direction: row;
+}
+
+.singleContainer .detailSection ul li .key {
+  flex: 2;
+  font-size: 20px;
+  color: gray;
+}
+
+.singleContainer .detailSection ul li .colon {
+  flex: 0.2;
+  font-size: 20px;
+  color: gray;
+}
+
+.singleContainer .detailSection ul li .value {
+  flex: 5;
+  font-size: 24px;
+  color: rgb(82, 81, 81);
+}

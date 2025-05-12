@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctor Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Vital Aid</h2>
+      <h1>Doctor</h1>
+      <nav>
+        <h4>Main</h4>
+        <ul>
+          <li class="active">Dashboard</li>
+        </ul>
+        <h4>My Work</h4>
+        <ul>
+          <li>Appointments</li>
+          <li>Patients</li>
+          <li>Prescriptions</li>
+        </ul>
+        <h4>Account</h4>
+        <ul>
+          <li>Profile</li>
+          <li>Logout</li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="dashboard">
+      <div class="card blue">
+        <div>
+          <h3>APPOINTMENTS</h3>
+          <p class="count">8</p>
+          <a href="#">View Appointments</a>
+        </div>
+        <div class="icon">📅</div>
+      </div>
+      <div class="card green">
+        <div>
+          <h3>PATIENTS</h3>
+          <p class="count">15</p>
+          <a href="#">View Patients</a>
+        </div>
+        <div class="icon">🧑‍🤝‍🧑</div>
+      </div>
+      <div class="card purple">
+        <div>
+          <h3>PRESCRIPTIONS</h3>
+          <p class="count">12</p>
+          <a href="#">View Prescriptions</a>
+        </div>
+        <div class="icon">💊</div>
+      </div>
+
+      <div class="appointments-list">
+        <h2>Upcoming Appointments</h2>
+        <ul>
+          <li>
+            <span>May 12, 10:00 AM</span>
+            <span>John Doe - Fever</span>
+          </li>
+          <li>
+            <span>May 12, 11:30 AM</span>
+            <span>Jane Smith - Headache</span>
+          </li>
+          <li>
+            <span>May 13, 09:00 AM</span>
+            <span>Sam Wilson - Checkup</span>
+          </li>
+          <li>
+            <span>May 13, 01:00 PM</span>
+            <span>Emily Brown - Allergy</span>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
