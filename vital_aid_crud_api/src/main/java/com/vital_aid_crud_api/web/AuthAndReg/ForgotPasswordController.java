@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vital_aid_crud_api.Payloads.ChangePasswordDTO;
 import com.vital_aid_crud_api.Payloads.ForgetPasswordDTO;
 import com.vital_aid_crud_api.service.Interfaces.AdminService;
+import com.vital_aid_crud_api.service.Interfaces.DoctorService;
 import com.vital_aid_crud_api.service.Interfaces.UserService;
 
 import jakarta.validation.Valid;
@@ -22,6 +23,9 @@ public class ForgotPasswordController {
 
     @Autowired
     private AdminService adminService;
+
+    @Autowired
+    private DoctorService doctorService;
 
                                         // FOR ADMIN
 
@@ -71,6 +75,31 @@ public class ForgotPasswordController {
     @PostMapping("/resetPassword")
     public ResponseEntity<String> resetPassword(@Valid @RequestBody ChangePasswordDTO dto) {
         userService.resetPassword(dto.getNewPassword(), dto.getConfirmPassword());
+        return ResponseEntity.ok("Password has been reset successfully.");
+    }
+
+
+
+
+                                                // FOR DOCTOR
+    // Step 1: Send verification code
+    @PostMapping("/doctor/sendCode")
+    public ResponseEntity<String> doctorSendVerificationCode(@Valid @RequestBody ForgetPasswordDTO dto) {
+        doctorService.sendVerificationCode(dto.getEmail());
+        return ResponseEntity.ok("Verification code sent to your email.");
+    }
+
+    // Step 2: Validate OTP
+    @PostMapping("/doctor/validateOtp")
+    public ResponseEntity<String> doctorValidateOtp(@Valid @RequestBody ForgetPasswordDTO dto) {
+        doctorService.validateOtp(dto.getOtp());
+        return ResponseEntity.ok("OTP verrified successfully.");
+    }
+
+    // Step 3: Reset Password
+    @PostMapping("/doctor/resetPassword")
+    public ResponseEntity<String> doctorResetPassword(@Valid @RequestBody ChangePasswordDTO dto) {
+        doctorService.resetPassword(dto.getNewPassword(), dto.getConfirmPassword());
         return ResponseEntity.ok("Password has been reset successfully.");
     }
 }

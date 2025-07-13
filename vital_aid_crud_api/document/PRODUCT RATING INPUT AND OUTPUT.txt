@@ -1,0 +1,209 @@
+// 1. LIST OF ALL RATINGS A LOGGED IN USER MADE (Access - only User)
+api url -> localhost:8080/vital_aid/productRating/ratingsMadeByUser 
+
+OUTPUT ->
+[
+    {
+        "productRatingId": 2,
+        "rating": 3.0,
+        "review": "A good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    },
+    {
+        "productRatingId": 6,
+        "rating": 3.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "Face Mask"
+    },
+    {
+        "productRatingId": 7,
+        "rating": 2.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "Napa"
+    },
+    {
+        "productRatingId": 8,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    },
+    {
+        "productRatingId": 10,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    },
+    {
+        "productRatingId": 11,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    }
+]
+
+========================================================================================================
+// 2. LIST OF ALL RATINGS MADE BY USER ID (Access - only Admin)
+api url -> localhost:8080/vital_aid/productRating/ratingsMadeByUserId/{Id}
+
+// Id -> personId(User)
+
+OUTPUT ->
+[
+    {
+        "productRatingId": 2,
+        "rating": 3.0,
+        "review": "A good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    },
+    {
+        "productRatingId": 6,
+        "rating": 3.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "Face Mask"
+    },
+    {
+        "productRatingId": 7,
+        "rating": 2.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "Napa"
+    },
+    {
+        "productRatingId": 8,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    },
+    {
+        "productRatingId": 10,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    },
+    {
+        "productRatingId": 11,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    }
+]
+
+========================================================================================================
+// 3. LIST OF ALL RATINGS MADE FOR A PARTICULAR PRODUCT (Access - Admin and User)
+
+api url -> localhost:8080/vital_aid/productRating/ratingsForProduct/{Id}
+
+//Id -> productId
+
+OUTPUT ->
+[
+    {
+        "productRatingId": 2,
+        "rating": 3.0,
+        "review": "A good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    },
+    {
+        "productRatingId": 8,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    },
+    {
+        "productRatingId": 10,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    },
+    {
+        "productRatingId": 11,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+    }
+]
+
+========================================================================================================
+// 4. RATE A PRODUCT (Access - only User)
+api url -> localhost:8080/vital_aid/productRating/rateProduct/{Id}
+
+// Id -> productId
+
+INPUT ->
+{
+    "rating":5,
+    "review":"A very good product"
+}
+
+OUTPUT ->
+{
+        "productRatingId": 11,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+}
+========================================================================================================
+// 5. UPDATE RATING OF A PRODUCT (Access - only User)
+
+api url -> localhost:8080/vital_aid/productRating/updateProductRating/{Id}
+
+// Id -> productRatingId
+INPUT ->
+{
+    "rating":5,
+    "review":"A very good product"
+}
+
+OUTPUT ->
+{
+        "productRatingId": 11,
+        "rating": 5.0,
+        "review": "A very good product",
+        "productRatedByUserName": "Fahim",
+        "pRatingForProductName": "sergel"
+}
+========================================================================================================
+// 6. DELETE RATING OF A PRODUCT (Access - only User)
+
+api url -> localhost:8080/vital_aid/productRating/deleteProductRating/{Id}
+
+// Id -> productRatingId
+
+OUTPUT -> 
+"Product rating deleted successfully"
+
+========================================================================================================
+// 7. RATINGS OF A PRODUCT (Access - Admin and User)
+
+api url -> localhost:8080/vital_aid/productRating/getProductRatingById/{Id}
+
+// Id -> productId
+
+OUTPUT ->
+{
+    "id": 4,
+    "productName": "sergel",
+    "productCategory": "Medicine",
+    "productPrice": 22,
+    "productStockQuantity": 100,
+    "productPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735576951/vital_aid/products/cwpcewrh9vk6k9o3jblc.png",
+    "productAverageRating": 4.5
+}
+
+========================================================================================================

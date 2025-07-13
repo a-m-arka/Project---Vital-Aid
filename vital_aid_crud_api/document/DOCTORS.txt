@@ -1,162 +1,341 @@
-                                                //  1. REGISTERING A NEW DOCTOR INPUT WITOUT IMAGE //
+                                                // 1. REGISTERING A NEW DOCTOR INPUT //
 
-                                (CONTENT TYPE -> application/json)
-                                KEY -> "doctorDTO",
+                    api url -> localhost:8080/vital_aid/doctor/register
 
-                      VALUE->   {
-                                    "doctorName": "Dr. Zahirul Iqbal",
-                                    "doctorEmail": "zahirul.iqbal@example.com",
-                                    "doctorPhone": "01312347890",
-                                    "hospitalName": "Chittagong Medical College Hospital",
-                                    "doctorFee": 3200,
-                                    "specializationField": "Oncologist",
-                                    "doctorSpecialization": ["Cancer Specialist"],
-                                    "consultationDays": ["Friday", "Sunday"],
-                                    "consultingTime": {
-                                        "startTime": "09:00",
-                                        "endTime": "12:00"
-                                    },
-                                    "doctorGender": "Male",
-                                    "doctorCity": "Sylhet"
-                                }
+                    INPUT ->
+                           {
+                                "personName": "Dr. Abedin",
+                                "personEmail": "abedin@example.com",
+                                "personPhone": "01745678902",
+                                "loginPassword": "Abedin11!",
+                                "confirmPassword": "Abedin11!",
+                                "hospitalName": "Dhaka Medical College Hospital",
+                                "doctorFee": 1800,
+                                "specializationField": "Orthopedic Surgeon",
+                                "doctorSpecialization": [
+                                    "Bone Specialist",
+                                    "Arthroscopic Surgery"
+                                ],
+                                "consultationDays": [
+                                    "Tuesday",
+                                    "Thursday",
+                                    "Saturday"
+                                ],
+                                "consultingTime": {
+                                    "startTime": "16:00",
+                                    "endTime": "19:00"
+                                },
+                                "doctorGender": "Male",
+                                "doctorCity": "Dhaka"
+                            }
 
+===================================================================================================================
 
+                                                // 2. UPDATE DOCTOR DETAILS INPUT (DOCTOR)
+                        api url -> localhost:8080/vital_aid/doctors/updateDoctorProfile
 
-
-                                                //  2. REGISTERING A NEW DOCTOR INPUT WITH IMAGE //
-
-                                (CONTENT TYPE -> application/json)
-                                KEY -> "doctorDTO",
-
-                      VALUE->   {
-                                    "doctorName": "Dr. Zahirul Iqbal",
-                                    "doctorEmail": "zahirul.iqbal@example.com",
-                                    "doctorPhone": "01312347890",
-                                    "hospitalName": "Chittagong Medical College Hospital",
-                                    "doctorFee": 3200,
-                                    "specializationField": "Oncologist",
-                                    "doctorSpecialization": ["Cancer Specialist"],
-                                    "consultationDays": ["Friday", "Sunday"],
-                                    "consultingTime": {
-                                        "startTime": "09:00",
-                                        "endTime": "12:00"
-                                    },
-                                    "doctorGender": "Male",
-                                    "doctorCity": "Sylhet"
-                                }
-                                
-
-                                (CONTENT TYPE -> multipart/form-data)                
-                                KEY -> "file",
-
-                                VALUE->   ACTUAL PHOTO
-
-
-
-                                                // 3. UPDATE DOCTOR DETAILS INPUT
-                                
-                                (CONTENT TYPE -> application/json)
-                                KEY -> "doctorDTO",
-
-                      VALUE->   {
-                                    "doctorName": "Dr. Zahirul Iqbal",
-                                    "doctorEmail": "zahirul.iqbal@example.com",
-                                    "doctorPhone": "01312347890",
-                                    "hospitalName": "Chittagong Medical College Hospital",
-                                    "doctorFee": 3200,
-                                    "specializationField": "Oncologist",
-                                    "doctorSpecialization": ["Cancer Specialist"],
-                                    "consultationDays": ["Friday", "Sunday"],
-                                    "consultingTime": {
-                                        "startTime": "09:00",
-                                        "endTime": "12:00"
-                                    },
-                                    "doctorGender": "Male",
-                                    "doctorCity": "Sylhet"
-                                }
-                                
-
-                                (CONTENT TYPE -> multipart/form-data)                
-                                KEY -> "file",
-
-                                VALUE->   ACTUAL PHOTO
-
-
-
-                                                //  4. DOCTOR PROFILE DETAILS OUTPUT    //
+                        OUTPUT->
 
                                 {
-                                    "doctorName": "Dr. Zahirul Iqbal",
-                                    "doctorEmail": "zahirul.iqbal@example.com",
-                                    "doctorPhone": "01312347890",
-                                    "doctorFee": 3200,
+                                    "personName": "Dr. Mohammad Zainul Abedin",
+                                    "personEmail": "abedin@example.com",
+                                    "personPhone": "01745678902",
+                                    "availabilityStatus": "Available",
+                                    "doctorFee": 1800,
+                                    "doctorAverageRating": 5.0,
                                     "doctorGender": "Male",
-                                    "doctorCity": "Sylhet",
-                                    "specializationField": "Oncologist",
-                                    "doctorPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+                                    "doctorCity": "Chittagong",
+                                    "specializationField": "Orthopedic Surgeon",
+                                    "doctorProfileImageUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
                                     "doctorSpecialization": [
-                                        "Cancer Specialist"
+                                        "Bone Specialist",
+                                        "Arthroscopic Surgery"
                                     ],
                                     "consultationDays": [
-                                        "Friday",
-                                        "Sunday"
+                                        "Thursday",
+                                        "Tuesday",
+                                        "Saturday"
                                     ],
                                     "consultingTime": {
-                                        "startTime": "09:00",
-                                        "endTime": "12:00"
+                                        "startTime": "16:00",
+                                        "endTime": "19:00"
                                     },
-                                    "hospitalName": "Apollo Medical College Hospital",
-                                    "id": 1
+                                    "hospitalName": "Dhaka Medical College Hospital",
+                                    "id": 6
                                 }
+                                
+====================================================================================================================
+  
+                                        // 3. DOCTOR PROFILE DETAILS OUTPUT (DOCTOR)   //
 
+                    api url -> localhost:8080/vital_aid/doctors/doctorProfile
 
-                                                //  5. LIST OF ALL DOCTORS  //
-
+                    OUTPUT ->
                                 {
+                                    "personName": "Dr. Abedin",
+                                    "personEmail": "abedin@example.com",
+                                    "personPhone": "01745678902",
+                                    "availabilityStatus": "Available",
+                                    "doctorFee": 1800,
+                                    "doctorAverageRating": 5.0,
+                                    "doctorGender": "Male",
+                                    "doctorCity": "Dhaka",
+                                    "specializationField": "Orthopedic Surgeon",
+                                    "doctorProfileImageUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+                                    "doctorSpecialization": [
+                                        "Bone Specialist",
+                                        "Arthroscopic Surgery"
+                                    ],
+                                    "consultationDays": [
+                                        "Thursday",
+                                        "Tuesday",
+                                        "Saturday"
+                                    ],
+                                    "consultingTime": {
+                                        "startTime": "16:00",
+                                        "endTime": "19:00"
+                                    },
+                                    "hospitalName": "Dhaka Medical College Hospital",
+                                    "id": 6
+                                }
+
+======================================================================================================================
+
+                                            // 4. CHANGE DOCTOR PASSWORD INPUT(DOCTOR)
+
+                        api url -> localhost:8080/vital_aid/doctors/changePassword
+
+                        INPUT ->
+                        {
+                            "oldPassword": "zainulAbedin11!",
+                            "newPassword": "ZainulAbedin11!",
+                            "confirmPassword": "ZainulAbedin11!"
+                        }
+======================================================================================================================
+
+======================================================================================================================
+
+                                            // 5. SEND OTP REQUEST INPUT
+                        api url -> localhost:8080/vital_aid/forgotPassword/doctor/sendCode
+
+                        INPUT ->
+                        {
+                            "email": "abedin@example.com"
+                        }
+======================================================================================================================
+
+======================================================================================================================
+
+                                            // 6. RESET PASSWORD INPUT
+                        api url -> localhost:8080/vital_aid/forgotPassword/doctor/resetPassword
+
+                        INPUT ->
+                        {
+                            "newPassword" : "Fahim31!",
+                            "confirmPassword" : "Fahim31!"
+                        }
+======================================================================================================================
+
+=====================================================================================================================
+                                                // 7. OTP VERFICATION INPUT
+                        api url -> localhost:8080/vital_aid/forgotPassword/doctor/validateOtp
+
+                        INPUT->
+                        {
+                            "otp" : "213360"
+                        }
+====================================================================================================================
+
+====================================================================================================================
+                                                // 8. UPDATE AVAILABILITY STATUS INPUT (DOCTOR)
+                        api url-> localhost:8080/vital_aid/doctors/updateAvailabilityStatus
+
+                        INPUT ->
+                        {
+                            "personName": "Dr. Mohammad Zainul Abedin",
+                            "personEmail": "abedin@example.com",
+                            "personPhone": "01745678902",
+                            "hospitalName": "Dhaka Medical College Hospital",
+                            "doctorFee": 1800,
+                            "specializationField": "Orthopedic Surgeon",
+                            "doctorSpecialization": [
+                                "Bone Specialist",
+                                "Arthroscopic Surgery"
+                            ],
+                            "consultationDays": [
+                                "Tuesday",
+                                "Thursday",
+                                "Saturday"
+                            ],
+                            "consultingTime": {
+                                "startTime": "16:00",
+                                "endTime": "19:00"
+                            },
+                            "doctorGender": "Male",
+                            "doctorCity": "Chittagong",
+                            "availabilityStatus": "Unavailable"
+                        }
+======================================================================================================================
+
+======================================================================================================================
+                                            // 9. GET DOCTOR AVAILABILITY STATUS(DOCTOR)
+
+                       api url -> localhost:8080/vital_aid/doctors/getAvailabilityStatus
+
+                       OUTPUT ->     
+
+                            {
+                                "personName": "Dr. Mohammad Zainul Abedin",
+                                "personEmail": "abedin@example.com",
+                                "personPhone": "01745678902",
+                                "availabilityStatus": "Unavailable",
+                                "doctorFee": 1800,
+                                "doctorAverageRating": 5.0,
+                                "doctorGender": "Male",
+                                "doctorCity": "Chittagong",
+                                "specializationField": "Orthopedic Surgeon",
+                                "doctorProfileImageUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+                                "doctorSpecialization": [
+                                    "Bone Specialist",
+                                    "Arthroscopic Surgery"
+                                ],
+                                "consultationDays": [
+                                    "Thursday",
+                                    "Tuesday",
+                                    "Saturday"
+                                ],
+                                "consultingTime": {
+                                    "startTime": "16:00",
+                                    "endTime": "19:00"
+                                },
+                                "hospitalName": "Dhaka Medical College Hospital",
+                                "id": 6
+                            }
+======================================================================================================================
+
+======================================================================================================================
+                                            // 10. GET DOCTOR PROFILE BY ID (ALL)
+
+                        api url -> localhost:8080/vital_aid/doctors/viewDoctor/{Id}
+
+                        OUTPUT ->
+                        {
+                            "personName": "Dr. Mohammad Zainul Abedin",
+                            "personEmail": "abedin@example.com",
+                            "personPhone": "01745678902",
+                            "availabilityStatus": "Unavailable",
+                            "doctorFee": 1800,
+                            "doctorAverageRating": 5.0,
+                            "doctorGender": "Male",
+                            "doctorCity": "Chittagong",
+                            "specializationField": "Orthopedic Surgeon",
+                            "doctorProfileImageUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+                            "doctorSpecialization": [
+                                "Bone Specialist",
+                                "Arthroscopic Surgery"
+                            ],
+                            "consultationDays": [
+                                "Thursday",
+                                "Tuesday",
+                                "Saturday"
+                            ],
+                            "consultingTime": {
+                                "startTime": "16:00",
+                                "endTime": "19:00"
+                            },
+                            "hospitalName": "Dhaka Medical College Hospital",
+                            "id": 6
+                        }
+
+======================================================================================================================
+                                    // 11. DOCTOR LOGIN INPUT
+
+                    api url -> localhost:8080/vital_aid/doctor/login
+
+                    INPUT ->
+                    {
+                        "personEmail": "abedin@example.com",
+                        "loginPassword": "Abedin11!"
+                    }
+
+
+======================================================================================================================
+
+
+
+======================================================================================================================
+                                        // 12. DELETE DOCTOR ACCOUNT (DOCTOR)
+
+                    api url -> localhost:8080/vital_aid/doctors/deleteDoctorAccount
+
+======================================================================================================================
+
+
+
+======================================================================================================================
+
+
+                                                // 13. LIST OF ALL DOCTORS (ALL)
+
+                        api url -> localhost:8080/vital_aid/doctors/allDoctors
+
+                        OUTPUT ->
+
+                                [
                                     {
-                                        "doctorName": "Dr. Zahirul Iqbal",
-                                        "doctorEmail": "zahirul.iqbal@example.com",
-                                        "doctorPhone": "01312347890",
-                                        "doctorFee": 3200,
+                                        "personName": "Dr. Zainul Abedin",
+                                        "personEmail": "zainul.abedin@example.com",
+                                        "personPhone": "01745678901",
+                                        "availabilityStatus": "Available",
+                                        "doctorFee": 1800,
+                                        "doctorAverageRating": 0.0,
                                         "doctorGender": "Male",
-                                        "doctorCity": "Sylhet",
-                                        "specializationField": "Oncologist",
-                                        "doctorPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+                                        "doctorCity": "Dhaka",
+                                        "specializationField": "Orthopedic Surgeon",
+                                        "doctorProfileImageUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
                                         "doctorSpecialization": [
-                                            "Cancer Specialist"
+                                            "Bone Specialist",
+                                            "Arthroscopic Surgery"
                                         ],
                                         "consultationDays": [
-                                            "Friday",
-                                            "Sunday"
+                                            "Thursday",
+                                            "Tuesday",
+                                            "Saturday"
                                         ],
                                         "consultingTime": {
-                                            "startTime": "09:00",
-                                            "endTime": "12:00"
+                                            "startTime": "16:00",
+                                            "endTime": "19:00"
                                         },
-                                        "hospitalName": "Apollo Medical College Hospital",
-                                        "id": 1
+                                        "hospitalName": "Dhaka Medical College Hospital",
+                                        "id": 5
                                     },
                                     {
-                                        "doctorName": "Dr. Zahirul Iqbal",
-                                        "doctorEmail": "zahirul.iqbal@example.com",
-                                        "doctorPhone": "01312347890",
-                                        "doctorFee": 3200,
+                                        "personName": "Dr. Mohammad Zainul Abedin",
+                                        "personEmail": "abedin@example.com",
+                                        "personPhone": "01745678902",
+                                        "availabilityStatus": "Unavailable",
+                                        "doctorFee": 1800,
+                                        "doctorAverageRating": 5.0,
                                         "doctorGender": "Male",
-                                        "doctorCity": "Sylhet",
-                                        "specializationField": "Oncologist",
-                                        "doctorPhotoUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+                                        "doctorCity": "Chittagong",
+                                        "specializationField": "Orthopedic Surgeon",
+                                        "doctorProfileImageUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
                                         "doctorSpecialization": [
-                                            "Cancer Specialist"
+                                            "Bone Specialist",
+                                            "Arthroscopic Surgery"
                                         ],
                                         "consultationDays": [
-                                            "Friday",
-                                            "Sunday"
+                                            "Thursday",
+                                            "Tuesday",
+                                            "Saturday"
                                         ],
                                         "consultingTime": {
-                                            "startTime": "09:00",
-                                            "endTime": "12:00"
+                                            "startTime": "16:00",
+                                            "endTime": "19:00"
                                         },
-                                        "hospitalName": "Apollo Medical College Hospital",
-                                        "id": 1
+                                        "hospitalName": "Dhaka Medical College Hospital",
+                                        "id": 6
                                     }
-                                }
+                                ]
+
+=====================================================================================================================

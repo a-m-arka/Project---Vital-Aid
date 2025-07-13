@@ -21,6 +21,8 @@ public class ProductDTO {
 
     private String productPhotoUrl;
 
+    private Float productAverageRating;
+
     public ProductDTO() {
     }
 
@@ -70,6 +72,14 @@ public class ProductDTO {
 
     public void setProductStockQuantity(Integer productStockQuantity) {
         this.productStockQuantity = productStockQuantity;
+    }
+
+    public Float getProductAverageRating() {
+        return this.productAverageRating;
+    }
+
+    public void setProductAverageRating(Float productAverageRating) {
+        this.productAverageRating = productAverageRating;
     }
     
 

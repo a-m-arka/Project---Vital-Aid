@@ -1,6 +1,6 @@
 package com.vital_aid_crud_api.Entity;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -31,14 +31,21 @@ public class Product {
 
     private String productPhotoUrl;
 
+    private Float productAverageRating;
+
+
     @ManyToOne
     @JoinColumn(name = "storeManagedByAdminId")
     private Admin storeManagedBy;
 
-    @OneToMany(mappedBy = "orderMadeForProduct",cascade = {CascadeType.PERSIST,CascadeType.MERGE},orphanRemoval = true)
-    private Set<Order> productOrders;
+    @OneToMany(mappedBy = "orderMadeForProduct",cascade = {CascadeType.PERSIST,CascadeType.MERGE},orphanRemoval = false)
+    private List<Order> productOrders;
+
+    @OneToMany(mappedBy = "pRatingMadeForProduct", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    private List<ProductRating> productRatings;
 
     public Product() {
+        this.productAverageRating = 0.0f;
     }
 
     public Long getProductId() {
@@ -89,11 +96,11 @@ public class Product {
         this.storeManagedBy = storeManagedBy;
     }
 
-    public Set<Order> getProductOrders() {
+    public List<Order> getProductOrders() {
         return this.productOrders;
     }
 
-    public void setProductOrders(Set<Order> productOrders) {
+    public void setProductOrders(List<Order> productOrders) {
         this.productOrders = productOrders;
     }
 
@@ -103,6 +110,22 @@ public class Product {
 
     public void setProductStockQuantity(Integer productStockQuantity) {
         this.productStockQuantity = productStockQuantity;
+    }
+
+    public List<ProductRating> getProductRatings() {
+        return this.productRatings;
+    }
+
+    public void setProductRatings(List<ProductRating> productRatings) {
+        this.productRatings = productRatings;
+    }
+
+    public Float getProductAverageRating() {
+        return this.productAverageRating;
+    }
+
+    public void setProductAverageRating(Float productAverageRating) {
+        this.productAverageRating = productAverageRating;
     }
 
 

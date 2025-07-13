@@ -83,19 +83,30 @@ public class SecurityConstants {
     // User profile photo upload/update path
     public static final String USER_PROFILE_PHOTO_UPLOAD_PATH = "/vital_aid/uploadImage/userProfilePhoto"; //(Accessible to User)
 
+    // Doctor profile photo upload/update path
+    public static final String DOCTOR_PROFILE_PHOTO_UPLOAD_PATH = "/vital_aid/uploadImage/doctorProfilePhoto"; //(Accessible to Doctor)
+
+    // Doctor forget password paths
+    public static final String DOCTOR_FORGET_PASSWORD_SEND_CODE_PATH = "/vital_aid/forgotPassword/doctor/sendCode"; // User forget password send code path (Accessible to all)
+                                                                                                            
+    public static final String DOCTOR_VALIDATE_OTP_PATH = "/vital_aid/forgotPassword/doctor/validateOtp"; // User forget password validate OTP path (Accessible to all)
+
+    public static final String DOCTOR_RESET_PASSWORD_PATH = "/vital_aid/forgotPassword/doctor/resetPassword"; // User reset password path (Accessible to all)
 
 
     // Doctor paths
 
     public static final String ALL_DOCTOR_GET_PATH = "/vital_aid/doctors/allDoctors"; // Getting All Doctors List Path
-    public static final String DOCTOR_REGISTER_PATH = "/vital_aid/doctors/registerDoctor"; // Registering a new Doctor
+    public static final String DOCTOR_REGISTER_PATH = "/vital_aid/doctor/register"; // Registering a new Doctor
                                                                                            // Path
     public static final String SINGLE_DOCTOR_VIEW_PATH = "/vital_aid/doctors/viewDoctor/*"; // Getting a Doctor by ID
                                                                                             // Path
-    public static final String DOCTOR_UPDATE_PATH = "/vital_aid/doctors/updateDoctor/*"; // Updating a Doctor by ID Path
-    public static final String DOCTOR_DELETE_PATH = "/vital_aid/doctors/deleteDoctor/*"; // Deleting a Doctor by ID Path
-
-
+    public static final String DOCTOR_PROFILE_UPDATE_PATH = "/vital_aid/doctors/updateDoctorProfile"; // Updating a Doctor profile
+    public static final String DOCTOR_DELETE_PATH = "/vital_aid/doctors/deleteDoctorAccount"; // Deleting a Doctor
+    public static final String DOCTOR_PROFILE_DETAILS = "/vital_aid/doctors/doctorProfile"; // Doctor Profile Details Path (Accessible to Doctor)
+    public static final String DOCTOR_CHANGE_PASSWORD = "/vital_aid/doctors/changePassword"; // Doctor Password Change Path (Accessible to Doctor)
+    public static final String DOCTOR_AVAILABILITY_STATUS_UPDATE_PATH = "/vital_aid/doctors/updateAvailabilityStatus"; // Doctor Availability Status Update Path (Accessible to Doctor)
+    public static final String DOCTOR_AVAIABILITY_ACCESS_PATH = "vital_aid/doctors/getAvailabilityStatus"; // Doctor Availability Access Path (Accessible to all)
 
     // Hospital paths
 
@@ -125,7 +136,11 @@ public class SecurityConstants {
 
     public static final String MAKE_APPOINTMENT_PATH = "/vital_aid/appointment/makeAppointment/*"; // Making an Appointment Path (Accessible to User)
 
+    public static final String VIEW_DOCTOR_ALL_APPOINTMENTS_PATH_BY_EMAIL = "/vital_aid/appointment/doctorAppointments"; // Viewing all Appointments of a Doctor by Email Path (Accessible to Doctor)
 
+    public static final String VIEW_DOCTOR_ALL_APPOINTMENTS_BY_MONTH_PATH = "/vital_aid/appointment/doctorAppointmentsByMonth/*"; // Viewing all Appointments of a Doctor by Month Path (Accessible to Doctor)
+
+    public static final String VIEW_DOCTOR_PAST_APPOINTMENTS_PATH = "/vital_aid/appointment/doctorPastAppointments"; // Viewing all Past Appointments of a Doctor Path (Accessible to Doctor)
 
     // AMBULANCE PATHS
 
@@ -175,4 +190,28 @@ public class SecurityConstants {
 
     public static final String MAKE_CALL_PATH = "/vital_aid/call_ambulance/makeCall/*"; // Making a Call Path (Accessible to User)
 
+
+    // DOCTOR RATING PATHS
+
+    public static final String ALL_DOCTOR_RATINGS_LIST_PATH = "/vital_aid/doctorRating/listOfAllRatings"; // Getting all Doctor Ratings List Path (Accessible to Admin)
+    public static final String RATINGS_MADE_BY_USER_PATH = "/vital_aid/doctorRating/ratingsMadeByUser"; // Getting all Ratings made by User Path (Accessible to User)
+    public static final String RATINGS_MADE_BY_USER_ID_PATH = "/vital_aid/doctorRating/ratingsMadeByUserId/*"; // Getting all Ratings made by User ID Path (Accessible to Admin)
+    public static final String RATINGS_MADE_FOR_DOCTOR_ID_PATH = "/vital_aid/doctorRating/ratingsMadeForDoctor/*"; // Getting all Ratings made for Doctor ID Path (Accessible to USER AND ADMIN)
+    public static final String RATINGS_MADE_FOR_DOCTOR_EMAIL_PATH = "/vital_aid/doctorRating/ratingsMadeForDoctorEmail"; // Getting all Ratings made for Doctor Email Path (Accessible to Doctor)
+    public static final String RATE_A_DOCTOR_PATH = "/vital_aid/doctorRating/rateDoctor/*"; // Rating a Doctor Path (Accessible to User)
+    public static final String UPDATE_A_RATING_PATH = "/vital_aid/doctorRating/updateRating/*"; // Updating a Doctor Rating Path (Accessible to User)
+    public static final String DELETE_A_RATING_PATH = "/vital_aid/doctorRating/deleteRating/*"; // Deleting a Doctor Rating Path (Accessible to User)
+    public static final String GET_DOCTOR_RATING_BY_ID_PATH = "/vital_aid/doctorRating/getDoctorRatingById/*"; // Getting a Doctor Rating by ID Path (Accessible to User and Admin)
+    public static final String GET_DOCTOR_RATING_BY_EMAIL_PATH = "/vital_aid/doctorRating/getDoctorRatingByEmail"; // Getting a Doctor Rating by Email Path (Accessible to Doctor) 
+    
+    
+    // PRODUCT RATING PATHS
+    public static final String ALL_PRODUCT_RATINGS_LIST_PATH = "/vital_aid/productRating/listOfAllRatings"; // Getting all Product Ratings List Path (Accessible to Admin)
+    public static final String RATINGS_MADE_BY_USER_PRODUCT_PATH = "/vital_aid/productRating/ratingsMadeByUser"; // Getting all Ratings made by User Path (Accessible to User)
+    public static final String RATINGS_MADE_BY_USER_ID_PRODUCT_PATH = "/vital_aid/productRating/ratingsMadeByUserId/*"; // Getting all Ratings made by User ID Path (Accessible to Admin)
+    public static final String RATINGS_MADE_FOR_PRODUCT_ID_PATH = "/vital_aid/productRating/ratingsForProduct/*"; // Getting all Ratings made for Product ID Path (Accessible to User and Admin)
+    public static final String RATE_A_PRODUCT_PATH = "/vital_aid/productRating/rateProduct/*"; // Rating a Product Path (Accessible to User)
+    public static final String UPDATE_A_PRODUCT_RATING_PATH = "/vital_aid/productRating/updateProductRating/*"; // Updating a Product Rating Path (Accessible to User)
+    public static final String DELETE_A_PRODUCT_RATING_PATH = "/vital_aid/productRating/deleteProductRating/*"; // Deleting a Product Rating Path (Accessible to User)
+    public static final String GET_PRODUCT_RATING_BY_ID_PATH = "/vital_aid/productRating/getProductRatingById/*"; // Getting a Product Rating by ID Path (Accessible to User and Admin)
 }

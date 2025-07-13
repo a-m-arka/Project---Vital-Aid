@@ -16,13 +16,13 @@ public interface UserService {
     
 
     // update user profile
-    UserDTO updateUserProfile(String userEmail, UserDTO userDTO);
+    UserDTO updateUserProfile(String personEmail, UserDTO userDTO);
 
     // updating the user profile image
     void updateLoggedInUserProfileImage(MultipartFile file);
 
     // fetch user by id
-    UserDTO viewUserDetailsbyId(Long userId);
+    UserDTO viewUserDetailsbyId(Long personId);
 
     // delete user by id
     void deleteUser(String personEmail);
@@ -37,7 +37,7 @@ public interface UserService {
     void changePassword(String userEmail, ChangePasswordDTO changePasswordDTO);
 
     // Forgot Password: Send verification code
-    void sendVerificationCode(String email);
+    void sendVerificationCode(String personEmail);
 
     // Forgot Password: Validate OTP
     void validateOtp(String otp);

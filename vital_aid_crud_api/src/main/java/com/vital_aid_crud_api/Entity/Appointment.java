@@ -42,8 +42,8 @@ public class Appointment {
     private String reasonForVisit;
 
     
-    @Column(length = 10,columnDefinition = "VARCHAR(10) DEFAULT ''")
-    private String visitDay;
+    // @Column(length = 10,columnDefinition = "VARCHAR(10) DEFAULT ''")
+    // private String visitDay;
 
     @Column(nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -122,13 +122,13 @@ public class Appointment {
         this.reasonForVisit = reasonForVisit;
     }
 
-    public String getVisitDay() {
-        return this.visitDay;
-    }
+    // public String getVisitDay() {
+    //     return this.visitDay;
+    // }
 
-    public void setVisitDay(String visitDay) {
-        this.visitDay = visitDay;
-    }
+    // public void setVisitDay(String visitDay) {
+    //     this.visitDay = visitDay;
+    // }
     
     public User getMadeByUser() {
         return this.madeByUser;

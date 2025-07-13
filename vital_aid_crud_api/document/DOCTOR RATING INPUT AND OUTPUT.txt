@@ -1,0 +1,204 @@
+// 1. RATE A DOCTOR INPUT (Access - only User)
+api url -> localhost:8080/vital_aid/doctorRating/rateDoctor/{Id}
+
+// Id -> personId (doctor)
+
+INPUT ->
+{
+    "rating": 5,
+    "review": "Very good doctor"
+}
+
+OUTPUT ->
+"Doctor rated successfully"
+
+=============================================================================================================
+
+=============================================================================================================
+// 2. UPDATE RATING (Access - only User)
+api url -> localhost:8080/vital_aid/doctorRating/rateDoctor/{Id}
+
+// Id -> doctorRatingId
+
+INPUT ->
+{
+    "rating": 5,
+    "review": "Very good doctor"
+}
+
+OUTPUT ->
+"Doctor rating updated successfully" 
+
+=============================================================================================================
+
+=============================================================================================================
+// 3. DELETE RATING (Access - only User)
+api url -> localhost:8080/vital_aid/doctorRating/deleteRating/{Id}
+// Id -> doctorRatingId
+
+OUTPUT ->
+"Doctor rating deleted successfully"
+
+=============================================================================================================
+// 4. GET RATING OF A DOCTOR BY ID (Access - User and Admin)
+api url -> localhost:8080/vital_aid/doctorRating/getDoctorRatingById/{Id}
+
+//Id -> personId(Doctor)
+
+OUTPUT ->
+{
+    "personName": "Dr. Mohammad Zainul Abedin",
+    "personEmail": "abedin@example.com",
+    "personPhone": "01745678902",
+    "availabilityStatus": "Unavailable",
+    "doctorFee": 1800,
+    "doctorAverageRating": 2.75,
+    "doctorGender": "Male",
+    "doctorCity": "Chittagong",
+    "specializationField": "Orthopedic Surgeon",
+    "doctorProfileImageUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+    "doctorSpecialization": [
+        "Bone Specialist",
+        "Arthroscopic Surgery"
+    ],
+    "consultationDays": [
+        "Thursday",
+        "Tuesday",
+        "Saturday"
+    ],
+    "consultingTime": {
+        "startTime": "16:00",
+        "endTime": "19:00"
+    },
+    "hospitalName": null,
+    "id": 6
+}
+
+=============================================================================================================
+// 5. GET RATING OF A DOCTOR BY EMAIL (Access - only Doctor) -- for doctor profile
+api url -> localhost:8080/vital_aid/doctorRating/getDoctorRatingByEmail
+
+{
+    "personName": "Dr. Mohammad Zainul Abedin",
+    "personEmail": "abedin@example.com",
+    "personPhone": "01745678902",
+    "availabilityStatus": "Unavailable",
+    "doctorFee": 1800,
+    "doctorAverageRating": 2.75,
+    "doctorGender": "Male",
+    "doctorCity": "Chittagong",
+    "specializationField": "Orthopedic Surgeon",
+    "doctorProfileImageUrl": "https://res.cloudinary.com/dgs8jcafi/image/upload/v1735498738/vital_aid/doctors/vzfhybcfsb3ldjqfdcny.png",
+    "doctorSpecialization": [
+        "Bone Specialist",
+        "Arthroscopic Surgery"
+    ],
+    "consultationDays": [
+        "Thursday",
+        "Tuesday",
+        "Saturday"
+    ],
+    "consultingTime": {
+        "startTime": "16:00",
+        "endTime": "19:00"
+    },
+    "hospitalName": null,
+    "id": 6
+}
+
+=============================================================================================================
+// 6. LIST OF ALL RATINGS A LOGGED IN USER MADE (Access - only User)
+
+api url -> localhost:8080/vital_aid/doctorRating/ratingsMadeByUser
+
+OUTPUT ->
+[
+    {
+        "doctorRatingId": 16,
+        "rating": 5.0,
+        "review": "Very good doctor",
+        "ratedByUserName": "Fahim",
+        "ratingForDoctorName": "Dr. Mohammad Zainul Abedin"
+    },
+    {
+        "doctorRatingId": 17,
+        "rating": 0.5,
+        "review": "Not that helpful",
+        "ratedByUserName": "Fahim",
+        "ratingForDoctorName": "Dr. Mohammad Zainul Abedin"
+    }
+]
+
+=============================================================================================================
+// 7. LIST OF ALL RATINGS A USER MADE BY ID (Access - only Admin)
+
+api url -> localhost:8080/vital_aid/doctorRating/ratingsMadeByUserId/{Id}
+
+//Id -> personId(User)
+
+OUTPUT ->
+[
+    {
+        "doctorRatingId": 16,
+        "rating": 5.0,
+        "review": "Very good doctor",
+        "ratedByUserName": "Fahim",
+        "ratingForDoctorName": "Dr. Mohammad Zainul Abedin"
+    },
+    {
+        "doctorRatingId": 17,
+        "rating": 0.5,
+        "review": "Not that helpful",
+        "ratedByUserName": "Fahim",
+        "ratingForDoctorName": "Dr. Mohammad Zainul Abedin"
+    }
+]
+
+=============================================================================================================
+// 8. LIST OF RATINGS MADE FOR A PARTICULAR DOCTOR BY ID (Access - Admin and User)
+
+api url -> localhost:8080/vital_aid/doctorRating/ratingsMadeForDoctor/{Id}
+
+Id -> personId(Doctor)
+
+OUTPUT ->
+[
+    {
+        "doctorRatingId": 16,
+        "rating": 5.0,
+        "review": "Very good doctor",
+        "ratedByUserName": "Fahim",
+        "ratingForDoctorName": "Dr. Mohammad Zainul Abedin"
+    },
+    {
+        "doctorRatingId": 17,
+        "rating": 0.5,
+        "review": "Not that helpful",
+        "ratedByUserName": "Fahim",
+        "ratingForDoctorName": "Dr. Mohammad Zainul Abedin"
+    }
+]
+
+=============================================================================================================
+// 9. LIST OF RATINGS MADE FOR A PARTICULAR DOCTOR - LOGGED IN DOCTOR (Access - only Doctor)
+
+api url -> localhost:8080/vital_aid/doctorRating/ratingsMadeForDoctorEmail
+
+OUTPUT ->
+[
+    {
+        "doctorRatingId": 16,
+        "rating": 5.0,
+        "review": "Very good doctor",
+        "ratedByUserName": "Fahim",
+        "ratingForDoctorName": "Dr. Mohammad Zainul Abedin"
+    },
+    {
+        "doctorRatingId": 17,
+        "rating": 0.5,
+        "review": "Not that helpful",
+        "ratedByUserName": "Fahim",
+        "ratingForDoctorName": "Dr. Mohammad Zainul Abedin"
+    }
+]
+=============================================================================================================

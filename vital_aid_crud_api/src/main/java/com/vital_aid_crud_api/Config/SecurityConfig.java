@@ -13,6 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.vital_aid_crud_api.Config.filter.AdminAuthenticationFilter;
+import com.vital_aid_crud_api.Config.filter.DoctorAuthenticationFilter;
 import com.vital_aid_crud_api.Config.filter.ExceptionHandlerFilter;
 import com.vital_aid_crud_api.Config.filter.JWTAuthorizationFilter;
 import com.vital_aid_crud_api.Config.filter.UserAuthenticationFilter;
@@ -39,6 +40,10 @@ public class SecurityConfig {
         AdminAuthenticationFilter adminAuthenticationFilter = new AdminAuthenticationFilter(
                 customAuthenticationManager);
         adminAuthenticationFilter.setFilterProcessesUrl("/vital_aid/admin/login");
+
+        DoctorAuthenticationFilter doctorAuthenticationFilter = new DoctorAuthenticationFilter(customAuthenticationManager);
+        doctorAuthenticationFilter.setFilterProcessesUrl("/vital_aid/doctor/login");
+
         http.cors(withDefaults())
                 .csrf(csrf -> csrf.disable())
 
@@ -61,24 +66,34 @@ public class SecurityConfig {
                                 "ROLE_USER")
                         .requestMatchers(HttpMethod.GET, SecurityConstants.ADMIN_PROFILE_DETAILS)
                         .hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.DOCTOR_PROFILE_DETAILS)
+                        .hasAuthority("ROLE_DOCTOR")
 
                         .requestMatchers(HttpMethod.PUT, SecurityConstants.USER_PROFILE_PHOTO_UPLOAD_PATH)
                         .hasAuthority("ROLE_USER")
+                        .requestMatchers(HttpMethod.PUT, SecurityConstants.DOCTOR_PROFILE_PHOTO_UPLOAD_PATH)
+                        .hasAuthority("ROLE_DOCTOR")
 
                         .requestMatchers(HttpMethod.PUT, SecurityConstants.USER_PROFILE_UPDATE)
                         .hasAuthority("ROLE_USER")
                         .requestMatchers(HttpMethod.PUT, SecurityConstants.ADMIN_PROFILE_UPDATE)
                         .hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.PUT, SecurityConstants.DOCTOR_PROFILE_UPDATE_PATH)
+                        .hasAuthority("ROLE_DOCTOR")
 
                         .requestMatchers(HttpMethod.PUT, SecurityConstants.USER_CHANGE_PASSWORD)
                         .hasAuthority("ROLE_USER")
                         .requestMatchers(HttpMethod.PUT, SecurityConstants.ADMIN_CHANGE_PASSWORD)
                         .hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.PUT, SecurityConstants.DOCTOR_CHANGE_PASSWORD)
+                        .hasAuthority("ROLE_DOCTOR")
 
                         .requestMatchers(HttpMethod.DELETE, SecurityConstants.USER_DELETE_PATH)
                         .hasAuthority("ROLE_USER")
                         .requestMatchers(HttpMethod.DELETE, SecurityConstants.ADMIN_DELETE_PATH)
                         .hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, SecurityConstants.DOCTOR_DELETE_PATH)
+                        .hasAuthority("ROLE_DOCTOR")
 
                         .requestMatchers(HttpMethod.POST, SecurityConstants.USER_FORGET_PASSWORD_SEND_CODE_PATH)
                         .permitAll()
@@ -90,14 +105,44 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, SecurityConstants.ADMIN_VALIDATE_OTP_PATH).permitAll()
                         .requestMatchers(HttpMethod.POST, SecurityConstants.ADMIN_RESET_PASSWORD_PATH).permitAll()
 
+                        .requestMatchers(HttpMethod.POST, SecurityConstants.DOCTOR_FORGET_PASSWORD_SEND_CODE_PATH)
+                        .permitAll()
+                        .requestMatchers(HttpMethod.POST, SecurityConstants.DOCTOR_VALIDATE_OTP_PATH).permitAll()
+                        .requestMatchers(HttpMethod.POST, SecurityConstants.DOCTOR_RESET_PASSWORD_PATH).permitAll()
+
                         .requestMatchers(HttpMethod.GET, SecurityConstants.ALL_DOCTOR_GET_PATH).permitAll()
                         .requestMatchers(HttpMethod.GET, SecurityConstants.SINGLE_DOCTOR_VIEW_PATH).permitAll()
                         .requestMatchers(HttpMethod.POST, SecurityConstants.DOCTOR_REGISTER_PATH)
-                        .hasAuthority("ROLE_ADMIN")
-                        .requestMatchers(HttpMethod.PUT, SecurityConstants.DOCTOR_UPDATE_PATH)
-                        .hasAuthority("ROLE_ADMIN")
+                        .permitAll()
+                        .requestMatchers(HttpMethod.PUT, SecurityConstants.DOCTOR_AVAILABILITY_STATUS_UPDATE_PATH)
+                        .hasAuthority("ROLE_DOCTOR")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.DOCTOR_AVAIABILITY_ACCESS_PATH)
+                        .permitAll()
                         .requestMatchers(HttpMethod.DELETE, SecurityConstants.DOCTOR_DELETE_PATH)
+                        .hasAuthority("ROLE_DOCTOR")
+
+
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.ALL_DOCTOR_RATINGS_LIST_PATH)
                         .hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.RATINGS_MADE_BY_USER_PATH)
+                        .hasAuthority("ROLE_USER")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.RATINGS_MADE_BY_USER_ID_PATH)
+                        .hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.RATINGS_MADE_FOR_DOCTOR_ID_PATH)
+                        .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.RATINGS_MADE_FOR_DOCTOR_EMAIL_PATH)
+                        .hasAuthority("ROLE_DOCTOR")
+                        .requestMatchers(HttpMethod.POST, SecurityConstants.RATE_A_DOCTOR_PATH)
+                        .hasAuthority("ROLE_USER")
+                        .requestMatchers(HttpMethod.PUT, SecurityConstants.UPDATE_A_RATING_PATH)
+                        .hasAuthority("ROLE_USER")
+                        .requestMatchers(HttpMethod.DELETE, SecurityConstants.DELETE_A_RATING_PATH)
+                        .hasAuthority("ROLE_USER")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.GET_DOCTOR_RATING_BY_ID_PATH)
+                        .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.GET_DOCTOR_RATING_BY_EMAIL_PATH)
+                        .hasAuthority("ROLE_DOCTOR")
+                        
 
                         .requestMatchers(HttpMethod.POST, SecurityConstants.HOSPITAL_REGISTER_PATH)
                         .hasAuthority("ROLE_ADMIN")
@@ -119,6 +164,12 @@ public class SecurityConfig {
                         .hasAuthority("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.POST, SecurityConstants.MAKE_APPOINTMENT_PATH)
                         .hasAuthority("ROLE_USER")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.VIEW_DOCTOR_ALL_APPOINTMENTS_PATH_BY_EMAIL)
+                        .hasAuthority("ROLE_DOCTOR")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.VIEW_DOCTOR_ALL_APPOINTMENTS_BY_MONTH_PATH)
+                        .hasAuthority("ROLE_DOCTOR")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.VIEW_DOCTOR_PAST_APPOINTMENTS_PATH)
+                        .hasAuthority("ROLE_DOCTOR")
 
                         .requestMatchers(HttpMethod.GET, SecurityConstants.ALL_AMBULANCES_LIST_PATH).permitAll()
                         .requestMatchers(HttpMethod.POST, SecurityConstants.REGISTER_AMBULANCE_PATH)
@@ -135,6 +186,24 @@ public class SecurityConfig {
                         .hasAuthority("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.DELETE, SecurityConstants.DELETE_PRODUCT_PATH)
                         .hasAuthority("ROLE_ADMIN")
+
+
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.ALL_PRODUCT_RATINGS_LIST_PATH)
+                        .hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.RATINGS_MADE_BY_USER_PRODUCT_PATH)
+                        .hasAuthority("ROLE_USER")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.RATINGS_MADE_BY_USER_ID_PRODUCT_PATH)
+                        .hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.RATINGS_MADE_FOR_PRODUCT_ID_PATH)
+                        .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                        .requestMatchers(HttpMethod.POST, SecurityConstants.RATE_A_PRODUCT_PATH)
+                        .hasAuthority("ROLE_USER")
+                        .requestMatchers(HttpMethod.PUT, SecurityConstants.UPDATE_A_PRODUCT_RATING_PATH)
+                        .hasAuthority("ROLE_USER")
+                        .requestMatchers(HttpMethod.DELETE, SecurityConstants.DELETE_A_PRODUCT_RATING_PATH)
+                        .hasAuthority("ROLE_USER")
+                        .requestMatchers(HttpMethod.GET, SecurityConstants.GET_PRODUCT_RATING_BY_ID_PATH)
+                        .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
 
                         .requestMatchers(HttpMethod.GET, SecurityConstants.ALL_ORDERS_LIST_PATH)
                         .hasAuthority("ROLE_ADMIN")
@@ -156,6 +225,7 @@ public class SecurityConfig {
                 .addFilterBefore(new ExceptionHandlerFilter(), UsernamePasswordAuthenticationFilter.class)
                 .addFilter(userAuthenticationFilter)
                 .addFilter(adminAuthenticationFilter)
+                .addFilter(doctorAuthenticationFilter)
                 .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         return http.build();

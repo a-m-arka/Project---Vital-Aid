@@ -40,6 +40,12 @@ public class User extends Person {
     @OneToMany(mappedBy = "calledByUser", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
     private List<CallsAmbulance> callsAmbulances;
 
+    @OneToMany(mappedBy = "ratingMadeByUser", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    private List<DoctorRating> ratedDoctors;
+
+    @OneToMany(mappedBy = "productRatingMadeByUser", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    private List<ProductRating> productsRated;
+
         
     public User() {
         this.setPersonRole("ROLE_USER");
@@ -107,6 +113,22 @@ public class User extends Person {
 
     public void setCallsAmbulances(List<CallsAmbulance> callsAmbulances) {
         this.callsAmbulances = callsAmbulances;
+    }
+
+    public List<DoctorRating> getRatedDoctors() {
+        return this.ratedDoctors;
+    }
+
+    public void setRatedDoctors(List<DoctorRating> ratedDoctors) {
+        this.ratedDoctors = ratedDoctors;
+    }
+
+    public List<ProductRating> getProductsRated() {
+        return this.productsRated;
+    }
+
+    public void setProductsRated(List<ProductRating> productsRated) {
+        this.productsRated = productsRated;
     }
 
 
