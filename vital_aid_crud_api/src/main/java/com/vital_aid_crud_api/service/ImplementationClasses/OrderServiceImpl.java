@@ -27,7 +27,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderRepository orderRepository;
 
     @Autowired
-    private ModelMapper ordeMapper;
+    private ModelMapper orderMapper;
 
     @Autowired
     private UserRepository userRepository;
@@ -123,14 +123,14 @@ public class OrderServiceImpl implements OrderService {
                                         // CONVERTING ORDERDTO TO ORDER ENTITY
 
     public Order convertToEntity(OrderDTO orderDTO) {
-        Order order = ordeMapper.map(orderDTO, Order.class);
+        Order order = orderMapper.map(orderDTO, Order.class);
         return order;
     }
 
                                         // CONVERTING ORDER ENTITY TO ORDERDTO
 
     public OrderDTO convertToDTO(Order order) {
-        OrderDTO orderDTO = ordeMapper.map(order, OrderDTO.class);
+        OrderDTO orderDTO = orderMapper.map(order, OrderDTO.class);
         orderDTO.setOrderMadeBy(order.getOrderMadeByUser().getPersonName());
         orderDTO.setOrderMadeFor(order.getOrderMadeForProduct().getProductName());
         orderDTO.setOrderedProductPhotoUrl(order.getOrderMadeForProduct().getProductPhotoUrl());

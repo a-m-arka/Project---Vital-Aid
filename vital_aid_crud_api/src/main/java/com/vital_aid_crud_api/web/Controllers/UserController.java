@@ -27,11 +27,12 @@ import jakarta.validation.Valid;
 @RequestMapping("/vital_aid")
 public class UserController {
 
-    // @Autowired
 
     @Autowired
     private UserService userService;
 
+
+// ====================================================================================================================
                                                 // FETCHING ALL USERS
                                                 
     @GetMapping("/allUsers")
@@ -39,8 +40,9 @@ public class UserController {
         List<UserDTO> userDTOs = userService.getAllUsers();
         return new ResponseEntity<>(userDTOs, HttpStatus.OK);
     }
-    
+// ====================================================================================================================
 
+// ====================================================================================================================
                                                 // FETCHING USER BY ID
 
     @GetMapping("/viewUser/{Id}")
@@ -48,7 +50,9 @@ public class UserController {
         UserDTO userDTO = userService.viewUserDetailsbyId(Id);
         return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
+// ====================================================================================================================
 
+// ====================================================================================================================
                                                 // FETCHING USER PROFILE
 
     @GetMapping("/profile")
@@ -61,7 +65,9 @@ public class UserController {
 
         return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
-                                    
+// ====================================================================================================================
+
+// ====================================================================================================================
                                                 // UPDATING USER PROFILE
 
     @PutMapping("/updateUserProfile")
@@ -74,7 +80,9 @@ public class UserController {
 
         return new ResponseEntity<>(updatedUserDTO, HttpStatus.OK);
     }
-    
+// ====================================================================================================================
+
+// ====================================================================================================================
                                                 // DELETING USER ACCOUNT
 
     @DeleteMapping("/deleteUser")
@@ -84,7 +92,9 @@ public class UserController {
         SecurityContextHolder.clearContext();
         return new ResponseEntity<>("User Deleted Sucessfully", HttpStatus.NO_CONTENT);
     }
+//  ====================================================================================================================
 
+// ====================================================================================================================
                                                 // CHANGING PASSWORD
                                     
     @PutMapping("/changePassword")
@@ -95,5 +105,6 @@ public class UserController {
         ApiResponse response = new ApiResponse("Password changed successfully", true);
         return new ResponseEntity<>(response.getMessage(), HttpStatus.OK);
     }
+// ====================================================================================================================
 
 }

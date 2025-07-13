@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.vital_aid_crud_api.Config.SecurityConstants;
 import com.vital_aid_crud_api.Entity.Admin;
 import com.vital_aid_crud_api.Entity.Ambulance;
-import com.vital_aid_crud_api.Entity.Doctor;
 import com.vital_aid_crud_api.Entity.Hospital;
 import com.vital_aid_crud_api.Entity.Product;
 import com.vital_aid_crud_api.Exception.IllegalPasswordException;
@@ -25,7 +24,6 @@ import com.vital_aid_crud_api.Payloads.OtpDetails;
 import com.vital_aid_crud_api.Payloads.RegisterDTO;
 import com.vital_aid_crud_api.repository.AdminRepository;
 import com.vital_aid_crud_api.repository.AmbulanceRepository;
-import com.vital_aid_crud_api.repository.DoctorRepository;
 import com.vital_aid_crud_api.repository.HospitalRepository;
 import com.vital_aid_crud_api.repository.ProductRepository;
 import com.vital_aid_crud_api.service.Interfaces.AdminService;
@@ -54,8 +52,8 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private MailService mailService;
 
-    @Autowired
-    private DoctorRepository doctorRepository;
+    // @Autowired
+    // private DoctorRepository doctorRepository;
 
     @Autowired
     private HospitalRepository hospitalRepository;
@@ -100,10 +98,10 @@ public class AdminServiceImpl implements AdminService {
         Admin admin = adminRepository.findByPersonEmail(personEmail)
                 .orElseThrow(() -> new ResourceNotFoundException("Admin", "email", personEmail));
         
-        for(Doctor doctor: admin.getDoctors()) {
-            doctor.setDoctorManagedBy(null);
-            doctorRepository.save(doctor);
-        }
+        // for(Doctor doctor: admin.getDoctors()) {
+        //     doctor.setDoctorManagedBy(null);
+        //     doctorRepository.save(doctor);
+        // }
         for(Hospital hospital: admin.getHospitals()) {
             hospital.setHospitalManagedBy(null);
             hospitalRepository.save(hospital);

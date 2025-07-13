@@ -56,6 +56,7 @@ public class MedicalStoreServiceImpl implements MedicalStoreService{
 
         String productPhotoUrl = imageUploadService.uploadImageToCloud(file, "vital_aid/products");
         productDTODTO.setProductPhotoUrl(productPhotoUrl);
+        productDTODTO.setProductAverageRating(0.0f);
 
         Product newProduct = convertToEntity(productDTODTO);
         newProduct.setStoreManagedBy(storeManagingAdmin);
@@ -74,7 +75,7 @@ public class MedicalStoreServiceImpl implements MedicalStoreService{
     Admin storeManagingAdmin = adminRepository.findByPersonEmail(adminEmail)
             .orElseThrow(() -> new ResourceNotFoundException("Admin", "email", adminEmail));
                                         
-                                        
+    productDTO.setProductAverageRating(0.0f);
     Product newProduct = convertToEntity(productDTO);
     newProduct.setStoreManagedBy(storeManagingAdmin);
                                 

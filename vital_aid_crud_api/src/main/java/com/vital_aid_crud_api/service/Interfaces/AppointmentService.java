@@ -10,6 +10,9 @@ public interface AppointmentService {
     public AppointmentDTO makeAppointment(Long doctorId, AppointmentDTO appointment); // make an appointment
     public List<AppointmentDTO> getUserAppointments(); // get all appointments of a user
     public List<AppointmentDTO> getDoctorAppointments(Long doctorId); // get all appointments of a doctor
+    public List<AppointmentDTO> getDoctorAppointments();
+    public List<AppointmentDTO> getDoctorAppointmentsByMonth(String month);
+    List<AppointmentDTO> getDoctorPastAppointments();
     
     // public void deleteAppointmentById(Long appointmentToken);
     // public Appointment updateAppointmentById(Long appointment_token, Appointment appointment);

@@ -13,7 +13,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByPersonPhone(String personPhone);
 
-    
     // Custom methods to exclude a specific user by ID
     Optional<User> findByPersonEmailAndPersonIdNot(String personEmail, Long personId);
 

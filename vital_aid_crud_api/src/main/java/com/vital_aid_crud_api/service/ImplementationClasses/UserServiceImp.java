@@ -59,8 +59,9 @@ public class UserServiceImp implements UserService {
     @Autowired
     private CloudinaryImageUploadService cloudinaryImageUploadService;
 
-                                                    // LIST OF ALL USERS
+// ==================================================================================================================
 
+                                                    // LIST OF ALL USERS
     @Transactional
     @Override
     public List<UserDTO> getAllUsers() {
@@ -69,6 +70,7 @@ public class UserServiceImp implements UserService {
 
         return userDTOs;
     }
+//  ==================================================================================================================
 
                                                   // VIEW A SINGLE USER DETAILS BY ID
 
@@ -79,6 +81,7 @@ public class UserServiceImp implements UserService {
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
         return UsertoDTO(user);
     }
+// ==================================================================================================================
 
                                                 // VIEW A SINGLE USER DETAILS BY EMAIL  
 
@@ -89,6 +92,7 @@ public class UserServiceImp implements UserService {
                 .orElseThrow(() -> new ResourceNotFoundException("User", "email", personEmail));
         return UsertoDTO(user);
     }
+//  ==================================================================================================================
 
                                                 // REGISTERING A NEW USER   
 
@@ -107,6 +111,7 @@ public class UserServiceImp implements UserService {
         User user = userRepository.save(registerDTOtoUser(userDTO));
         return UserEntitytoDTO(user);
     }
+//  ==================================================================================================================
 
                                                 // UPDATING USER PROFILE    
 
@@ -134,7 +139,7 @@ public class UserServiceImp implements UserService {
         User updatedUser = userRepository.save(existingUser);
         return UsertoDTO(updatedUser);
     }
-
+//  ==================================================================================================================
 
                                                 // DELETING USER ACCOUNT
 
@@ -163,6 +168,7 @@ public class UserServiceImp implements UserService {
         
         userRepository.delete(user);
     }
+//  ==================================================================================================================
 
                                                 // CHANGING USER PASSWORD  
 
@@ -183,6 +189,7 @@ public class UserServiceImp implements UserService {
 
         userRepository.save(existingUser);
     }
+//  ==================================================================================================================
 
                                     // SENDING VERIFICATION CODE FOR PASSWORD RESET
 
@@ -203,6 +210,7 @@ public class UserServiceImp implements UserService {
 
     
     String validOTP; // Store the validated OTP
+//  ==================================================================================================================
 
                                         // VERIFYING THE OTP FOR PASSWORD RESET
 
@@ -216,6 +224,7 @@ public class UserServiceImp implements UserService {
         }
         validOTP = otp;
     }
+//  ==================================================================================================================
 
                                         // RESET PASSWORD AFTER VERIFYING THE OTP
 
@@ -238,6 +247,7 @@ public class UserServiceImp implements UserService {
         // Clear the OTP after successful reset
         otpService.clearOtp(email);
     }
+//  ==================================================================================================================
 
                                             // UPDATING USER PROFILE IMAGE          
 
@@ -263,8 +273,12 @@ public class UserServiceImp implements UserService {
                     }
         String userProfileImageUrl = cloudinaryImageUploadService.uploadImageToCloud(file,"vital_aid/users");
         existingUser.setProfileImageUrl(userProfileImageUrl);
+        userRepository.save(existingUser);
     }
+// ==================================================================================================================
 
+
+// ==================================================================================================================
                                                 // HELPER METHODS
 
                                             // CONVERTING ENTITY TO DTO 

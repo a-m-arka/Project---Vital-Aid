@@ -4,7 +4,6 @@ package com.vital_aid_crud_api.Config.manager;
 import java.util.Collections;
 import java.util.List;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,10 +15,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.vital_aid_crud_api.Entity.Admin;
+import com.vital_aid_crud_api.Entity.Doctor;
 import com.vital_aid_crud_api.Entity.User;
 import com.vital_aid_crud_api.Exception.BadCredentialsException;
-import com.vital_aid_crud_api.Payloads.UserDTO;
 import com.vital_aid_crud_api.repository.AdminRepository;
+import com.vital_aid_crud_api.repository.DoctorRepository;
 import com.vital_aid_crud_api.repository.UserRepository;
 
 @Component
@@ -32,12 +32,15 @@ public class CustomAuthenticationManager implements AuthenticationManager {
     @Autowired
     private AdminRepository adminRepository;
 
+    @Autowired
+    private DoctorRepository doctorRepository;
+
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    // @Autowired
+    // private ModelMapper modelMapper;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -51,6 +54,8 @@ public class CustomAuthenticationManager implements AuthenticationManager {
             return authenticateUser(personEmail, loginPassword);
         } else if ("/vital_aid/admin/login".equals(loginUrl)) {
             return authenticateAdmin(personEmail, loginPassword);
+        }else if("/vital_aid/doctor/login".equals(loginUrl)){
+            return authenticateDoctor(personEmail, loginPassword);
         }
 
         throw new BadCredentialsException("Invalid login URL");
@@ -86,11 +91,28 @@ public class CustomAuthenticationManager implements AuthenticationManager {
         return new UsernamePasswordAuthenticationToken(email, password, authorities);
     }
 
-    public UserDTO convertToDto(User user) {
-        return modelMapper.map(user, UserDTO.class);
+
+    private Authentication authenticateDoctor(String email, String password) {
+        Doctor doctor = doctorRepository.findByPersonEmail(email).orElse(null);
+        if (doctor == null) {
+            throw new BadCredentialsException("No doctor with this email found.");
+        }
+
+        if (!bCryptPasswordEncoder.matches(password, doctor.getLoginPassword())) {
+            throw new BadCredentialsException("Invalid password.");
+        }
+        // long personId = user.getPersonId();
+        List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(doctor.getPersonRole()));
+        return new UsernamePasswordAuthenticationToken(email, password,authorities);
     }
 
-    public User convertToEntity(UserDTO userDTO) {
-        return modelMapper.map(userDTO, User.class);
-    }
+
+
+    // public UserDTO convertToDto(User user) {
+    //     return modelMapper.map(user, UserDTO.class);
+    // }
+
+    // public User convertToEntity(UserDTO userDTO) {
+    //     return modelMapper.map(userDTO, User.class);
+    // }
 }

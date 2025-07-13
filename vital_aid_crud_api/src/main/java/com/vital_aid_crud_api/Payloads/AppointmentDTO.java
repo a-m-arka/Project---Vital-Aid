@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.vital_aid_crud_api.Validation.ValidGender;
-import com.vital_aid_crud_api.Validation.ValidVisitDay;
+// import com.vital_aid_crud_api.Validation.ValidVisitDay;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Future;
@@ -37,8 +37,8 @@ public class AppointmentDTO {
     @Size(max = 300, message = "Please write your reason in less than 300 characters")
     private String reasonForVisit;
 
-    @ValidVisitDay
-    private String visitDay;
+    // @ValidVisitDay
+    // private String visitDay;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Future(message = "Appointment date must be in the future")
@@ -113,13 +113,13 @@ public class AppointmentDTO {
         this.reasonForVisit = reasonForVisit;
     }
 
-    public String getVisitDay() {
-        return this.visitDay;
-    }
+    // public String getVisitDay() {
+    //     return this.visitDay;
+    // }
 
-    public void setVisitDay(String visitDay) {
-        this.visitDay = visitDay;
-    }
+    // public void setVisitDay(String visitDay) {
+    //     this.visitDay = visitDay;
+    // }
 
     public Integer getPatientAge() {
         return this.patientAge;

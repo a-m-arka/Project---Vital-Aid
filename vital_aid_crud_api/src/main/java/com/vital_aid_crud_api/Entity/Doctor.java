@@ -10,9 +10,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -20,21 +17,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "doctor_table")
-public class Doctor {
+public class Doctor extends Person{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "doctor_id")
-    private Long doctorId;
-
-    @Column(length = 50)
-    private String doctorName;
-
-    @Column(length = 200)
-    private String doctorEmail; 
-
-    @Column(length = 20)
-    private String doctorPhone;
+    
 
     @Column
     private Integer doctorFee;
@@ -50,7 +35,13 @@ public class Doctor {
     private String specializationField;
 
     @Column(length = 1000, columnDefinition = "VARCHAR(500) DEFAULT ''")
-    private String doctorPhotoUrl;
+    private String doctorProfileImageUrl;
+
+    @Column
+    private String availabilityStatus;
+
+    @Column(columnDefinition = "FLOAT DEFAULT 0.0")
+    private Float doctorAverageRating;
 
     @ElementCollection
     @CollectionTable(name = "Doctor_Specialization", joinColumns = @JoinColumn(name = "doctor_id"))
@@ -69,48 +60,53 @@ public class Doctor {
     @JoinColumn(name = "working_hospital_id") // Ensures FK relationship
     private Hospital worksAt; // Reference to the hospital
 
-    @ManyToOne(cascade = CascadeType.PERSIST) // Many doctors can work at one hospital
-    @JoinColumn(name = "doctorManagingAdminId") // Ensures FK relationship
-    private Admin doctorManagedBy;
+    // @ManyToOne(cascade = CascadeType.PERSIST) // Many doctors can work at one hospital
+    // @JoinColumn(name = "doctorManagingAdminId") // Ensures FK relationship
+    // private Admin doctorManagedBy;
 
     @OneToMany(mappedBy = "withDoctor", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
     private List<Appointment> doctorAppointments;
 
+    @OneToMany(mappedBy = "ratingMadeForDoctor", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    private List<DoctorRating> doctorRatings;
+
     public Doctor() {
+        this.setPersonRole("ROLE_DOCTOR");
+        this.doctorAverageRating = 0.0f;
     }
 
 
-    public Long getDoctorId() {
-        return this.doctorId;
-    }
+    // public Long getDoctorId() {
+    //     return this.doctorId;
+    // }
 
-    public void setDoctorId(Long doctorId) {
-        this.doctorId = doctorId;
-    }
+    // public void setDoctorId(Long doctorId) {
+    //     this.doctorId = doctorId;
+    // }
 
-    public String getDoctorName() {
-        return this.doctorName;
-    }
+    // public String getDoctorName() {
+    //     return this.doctorName;
+    // }
 
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName;
-    }
+    // public void setDoctorName(String doctorName) {
+    //     this.doctorName = doctorName;
+    // }
 
-    public String getDoctorEmail() {
-        return this.doctorEmail;
-    }
+    // public String getDoctorEmail() {
+    //     return this.doctorEmail;
+    // }
 
-    public void setDoctorEmail(String doctorEmail) {
-        this.doctorEmail = doctorEmail;
-    }
+    // public void setDoctorEmail(String doctorEmail) {
+    //     this.doctorEmail = doctorEmail;
+    // }
 
-    public String getDoctorPhone() {
-        return this.doctorPhone;
-    }
+    // public String getDoctorPhone() {
+    //     return this.doctorPhone;
+    // }
 
-    public void setDoctorPhone(String doctorPhone) {
-        this.doctorPhone = doctorPhone;
-    }
+    // public void setDoctorPhone(String doctorPhone) {
+    //     this.doctorPhone = doctorPhone;
+    // }
 
     public Integer getDoctorFee() {
         return this.doctorFee;
@@ -136,6 +132,22 @@ public class Doctor {
         this.doctorCity = doctorCity;
     }
 
+    public String getAvailabilityStatus() {
+        return this.availabilityStatus;
+    }
+
+    public void setAvailabilityStatus(String availabilityStatus) {
+        this.availabilityStatus = availabilityStatus;
+    }
+
+    public Float getDoctorAverageRating() {
+        return this.doctorAverageRating;
+    }
+
+    public void setDoctorAverageRating(Float doctorAverageRating) {
+        this.doctorAverageRating = doctorAverageRating;
+    }
+
     public String getSpecializationField() {
         return this.specializationField;
     }
@@ -144,12 +156,12 @@ public class Doctor {
         this.specializationField = specializationField;
     }
 
-    public String getDoctorPhotoUrl() {
-        return this.doctorPhotoUrl;
+    public String getDoctorProfileImageUrl() {
+        return this.doctorProfileImageUrl;
     }
 
-    public void setDoctorPhotoUrl(String doctorPhotoUrl) {
-        this.doctorPhotoUrl = doctorPhotoUrl;
+    public void setDoctorProfileImageUrl(String doctorProfileImageUrl) {
+        this.doctorProfileImageUrl = doctorProfileImageUrl;
     }
 
     public Set<String> getDoctorSpecialization() {
@@ -184,13 +196,13 @@ public class Doctor {
         this.worksAt = worksAt;
     }
 
-    public Admin getDoctorManagedBy() {
-        return this.doctorManagedBy;
-    }
+    // public Admin getDoctorManagedBy() {
+    //     return this.doctorManagedBy;
+    // }
 
-    public void setDoctorManagedBy(Admin doctorManagedBy) {
-        this.doctorManagedBy = doctorManagedBy;
-    }
+    // public void setDoctorManagedBy(Admin doctorManagedBy) {
+    //     this.doctorManagedBy = doctorManagedBy;
+    // }
 
     public List<Appointment> getDoctorAppointments() {
         return this.doctorAppointments;
@@ -198,6 +210,14 @@ public class Doctor {
 
     public void setDoctorAppointments(List<Appointment> doctorAppointments) {
         this.doctorAppointments = doctorAppointments;
+    }
+
+    public List<DoctorRating> getDoctorRatings() {
+        return this.doctorRatings;
+    }
+
+    public void setDoctorRatings(List<DoctorRating> doctorRatings) {
+        this.doctorRatings = doctorRatings;
     }
 
 }

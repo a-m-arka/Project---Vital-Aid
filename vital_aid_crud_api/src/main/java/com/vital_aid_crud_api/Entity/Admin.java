@@ -12,8 +12,8 @@ import jakarta.persistence.Table;
 @Table(name = "admin_table")
 public class Admin extends Person{
     
-    @OneToMany(mappedBy = "doctorManagedBy", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
-    private List<Doctor> doctors;
+    // @OneToMany(mappedBy = "doctorManagedBy", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
+    // private List<Doctor> doctors;
 
     @OneToMany(mappedBy = "hospitalManagedBy", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
     private List<Hospital> Hospitals;
@@ -29,13 +29,13 @@ public class Admin extends Person{
         this.setPersonRole("ROLE_ADMIN");
     }
 
-    public List<Doctor> getDoctors() {
-        return doctors;
-    }
+    // public List<Doctor> getDoctors() {
+    //     return doctors;
+    // }
 
-    public void setDoctors(List<Doctor> doctors) {
-        this.doctors = doctors;
-    }
+    // public void setDoctors(List<Doctor> doctors) {
+    //     this.doctors = doctors;
+    // }
 
     public List<Hospital> getHospitals() {
         return Hospitals;

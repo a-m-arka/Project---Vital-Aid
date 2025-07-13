@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.vital_aid_crud_api.Exception.DuplicateEntryException;
 import com.vital_aid_crud_api.repository.AdminRepository;
+import com.vital_aid_crud_api.repository.DoctorRepository;
 import com.vital_aid_crud_api.repository.UserRepository;
 
 @Service
@@ -15,12 +16,16 @@ public class PersonValidationService {
     @Autowired
     private AdminRepository adminRepository;
 
+    @Autowired
+    private DoctorRepository doctorRepository;
+
     // @Autowired
     // private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public void validateUniqueFields(String personEmail, String personPhone) {
         // Check for email uniqueness
-        if (userRepository.findByPersonEmail(personEmail).isPresent() || adminRepository.findByPersonEmail(personEmail).isPresent()) {
+        if (userRepository.findByPersonEmail(personEmail).isPresent() || adminRepository.findByPersonEmail(personEmail).isPresent()
+                                || doctorRepository.findByPersonEmail(personEmail).isPresent()) {
             throw new DuplicateEntryException("Email already exists.");
         }
 
@@ -28,7 +33,8 @@ public class PersonValidationService {
         // validateUniquePassword(loginPassword);
 
         // Check for phone uniqueness
-        if (userRepository.findByPersonPhone(personPhone).isPresent() || adminRepository.findByPersonPhone(personPhone).isPresent()) {
+        if (userRepository.findByPersonPhone(personPhone).isPresent() || adminRepository.findByPersonPhone(personPhone).isPresent() || 
+                                doctorRepository.findByPersonPhone(personPhone).isPresent()) {
             throw new DuplicateEntryException("Phone number already exists.");
         }
 
@@ -56,7 +62,8 @@ public class PersonValidationService {
     public void validateUniqueFieldsForUpdate(String personEmail, String personPhone,Long personId) {
         // Check for email uniqueness (excluding the current record)
         if ((adminRepository.findByPersonEmailAndPersonIdNot(personEmail, personId).isPresent())
-                || (userRepository.findByPersonEmailAndPersonIdNot(personEmail, personId).isPresent())) {
+                || (userRepository.findByPersonEmailAndPersonIdNot(personEmail, personId).isPresent())
+                                || (doctorRepository.findByPersonEmailAndPersonIdNot(personEmail, personId).isPresent())) {
             throw new DuplicateEntryException("Email already exists.");
         }
 
@@ -65,7 +72,8 @@ public class PersonValidationService {
         
         // Check for phone uniqueness (excluding the current record)
         if ((adminRepository.findByPersonPhoneAndPersonIdNot(personPhone, personId).isPresent())
-                || (userRepository.findByPersonPhoneAndPersonIdNot(personPhone, personId).isPresent())) {
+                || (userRepository.findByPersonPhoneAndPersonIdNot(personPhone, personId).isPresent()) ||
+                                (doctorRepository.findByPersonPhoneAndPersonIdNot(personPhone, personId).isPresent())) {
             throw new DuplicateEntryException("Phone number already exists.");
         }
 

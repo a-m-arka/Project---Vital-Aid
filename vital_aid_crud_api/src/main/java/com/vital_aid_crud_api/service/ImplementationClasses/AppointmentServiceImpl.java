@@ -105,6 +105,54 @@ public class AppointmentServiceImpl implements AppointmentService {
     //     appointmentRepository.delete(appointment);
     // }
 
+                                            // LIST OF ALL APPOINTMENTS OF A PARTICULAR DOCTOR(EMAIL)
+    @Transactional
+    @Override
+    public List<AppointmentDTO> getDoctorAppointments(){
+        String doctorEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Doctor doctor = doctorRepository.findByPersonEmail(doctorEmail).orElseThrow(
+                () -> new ResourceNotFoundException("Doctor", "email", doctorEmail));
+        List<Appointment> appointments = doctor.getDoctorAppointments();
+        return appointments.stream()
+                .map(this::AppointmentToDTO)
+                .collect(Collectors.toList());
+    }
+
+                                        // LIST OF ALL APPOINTMENTS OF A DOCTOR IN A PARTICULAR MONTH
+        @Transactional
+        @Override
+        public List<AppointmentDTO> getDoctorAppointmentsByMonth(String month){
+                String doctorEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+                Doctor doctor = doctorRepository.findByPersonEmail(doctorEmail).orElseThrow(
+                        () -> new ResourceNotFoundException("Doctor", "email", doctorEmail));
+                List<Appointment> appointments = doctor.getDoctorAppointments().stream()
+                        .filter(appointment -> appointment.getAppointmentDate().getMonth().toString().equalsIgnoreCase(month))
+                        .collect(Collectors.toList());
+                return appointments.stream()
+                        .map(this::AppointmentToDTO)
+                        .collect(Collectors.toList());
+        }
+
+                                // LIST OF ALL APPOINTMENTS OF A DOCTOR THAT ARE IN THE PAST
+        @Transactional
+        @Override
+        public List<AppointmentDTO> getDoctorPastAppointments(){
+                String doctorEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+                Doctor doctor = doctorRepository.findByPersonEmail(doctorEmail).orElseThrow(
+                        () -> new ResourceNotFoundException("Doctor", "email", doctorEmail));
+        
+                LocalDate today = LocalDate.now();
+        
+                List<Appointment> appointments = doctor.getDoctorAppointments().stream()
+                        .filter(appointment -> appointment.getAppointmentDate() != null && 
+                                appointment.getAppointmentDate().isBefore(today))
+                        .collect(Collectors.toList());
+                
+                return appointments.stream()
+                        .map(this::AppointmentToDTO)
+                        .collect(Collectors.toList());
+        }
+
                                             // LIST OF ALL APPOINTMENTS OF A PARTICULAR USER
 
     @Transactional
@@ -132,7 +180,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     private AppointmentDTO AppointmentToDTO(Appointment appointment) {
         AppointmentDTO appointmentDTO = this.modelMapper.map(appointment, AppointmentDTO.class);
-        String doctorName = appointment.getWithDoctor().getDoctorName();
+        String doctorName = appointment.getWithDoctor().getPersonName();
         String userName = appointment.getMadeByUser().getPersonName();
         LocalTime startTime = appointment.getWithDoctor().getConsultingTime().getStartTime();
 

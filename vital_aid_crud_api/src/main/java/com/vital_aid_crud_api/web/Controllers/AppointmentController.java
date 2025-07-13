@@ -58,6 +58,21 @@ public class AppointmentController {
         return new ResponseEntity<>(appointmentDTOs, HttpStatus.OK);
     }
 
+                                                // GETTING ALL APPOINTMENTS OF A DOCTOR(EMAIL)
+                            
+    @GetMapping("/doctorAppointments")
+    public ResponseEntity<List<AppointmentDTO>> viewDoctorAppointments(){
+        List<AppointmentDTO> appointmentDTOs = appointmentService.getDoctorAppointments();
+        return new ResponseEntity<>(appointmentDTOs, HttpStatus.OK);
+    }
+
+                                                // GETTING ALL APPOINTMENTS OF A DOCTOR BY MONTH
+    @GetMapping("/doctorAppointmentsByMonth/{month}")
+    public ResponseEntity<List<AppointmentDTO>> viewDoctorAppointmentsByMonth(@PathVariable String month){
+        List<AppointmentDTO> appointmentDTOs = appointmentService.getDoctorAppointmentsByMonth(month);
+        return new ResponseEntity<>(appointmentDTOs, HttpStatus.OK);
+    }
+
 
                                                 // MAKING AN APPOINTMENT
 
@@ -65,6 +80,13 @@ public class AppointmentController {
     public ResponseEntity<AppointmentDTO> makeAppointment(@PathVariable Long Id,@Valid @RequestBody AppointmentDTO appointmentDTO){
         AppointmentDTO appointment = appointmentService.makeAppointment(Id, appointmentDTO);
         return new ResponseEntity<>(appointment, HttpStatus.CREATED);
+    }
+
+                                        // LIST OF PAST APPOINTMENTS OF A DOCTOR
+    @GetMapping("/doctorPastAppointments")
+    public ResponseEntity<List<AppointmentDTO>> viewDoctorPastAppointments(){
+        List<AppointmentDTO> appointmentDTOs = appointmentService.getDoctorPastAppointments();
+        return new ResponseEntity<>(appointmentDTOs, HttpStatus.OK);
     }
 
                                                 // DELETING AN APPOINTMENT         
