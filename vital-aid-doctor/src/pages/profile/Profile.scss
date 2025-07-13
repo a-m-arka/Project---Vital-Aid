@@ -1,0 +1,104 @@
+@import '../../Var.scss';
+
+
+
+.profileContainer {
+    width: 100%;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    // background-color: red;
+
+    h2 {
+        color: var(--primary-color);
+        // background-color: red;
+        border-bottom: 1px solid var(--third-color);
+        padding-bottom: 5px;
+        width: 100%;
+        margin-bottom: 15px;
+        font-size: 28px;
+    }
+
+    .imgSection {
+        width: 100%;
+        flex: 5;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid color-mix(in srgb, var(--secondary-color), white 10%);
+        }
+    }
+
+    .detailSection {
+        width: 100%;
+        height: max-content;
+        // flex: 6;
+        border: 1px solid color-mix(in srgb, var(--secondary-color), white 10%);
+        margin-top: 20px;
+        border-radius: 10px;
+        padding: 15px;
+
+        ul {
+            padding: 10px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            li {
+                display: flex;
+                flex-direction: row;
+
+                .key {
+                    flex: 2;
+                    font-size: 20px;
+                    color: var(--text-color2);
+                }
+
+                .colon {
+                    flex: 0.2;
+                    font-size: 20px;
+                    color: var(--text-color2);
+                }
+
+                .value {
+                    flex: 5;
+                    font-size: 24px;
+                    color: var(--text-color1);
+                }
+            }
+        }
+    }
+
+    .btn-section {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
+        .updateButton,
+        .changePassButton {
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+            width: fit-content;
+            padding: 5px 15px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: var(--primary-color);
+            color: var(--text-color1);
+
+            &:hover {
+                background-color: var(--third-color);
+            }
+        }
+    }
+}

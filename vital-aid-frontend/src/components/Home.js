@@ -92,7 +92,7 @@ export default function Home() {
                                         <img src={doctor.doctorPhotoUrl} alt="" className="doctor-photo" />
                                         <h4 className="doctor-name">{doctor.doctorName}</h4>
                                         <p className="doctor-speciality"><span className='doctor-highlight'>Field: </span>{doctor.specializationField}</p>
-                                        <p className="doctor-hospital">{doctor.hospitalName}</p>                                       
+                                        <p className="doctor-hospital">{doctor.hospitalName}</p>
                                     </div>
                                 </div>
                             ))}

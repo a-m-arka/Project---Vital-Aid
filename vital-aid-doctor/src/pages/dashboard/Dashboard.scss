@@ -1,0 +1,119 @@
+@import '../../Var.scss';
+
+.dashboard {
+    // background-color: red;
+    display: flex;
+    flex-direction: column;
+    // gap: 20px;
+
+    .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: start;
+        padding: 40px 30px;
+        // background-color: blue;
+        height: max-content;
+
+        .left {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            height: max-content;
+            width: max-content;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            cursor: pointer;
+
+            h2 {
+                color: var(--primary-color);
+                // background-color: red;
+                border-bottom: 1px solid var(--third-color);
+                padding-bottom: 5px;
+                width: 100%;
+            }
+
+            &:hover {
+                // background-color: red;
+                transform: scale(1.01);
+            }
+        }
+
+        .right {
+            // background-color: red;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            height: max-content;
+            width: max-content;
+
+            h2 {
+                color: var(--primary-color);
+                // background-color: red;
+                border-bottom: 1px solid var(--third-color);
+                padding-bottom: 5px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .bottom {
+        width: 100%;
+        padding: 0 30px;
+        // background-color: red;
+
+        h2 {
+            color: var(--primary-color);
+            // background-color: red;
+            border-bottom: 1px solid var(--third-color);
+            padding-bottom: 5px;
+            width: 100%;
+            font-size: 28px;
+        }
+
+        .appointments-container {
+            // background-color: red;
+            padding: 0;
+            margin-top: 20px;
+            gap: 0;
+
+            .day-group {
+                margin-bottom: 20px;
+                // background-color: red;
+
+                h3 {
+                    color: var(--third-color);
+                    margin-bottom: 8px;
+                    font-size: 20px;
+
+                    span {
+                        font-size: 14px;
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    background: var(--secondary-color);
+                    border-radius: 6px;
+                    padding: 10px;
+
+                    li {
+                        color: var(--text-color2);
+                        font-size: 18px;
+                        font-weight: 500;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: var(--primary-color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

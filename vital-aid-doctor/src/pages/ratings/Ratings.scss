@@ -1,0 +1,87 @@
+@import '../../Var.scss';
+
+.ratings-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .overall-rating-section,
+    .feedback-section {
+        width: 100%;
+        // background-color: var(--secondary-color);
+        padding: 15px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            color: var(--primary-color);
+            // background-color: red;
+            border-bottom: 1px solid var(--third-color);
+            padding-bottom: 5px;
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+    }
+
+    .overall-rating-section .rating-summary{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .avg-rating{
+            // background-color: red;
+            .rating-val{
+                font-size: 72px;
+                font-weight: bold;
+            }
+
+            .feedback-count{
+                font-size: 18px;
+                color: var(--text-color2);
+            }
+        }
+
+        .rating-distribution{
+            width: 80%;
+            height: max-content;
+            padding: 15px;
+            // background-color: blue;
+        }
+    }    
+
+    .feedback-section .rating-grid{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+
+        .rating-card{
+            border: 1px solid color-mix(in srgb, var(--secondary-color), white 10%);
+            padding: 10px;
+            border-radius: 10px;
+
+            .user-name{
+                font-size: 20px;
+                font-weight: bold;
+                color: var(--text-color1);
+                margin-bottom: 5px;
+            }
+
+            .rating-stars{
+                margin-bottom: 15px;
+            }
+
+            .review-text{
+                font-size: 18px;
+                font-weight: 600;
+                color: var(--text-color2);
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

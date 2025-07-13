@@ -1,0 +1,167 @@
+@import '../../Var.scss';
+
+.update-profile-container {
+    width: 100%;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    // background-color: red;
+
+    h2 {
+        color: var(--primary-color);
+        // background-color: red;
+        border-bottom: 1px solid var(--third-color);
+        padding-bottom: 5px;
+        width: 100%;
+        // margin-bottom: 15px;
+        font-size: 28px;
+    }
+
+    .bottom {
+        // flex: 7;
+        // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        // background-color: red;
+        width: 100%;
+        // margin: 20px;
+        display: flex;
+        height: max-content;
+        padding-bottom: 20px;
+
+        .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            // background-color: red;
+
+            img {
+                margin: 50px;
+                height: 250px;
+                width: 250px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid color-mix(in srgb, var(--secondary-color), white 10%);
+            }
+
+            .imgUpload {
+                label {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    width: max-content;
+                    padding: 2px 5px;
+                    border-radius: 5px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    background-color: var(--primary-color);
+                    color: var(--text-color1);
+
+                    .icon {
+                        font-size: 30px;
+                    }
+
+                    &:hover {
+                        background-color: var(--third-color);
+                    }
+                }
+            }
+        }
+
+        .right {
+            flex: 2;
+            padding: 20px;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+                .formInput {
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+
+                    label {
+                        flex: 2;
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: var(--text-color2);
+                    }
+
+                    input,
+                    select {
+                        flex: 3;
+                        border-radius: 5px;
+                        border: none;
+                        outline: none;
+                        background-color: var(--secondary-color);
+                        color: var(--text-color1);
+                        font-size: 20px;
+                        font-weight: bold;
+                        padding: 8px 8px;
+                    }
+
+                    .gender-select,
+                    .time-input {
+                        cursor: pointer;
+                    }
+
+                    .checkboxGroup {
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                        gap: 10px;
+                        margin-top: 10px;
+                        // background-color: red;
+                        padding: 8px 8px;
+                        border-radius: 5px;
+                        border: none;
+                        outline: none;
+                        background-color: var(--secondary-color);
+                        color: var(--text-color1);
+
+                        label {
+                            font-size: 20px;
+                            font-weight: 600;
+                            color: var(--text-color1);
+                        }
+
+                        input {
+                            border-radius: 5px;
+                            border: none;
+                            outline: none;
+                            background-color: var(--primary-color);
+                            color: var(--text-color2);
+                            font-size: 20px;
+                            font-weight: bold;
+                            padding: 8px 8px;
+                            margin-right: 5px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .update-btn {
+                    cursor: pointer;
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-top: 10px;
+                    width: fit-content;
+                    padding: 5px 15px;
+                    border-radius: 5px;
+                    border: none;
+                    outline: none;
+                    background-color: var(--primary-color);
+                    color: var(--text-color1);
+
+                    &:hover {
+                        background-color: var(--third-color);
+                    }
+                }
+            }
+        }
+    }
+}

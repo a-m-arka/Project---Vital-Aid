@@ -1,0 +1,46 @@
+@import '../../Var.scss';
+
+.circular-rating {
+    width: 220px;
+    height: 220px;
+    // background-color: #fff;
+
+    .circle-chart {
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+    }
+
+    .circle-bg {
+        fill: none;
+        stroke: var(--text-color1);
+        stroke-width: 3.8;
+    }
+
+    .circle {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: 3.8;
+        // stroke-linecap: round;
+        transition: stroke-dasharray 0.5s ease;
+    }
+
+    .circle-text {
+        font-size: 0.5em;
+        text-anchor: middle;
+        fill: var(--text-color1);
+        transform: rotate(90deg);
+        transform-origin: center;
+        dominant-baseline: middle;
+
+        &.rating-value {
+            font-weight: bold;
+            font-size: 7px;
+        }
+
+        &.rating-count {
+            font-size: 3px;
+            fill: var(--text-color2);
+        }
+    }
+}

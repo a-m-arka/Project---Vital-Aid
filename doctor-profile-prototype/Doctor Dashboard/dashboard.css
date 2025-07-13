@@ -59,6 +59,11 @@ body {
     color: white;
 }
 
+.sidebar li a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .dashboard {
     flex: 1;
     display: grid;
@@ -132,31 +137,31 @@ body {
 }
 
 .appointments-list {
-  grid-column: 1 / -1;
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    grid-column: 1 / -1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .appointments-list h2 {
-  margin-bottom: 15px;
-  color: #6b46c1;
+    margin-bottom: 15px;
+    color: #6b46c1;
 }
 
 .appointments-list ul {
-  list-style: none;
+    list-style: none;
 }
 
 .appointments-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 15px;
-  color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    color: #333;
 }
 
 .appointments-list li:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }

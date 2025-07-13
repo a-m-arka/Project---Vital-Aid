@@ -1,0 +1,85 @@
+@import '../../Var.scss';
+
+.sidebar {
+    flex: 1;
+    border-right: 0.5px solid color-mix(in srgb, var(--secondary-color), white 20%);
+    min-height: 100vh;
+    background-color: var(--background-color);
+
+    .top {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+    }
+
+    hr {
+        height: 0;
+        border: 0.5px solid color-mix(in srgb, var(--secondary-color), white 20%);
+        ;
+    }
+
+    .bottom {
+        padding: 10px 15px;
+        width: 100%;
+        height: max-content;
+        // margin-left: 10px;
+        margin-top: 0px;
+        // background-color: red;
+        box-shadow: none;
+        border: none;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            .title {
+                font-size: 22px;
+                font-weight: bold;
+                color: var(--text-color1);
+                margin-top: 15px;
+                margin-bottom: 5px;
+            }
+
+            li {
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                cursor: pointer;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: color-mix(in srgb, var(--secondary-color), white 5%);
+                }
+
+                .icon {
+                    font-size: 20px;
+                    color: var(--primary-color);
+                }
+
+                span {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: var(--text-color2);
+                    margin-left: 10px;
+                }
+            }
+
+            a.active li {
+                background-color: var(--primary-color);
+
+                .icon,
+                span {
+                    color: var(--text-color1);
+                }
+            }
+        }
+    }
+}
