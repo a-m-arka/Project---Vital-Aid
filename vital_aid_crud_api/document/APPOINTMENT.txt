@@ -7,7 +7,6 @@
                                     "patientEmail": "patientb@example.com",
                                     "patientGender": "Female",
                                     "reasonForVisit": "Having fever for the past 7 days",
-                                    "visitDay":"Friday",
                                     "appointmentDate":"2025-01-15"
                                 }
 
@@ -24,7 +23,6 @@
                                     "patientEmail": "patientb@example.com",
                                     "patientGender": "Female",
                                     "reasonForVisit": "Having fever for the past 7 days",
-                                    "visitDay": "Friday",
                                     "appointmentDate": "2025-01-15",
                                     "appointmentBy": "Fahim",
                                     "appointmentWith": "Dr. Fahim",
@@ -45,7 +43,6 @@
                                         "patientEmail": "patientb@example.com",
                                         "patientGender": "Female",
                                         "reasonForVisit": "Having fever for the past 7 days",
-                                        "visitDay": "Friday",
                                         "appointmentBy": "Fahim",
                                         "appointmentWith": "Dr. Zahirul Iqbal"
                                     },
@@ -57,7 +54,6 @@
                                         "patientEmail": "patientb@example.com",
                                         "patientGender": "Female",
                                         "reasonForVisit": "Having fever for the past 7 days",
-                                        "visitDay": "Friday",
                                         "appointmentBy": "Fahim",
                                         "appointmentWith": "Dr. Zahirul Iqbal"
                                     }
@@ -76,7 +72,6 @@
                                         "patientEmail": "patientb@example.com",
                                         "patientGender": "Female",
                                         "reasonForVisit": "Having fever for the past 7 days",
-                                        "visitDay": "Friday",
                                         "appointmentBy": "Fahim",
                                         "appointmentWith": "Dr. Zahirul Iqbal"
                                     },
@@ -88,7 +83,64 @@
                                         "patientEmail": "patientb@example.com",
                                         "patientGender": "Female",
                                         "reasonForVisit": "Having fever for the past 7 days",
-                                        "visitDay": "Friday",
+                                        "appointmentBy": "Fahim",
+                                        "appointmentWith": "Dr. Zahirul Iqbal"
+                                    }
+                                }
+
+
+
+                                5. LIST OF ALL PAST APPOINTMENTS
+                            api url -> localhost:8080/vital_aid/appointment/doctorPastAppointments
+
+                                {
+                                    {
+                                        "appointmentToken": 1,
+                                        "patientName": "Patient E",
+                                        "patientDob": "2000-12-20",
+                                        "patientPhone": "01234567890",
+                                        "patientEmail": "patientb@example.com",
+                                        "patientGender": "Female",
+                                        "reasonForVisit": "Having fever for the past 7 days",
+                                        "appointmentBy": "Fahim",
+                                        "appointmentWith": "Dr. Zahirul Iqbal"
+                                    },
+                                    {
+                                        "appointmentToken": 1,
+                                        "patientName": "Patient E",
+                                        "patientDob": "2000-12-20",
+                                        "patientPhone": "01234567890",
+                                        "patientEmail": "patientb@example.com",
+                                        "patientGender": "Female",
+                                        "reasonForVisit": "Having fever for the past 7 days",
+                                        "appointmentBy": "Fahim",
+                                        "appointmentWith": "Dr. Zahirul Iqbal"
+                                    }
+                                }
+
+                                6. LIST OF ALL CURRENT MONTH APPOINTMENTS
+                            api url -> localhost:8080/vital_aid/appointment/doctorAppointmentsByMonth/{month}
+
+                                {
+                                    {
+                                        "appointmentToken": 1,
+                                        "patientName": "Patient E",
+                                        "patientDob": "2000-12-20",
+                                        "patientPhone": "01234567890",
+                                        "patientEmail": "patientb@example.com",
+                                        "patientGender": "Female",
+                                        "reasonForVisit": "Having fever for the past 7 days",
+                                        "appointmentBy": "Fahim",
+                                        "appointmentWith": "Dr. Zahirul Iqbal"
+                                    },
+                                    {
+                                        "appointmentToken": 1,
+                                        "patientName": "Patient E",
+                                        "patientDob": "2000-12-20",
+                                        "patientPhone": "01234567890",
+                                        "patientEmail": "patientb@example.com",
+                                        "patientGender": "Female",
+                                        "reasonForVisit": "Having fever for the past 7 days",
                                         "appointmentBy": "Fahim",
                                         "appointmentWith": "Dr. Zahirul Iqbal"
                                     }
