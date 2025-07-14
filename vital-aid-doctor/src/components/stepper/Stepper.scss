@@ -1,0 +1,59 @@
+@import '../../Var.scss'; 
+
+.stepper {
+    width: 90%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    /* background-color: red; */
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: color-mix(in srgb, var(--secondary-color), white 10%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    z-index: 2;
+}
+
+.step-name {
+    font-size: 14px;
+}
+
+.active .step-number {
+    background-color: var(--third-color);
+    color: var(--text-color1);
+}
+
+.complete .step-number {
+    background-color: var(--primary-color);
+    color: var(--text-color1);
+}
+
+.progress-bar {
+    width: 95%;
+    position: absolute;
+    top: 37%;
+    left: 0;
+    height: 4px;
+    background-color: color-mix(in srgb, var(--secondary-color), white 10%);
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: 0.2s ease;
+}
+

@@ -1,0 +1,122 @@
+@import '../../Var.scss';
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+.login-form {
+    background: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    //   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .passed-message {
+        color: var(--success-color);
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 10px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        color: var(--primary-color);
+        // background-color: red;
+        border-bottom: 1px solid var(--third-color);
+        padding-bottom: 5px;
+        width: 100%;
+        margin-bottom: 15px;
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .go-to-forgetpass {
+        // margin-top: 15px;
+        font-size: 18px;
+        padding: 5px 5px;
+        font-weight: 600;
+        // background-color: rgba(255, 140, 0, 0.3);
+        color: darkorange;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        label {
+            flex: 2;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-color2);
+            margin-bottom: 5px;
+        }
+
+        input {
+            flex: 3;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: color-mix(in srgb, var(--secondary-color), white 10%);
+            color: var(--text-color1);
+            font-size: 20px;
+            font-weight: bold;
+            padding: 8px 8px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .error-message {
+        color: var(--error-color);
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .login-button {
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 10px;
+        width: fit-content;
+        padding: 5px 15px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background-color: var(--primary-color);
+        color: var(--text-color1);
+
+        &:hover {
+            background-color: var(--third-color);
+        }
+    }
+
+    .go-to-signup {
+        margin-top: 15px;
+        font-size: 18px;
+        padding: 5px 5px;
+        font-weight: 600;
+        // background-color: rgba(0, 100, 0, 0.3);
+        color: var(--success-color);
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

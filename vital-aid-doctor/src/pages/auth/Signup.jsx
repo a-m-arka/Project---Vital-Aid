@@ -1,32 +1,30 @@
-import React, { useState } from 'react'
-import './UpdateProfile.scss';
+import React, { useState } from 'react';
+import '../profile/UpdateProfile.scss';
+import { useNavigate } from 'react-router-dom';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-// import { useNavigate } from 'react-router-dom';
 
-import { doctorData } from '../../temporaryData/doctorData';
-
-const UpdateProfile = () => {
-    const data = doctorData;
-    // const navigate = useNavigate();
-    const prevImg = data.doctorProfileImageUrl;
+const Signup = () => {
+    const navigate = useNavigate();
+    const noImg = "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg";
     const [errorMessages, setErrorMessages] = useState('');
     const [img, setImg] = useState(null);
     const [formData, setFormData] = useState({
-        personName: data.personName,
-        personEmail: data.personEmail,
-        personPhone: data.personPhone,
-        availabilityStatus: data.availabilityStatus,
-        hospitalName: data.hospitalName,
-        doctorFee: data.doctorFee,
-        specializationField: data.specializationField,
-        doctorSpecialization: data.doctorSpecialization,
-        consultationDays: data.consultationDays,
+        personName: '',
+        personEmail: '',
+        personPhone: '',
+        loginPassword: '',
+        confirmPassword: '',
+        hospitalName: '',
+        doctorFee: '',
+        specializationField: '',
+        doctorSpecialization: [],
+        consultationDays: [],
         consultingTime: {
-            startTime: data.consultingTime.startTime,
-            endTime: data.consultingTime.endTime
+            startTime: '',
+            endTime: ''
         },
-        doctorGender: data.doctorGender,
-        doctorCity: data.doctorCity
+        doctorGender: '',
+        doctorCity: ''
     });
     const [loading, setLoading] = useState(false);
 
@@ -61,7 +59,8 @@ const UpdateProfile = () => {
     };
 
     const handleSubmit = async (e) => {
-        // Code below
+        e.preventDefault();
+        // code below
     };
 
 
@@ -76,15 +75,15 @@ const UpdateProfile = () => {
     ];
 
     return (
-        <div className="update-profile-container">
-            <h2>Update Profile</h2>
+        <div className="signup-container">
+            <h2>Register as a Doctor</h2>
             <div className="bottom">
                 <div className="left">
-                    <img src={img ? URL.createObjectURL(img) : prevImg} alt="" />
+                    <img src={img ? URL.createObjectURL(img) : noImg} alt="" />
                     <div className="imgUpload">
                         <label htmlFor='img'>
                             <AddPhotoAlternateIcon className='icon' />
-                            Upload New Image
+                            Upload Image
                         </label>
                         <input type="file" id='img' style={{ display: "none" }} onChange={handleImgUpload} />
                     </div>
@@ -116,7 +115,6 @@ const UpdateProfile = () => {
                         <div className="formInput">
                             <label>Gender</label>
                             <select
-                                className='gender-select'
                                 value={formData.doctorGender}
                                 onChange={(e) => handleInputChange(e, "doctorGender")}
                             >
@@ -146,7 +144,6 @@ const UpdateProfile = () => {
                         <div className="formInput">
                             <label>Start Time</label>
                             <input
-                                className='time-input'
                                 type="time"
                                 value={formData.consultingTime.startTime}
                                 onChange={(e) => setFormData({
@@ -162,7 +159,6 @@ const UpdateProfile = () => {
                         <div className="formInput">
                             <label>End Time</label>
                             <input
-                                className='time-input'
                                 type="time"
                                 value={formData.consultingTime.endTime}
                                 onChange={(e) => setFormData({
@@ -176,33 +172,27 @@ const UpdateProfile = () => {
                         </div>
 
                         <div className="formInput">
-                            <label>Availability Status</label>
-                            <div className="radioGroup">
-                                <label>
-                                    <input
-                                        type="radio"
-                                        value="Available"
-                                        checked={formData.availabilityStatus === "Available"}
-                                        onChange={(e) => handleInputChange(e, "availabilityStatus")}
-                                    />
-                                    Available
-                                </label>
-                                <label>
-                                    <input
-                                        type="radio"
-                                        value="Unavailable"
-                                        checked={formData.availabilityStatus === "Unavailable"}
-                                        onChange={(e) => handleInputChange(e, "availabilityStatus")}
-                                    />
-                                    Unavailable
-                                </label>
-                            </div>
+                            <label>Password</label>
+                            <input
+                                type='password'
+                                value={formData.loginPassword}
+                                onChange={(e) => handleInputChange(e, "loginPassword")}
+                            />
+                        </div>
+
+                        <div className="formInput">
+                            <label>Confirm Password</label>
+                            <input
+                                type='password'
+                                value={formData.confirmPassword}
+                                onChange={(e) => handleInputChange(e, "confirmPassword")}
+                            />
                         </div>
 
                         {loading ? (
-                            <p className='loading-message'>Updating doctor profile...</p>
+                            <p className='loading-message'>Adding new doctor...</p>
                         ) : (
-                            <button className='update-btn' type="submit">Save Changes</button>
+                            <button className='submit-btn' type="submit">Submit</button>
                         )}
                     </form>
                 </div>
@@ -211,11 +201,9 @@ const UpdateProfile = () => {
     );
 }
 
-export default UpdateProfile
+export default Signup
 
 
-
-// e.preventDefault();
 // setErrorMessages('');
 // setLoading(true);
 
@@ -254,8 +242,8 @@ export default UpdateProfile
 //         multipartFormData.append('file', hospitalFile);
 //     }
 
-//     const response = await fetch(`http://localhost:8080/vital_aid/doctors/updateDoctor/${data.id}`, {
-//         method: 'PUT',
+//     const response = await fetch('http://localhost:8080/vital_aid/doctors/registerDoctor', {
+//         method: 'POST',
 //         headers: {
 //             'Authorization': `Bearer ${token}`,
 //             // Do not set Content-Type header here, as FormData automatically handles it
@@ -267,8 +255,8 @@ export default UpdateProfile
 //         console.log('Success');
 //         navigate('/doctor');
 //     } else {
-//         const errorData = await response.text();
-//         setErrorMessages(errorData || 'An error occurred');
+//         const errorData = await response.json();
+//         setErrorMessages(errorData.message || 'An error occurred');
 //     }
 // } catch (error) {
 //     console.log('Error:', error);

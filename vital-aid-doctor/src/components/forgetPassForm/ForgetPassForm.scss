@@ -1,0 +1,60 @@
+@import '../../Var.scss';
+
+.forget-pass-input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    label {
+        flex: 2;
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--text-color2);
+        margin-bottom: 5px;
+    }
+
+    input {
+        flex: 3;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background-color: color-mix(in srgb, var(--secondary-color), white 10%);
+        color: var(--text-color1);
+        font-size: 20px;
+        font-weight: bold;
+        padding: 8px 8px;
+        margin-bottom: 10px;
+    }
+}
+
+.error-message {
+    font-size: 18px;
+    margin: 20px 0;
+    color: var(--error-color);
+    text-align: center;
+}
+
+.forget-pass-btn {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: var(--text-color1);
+
+    &:hover {
+        background-color: var(--third-color);
+    }
+}
+
+.success-message,
+.loading-message {
+    font-size: 18px;
+    margin: 20px 0;
+    color: var(--success-color);
+}

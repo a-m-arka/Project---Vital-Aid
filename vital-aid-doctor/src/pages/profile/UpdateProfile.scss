@@ -1,6 +1,7 @@
 @import '../../Var.scss';
 
-.update-profile-container {
+.update-profile-container,
+.signup-container {
     width: 100%;
     padding: 35px;
     display: flex;
@@ -87,9 +88,10 @@
 
                     label {
                         flex: 2;
-                        font-size: 18px;
+                        font-size: 20px;
                         font-weight: 600;
                         color: var(--text-color2);
+                        margin-bottom: 5px;
                     }
 
                     input,
@@ -110,11 +112,12 @@
                         cursor: pointer;
                     }
 
-                    .checkboxGroup {
+                    .checkboxGroup,
+                    .radioGroup {
                         display: grid;
                         grid-template-columns: repeat(4, 1fr);
                         gap: 10px;
-                        margin-top: 10px;
+                        // margin-top: 10px;
                         // background-color: red;
                         padding: 8px 8px;
                         border-radius: 5px;
@@ -144,7 +147,8 @@
                     }
                 }
 
-                .update-btn {
+                .update-btn,
+                .submit-btn {
                     cursor: pointer;
                     font-size: 18px;
                     font-weight: 600;

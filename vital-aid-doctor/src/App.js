@@ -13,6 +13,9 @@ import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import Profile from './pages/profile/Profile';
 import UpdateProfile from './pages/profile/UpdateProfile';
 import ChangePassword from './pages/profile/ChangePassword';
+import Signup from './pages/auth/Signup';
+import Login from './pages/auth/Login';
+import ForgetPass from './pages/auth/ForgetPass';
 
 function App() {
   return (
@@ -30,6 +33,10 @@ function App() {
             <Route path='/profile' element={<Profile />} />
             <Route path='/update-profile' element={<UpdateProfile />} />
             <Route path='/change-password' element={<ChangePassword />} />
+
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/forget-password' element={<ForgetPass />} />
           </Routes>
         </div>
       </Router>

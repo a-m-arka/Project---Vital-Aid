@@ -1,0 +1,10 @@
+@import '../../Var.scss';
+
+.timer{
+    background-color: rgba(0, 100, 0, 0.3);
+    color: var(--success-color);
+    // margin-bottom: 10px;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
