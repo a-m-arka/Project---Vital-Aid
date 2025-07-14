@@ -1,95 +1,95 @@
                 //  1. REGISTERING A NEW APPOINTMENT WITH DOCTOR INPUT PASSING DOCTOR ID AS PATH VARIABLE   //
 
-{
-    "patientName": "Patient F",
-    "patientDob": "2021-05-20",
-    "patientPhone": "01234567890",
-    "patientEmail": "patientb@example.com",
-    "patientGender": "Female",
-    "reasonForVisit": "Having fever for the past 7 days",
-    "visitDay":"Friday",
-    "appointmentDate":"2025-01-15"
-}
+                                {
+                                    "patientName": "Patient F",
+                                    "patientDob": "2021-05-20",
+                                    "patientPhone": "01234567890",
+                                    "patientEmail": "patientb@example.com",
+                                    "patientGender": "Female",
+                                    "reasonForVisit": "Having fever for the past 7 days",
+                                    
+                                    "appointmentDate":"2025-01-15"
+                                }
 
 
 
 
                 //  2. APPOINTMENT DETAILS OUTPUT    //
 
-{
-    "appointmentToken": 1,
-    "patientName": "Patient F",
-    "patientDob": "2021-05-20",
-    "patientPhone": "01234567890",
-    "patientEmail": "patientb@example.com",
-    "patientGender": "Female",
-    "reasonForVisit": "Having fever for the past 7 days",
-    "visitDay": "Friday",
-    "appointmentDate": "2025-01-15",
-    "appointmentBy": "Fahim",
-    "appointmentWith": "Dr. Fahim",
-    "patientAge": 3,
-    "doctorAppointmentStartTime": "09:00"
-}
+                                {
+                                    "appointmentToken": 1,
+                                    "patientName": "Patient F",
+                                    "patientDob": "2021-05-20",
+                                    "patientPhone": "01234567890",
+                                    "patientEmail": "patientb@example.com",
+                                    "patientGender": "Female",
+                                    "reasonForVisit": "Having fever for the past 7 days",
+                                    "visitDay": "Friday",
+                                    "appointmentDate": "2025-01-15",
+                                    "appointmentBy": "Fahim",
+                                    "appointmentWith": "Dr. Fahim",
+                                    "patientAge": 3,
+                                    "doctorAppointmentStartTime": "09:00"
+                                }
 
 
                 
                 //  3. LIST OF ALL APPONTMENTS OF AN USER  //
 
-{
-    {
-        "appointmentToken": 1,
-        "patientName": "Patient E",
-        "patientDob": "2000-12-20",
-        "patientPhone": "01234567890",
-        "patientEmail": "patientb@example.com",
-        "patientGender": "Female",
-        "reasonForVisit": "Having fever for the past 7 days",
-        "visitDay": "Friday",
-        "appointmentBy": "Fahim",
-        "appointmentWith": "Dr. Zahirul Iqbal"
-    },
-    {
-        "appointmentToken": 1,
-        "patientName": "Patient E",
-        "patientDob": "2000-12-20",
-        "patientPhone": "01234567890",
-        "patientEmail": "patientb@example.com",
-        "patientGender": "Female",
-        "reasonForVisit": "Having fever for the past 7 days",
-        "visitDay": "Friday",
-        "appointmentBy": "Fahim",
-        "appointmentWith": "Dr. Zahirul Iqbal"
-    }
-}
+                                {
+                                    {
+                                        "appointmentToken": 1,
+                                        "patientName": "Patient E",
+                                        "patientDob": "2000-12-20",
+                                        "patientPhone": "01234567890",
+                                        "patientEmail": "patientb@example.com",
+                                        "patientGender": "Female",
+                                        "reasonForVisit": "Having fever for the past 7 days",
+                                        "visitDay": "Friday",
+                                        "appointmentBy": "Fahim",
+                                        "appointmentWith": "Dr. Zahirul Iqbal"
+                                    },
+                                    {
+                                        "appointmentToken": 1,
+                                        "patientName": "Patient E",
+                                        "patientDob": "2000-12-20",
+                                        "patientPhone": "01234567890",
+                                        "patientEmail": "patientb@example.com",
+                                        "patientGender": "Female",
+                                        "reasonForVisit": "Having fever for the past 7 days",
+                                        "visitDay": "Friday",
+                                        "appointmentBy": "Fahim",
+                                        "appointmentWith": "Dr. Zahirul Iqbal"
+                                    }
+                                }
 
 
 
             //  4. LIST OF ALL APPONTMENTS  //
 
-{
-    {
-        "appointmentToken": 1,
-        "patientName": "Patient E",
-        "patientDob": "2000-12-20",
-        "patientPhone": "01234567890",
-        "patientEmail": "patientb@example.com",
-        "patientGender": "Female",
-        "reasonForVisit": "Having fever for the past 7 days",
-        "visitDay": "Friday",
-        "appointmentBy": "Fahim",
-        "appointmentWith": "Dr. Zahirul Iqbal"
-    },
-    {
-        "appointmentToken": 1,
-        "patientName": "Patient E",
-        "patientDob": "2000-12-20",
-        "patientPhone": "01234567890",
-        "patientEmail": "patientb@example.com",
-        "patientGender": "Female",
-        "reasonForVisit": "Having fever for the past 7 days",
-        "visitDay": "Friday",
-        "appointmentBy": "Fahim",
-        "appointmentWith": "Dr. Zahirul Iqbal"
-    }
-}
+                                {
+                                    {
+                                        "appointmentToken": 1,
+                                        "patientName": "Patient E",
+                                        "patientDob": "2000-12-20",
+                                        "patientPhone": "01234567890",
+                                        "patientEmail": "patientb@example.com",
+                                        "patientGender": "Female",
+                                        "reasonForVisit": "Having fever for the past 7 days",
+                                        "visitDay": "Friday",
+                                        "appointmentBy": "Fahim",
+                                        "appointmentWith": "Dr. Zahirul Iqbal"
+                                    },
+                                    {
+                                        "appointmentToken": 1,
+                                        "patientName": "Patient E",
+                                        "patientDob": "2000-12-20",
+                                        "patientPhone": "01234567890",
+                                        "patientEmail": "patientb@example.com",
+                                        "patientGender": "Female",
+                                        "reasonForVisit": "Having fever for the past 7 days",
+                                        "visitDay": "Friday",
+                                        "appointmentBy": "Fahim",
+                                        "appointmentWith": "Dr. Zahirul Iqbal"
+                                    }
+                                }
