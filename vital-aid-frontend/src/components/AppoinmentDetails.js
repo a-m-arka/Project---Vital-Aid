@@ -73,7 +73,11 @@ const AppoinmentDetails = () => {
                     </div>
                     <div className="form-item">
                         <label>Appointment Day:</label>
-                        <span>{data?.visitDay}</span>
+                        <span>
+                            {data?.appointmentDate
+                                ? new Date(data.appointmentDate).toLocaleDateString('en-US', { weekday: 'long' })
+                                : ''}
+                        </span>
                     </div>
                     <div className="form-item">
                         <label>Appointment Time:</label>
@@ -168,7 +172,11 @@ const AppoinmentDetails = () => {
                     <div className="data">
                         <div className="label">Appointment Day</div>
                         <div className="colon">:</div>
-                        <div className="label-data">{data?.visitDay}</div>
+                        <div className="label-data">
+                            {data?.appointmentDate
+                                ? new Date(data.appointmentDate).toLocaleDateString('en-US', { weekday: 'long' })
+                                : ''}
+                        </div>
                     </div>
                     <div className="data">
                         <div className="label">Appointment Time</div>

@@ -87,7 +87,6 @@ export default function Appoinment() {
           patientEmail: formData.email,
           patientGender: formData.gender,
           reasonForVisit: formData.reason,
-          visitDay: formData.day,
           appointmentDate: formData.appointmentDate,
         }),
       });

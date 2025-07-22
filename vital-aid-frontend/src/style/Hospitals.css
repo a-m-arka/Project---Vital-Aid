@@ -76,22 +76,24 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     border-radius: 10px;
     border: 3px solid var(--primary-color);
     box-shadow: 0 0 8px black;
 }
 
 .hospital-filter-name {
-    width: 50%;
+    width: max-content;
     height: 100%;
-    background: transparent;
+    /* background: transparent; */
+    background-color: var(--primary-color);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    padding-left: 20px;
 }
 
 .filter label {

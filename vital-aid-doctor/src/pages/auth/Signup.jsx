@@ -5,9 +5,9 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 const Signup = () => {
     const navigate = useNavigate();
-    const noImg = "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg";
+    // const noImg = "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg";
     const [errorMessages, setErrorMessages] = useState('');
-    const [img, setImg] = useState(null);
+    // const [img, setImg] = useState(null);
     const [formData, setFormData] = useState({
         personName: '',
         personEmail: '',
@@ -28,9 +28,9 @@ const Signup = () => {
     });
     const [loading, setLoading] = useState(false);
 
-    const handleImgUpload = (event) => {
-        setImg(event.target.files[0]);
-    };
+    // const handleImgUpload = (event) => {
+    //     setImg(event.target.files[0]);
+    // };
 
     const handleInputChange = (event, field) => {
         const { value } = event.target;
@@ -60,7 +60,31 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // code below
+        setErrorMessages('');
+        setLoading(true);
+
+        try {
+            const response = await fetch('http://localhost:8080/vital_aid/doctor/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                // console.log('Success');
+                navigate('/login');
+            } else {
+                const errorData = await response.json();
+                setErrorMessages(errorData.message || 'An error occurred');
+            }
+        } catch (error) {
+            console.log('Error:', error);
+            setErrorMessages('Failed to submit form');
+        } finally {
+            setLoading(false);
+        }
     };
 
 
@@ -78,7 +102,7 @@ const Signup = () => {
         <div className="signup-container">
             <h2>Register as a Doctor</h2>
             <div className="bottom">
-                <div className="left">
+                {/* <div className="left">
                     <img src={img ? URL.createObjectURL(img) : noImg} alt="" />
                     <div className="imgUpload">
                         <label htmlFor='img'>
@@ -87,9 +111,8 @@ const Signup = () => {
                         </label>
                         <input type="file" id='img' style={{ display: "none" }} onChange={handleImgUpload} />
                     </div>
-                </div>
+                </div> */}
                 <div className="right">
-                    <p className="error-message">{errorMessages}</p>
                     <form onSubmit={handleSubmit}>
                         {inputFields.map(([key, label]) => (
                             <div className="formInput" key={key}>
@@ -115,6 +138,7 @@ const Signup = () => {
                         <div className="formInput">
                             <label>Gender</label>
                             <select
+                                className='gender-select'
                                 value={formData.doctorGender}
                                 onChange={(e) => handleInputChange(e, "doctorGender")}
                             >
@@ -144,6 +168,7 @@ const Signup = () => {
                         <div className="formInput">
                             <label>Start Time</label>
                             <input
+                                className='time-input'
                                 type="time"
                                 value={formData.consultingTime.startTime}
                                 onChange={(e) => setFormData({
@@ -159,6 +184,7 @@ const Signup = () => {
                         <div className="formInput">
                             <label>End Time</label>
                             <input
+                                className='time-input'
                                 type="time"
                                 value={formData.consultingTime.endTime}
                                 onChange={(e) => setFormData({
@@ -189,8 +215,10 @@ const Signup = () => {
                             />
                         </div>
 
+                        <p className="error-message">{errorMessages}</p>
+
                         {loading ? (
-                            <p className='loading-message'>Adding new doctor...</p>
+                            <p className='loading-message'>Registering as a doctor...</p>
                         ) : (
                             <button className='submit-btn' type="submit">Submit</button>
                         )}
@@ -204,63 +232,3 @@ const Signup = () => {
 export default Signup
 
 
-// setErrorMessages('');
-// setLoading(true);
-
-// const token = localStorage.getItem('adminToken');
-// const { personName, personEmail, personPhone, hospitalName, doctorFee, specializationField, doctorSpecialization, consultationDays, consultingTime, doctorGender, doctorCity } = formData;
-// const { hospitalFile } = img ? { hospitalFile: img } : {};
-
-// try {
-//     const multipartFormData = new FormData();
-
-//     // Adding JSON data as a blob to the FormData object
-//     multipartFormData.append(
-//         'doctorDTO',
-//         new Blob(
-//             [
-//                 JSON.stringify({
-//                     personName,
-//                     personEmail,
-//                     personPhone,
-//                     hospitalName,
-//                     doctorFee,
-//                     specializationField,
-//                     doctorSpecialization,
-//                     consultationDays,
-//                     consultingTime,
-//                     doctorGender,
-//                     doctorCity
-//                 })
-//             ],
-//             { type: 'application/json' }
-//         )
-//     );
-
-//     // Adding the file to the FormData object
-//     if (hospitalFile) {
-//         multipartFormData.append('file', hospitalFile);
-//     }
-
-//     const response = await fetch('http://localhost:8080/vital_aid/doctors/registerDoctor', {
-//         method: 'POST',
-//         headers: {
-//             'Authorization': `Bearer ${token}`,
-//             // Do not set Content-Type header here, as FormData automatically handles it
-//         },
-//         body: multipartFormData
-//     });
-
-//     if (response.ok) {
-//         console.log('Success');
-//         navigate('/doctor');
-//     } else {
-//         const errorData = await response.json();
-//         setErrorMessages(errorData.message || 'An error occurred');
-//     }
-// } catch (error) {
-//     console.log('Error:', error);
-//     setErrorMessages('Failed to submit form');
-// } finally {
-//     setLoading(false);
-// }

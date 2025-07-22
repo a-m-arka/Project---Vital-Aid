@@ -4,6 +4,7 @@ import '../style/Doctors.css';
 import SearchBox from './SearchBox';
 import filters from '../data/doctorFilters.json';
 import { useGlobalContext } from '../context/GlobalContext';
+import RatingStars from './ratingStars/RatingStars';
 
 export default function Doctors() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -23,7 +24,8 @@ export default function Doctors() {
     };
 
     const filteredDoctors = doctorList.filter((doctor) => {
-        const matchesSearch = doctor.doctorName.toLowerCase().includes(searchTerm.toLowerCase());
+        const isAvailable = doctor.availabilityStatus !== 'Unavailable';
+        const matchesSearch = doctor.personName.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesFilters = filters.every((filter, index) => {
             if (selectedValues[index] === '') return true; // No filter selected
             if (filter.name === 'Location') return doctor.doctorCity === selectedValues[index];
@@ -32,7 +34,7 @@ export default function Doctors() {
             if (filter.name === 'Availability') return doctor.consultationDays.includes(selectedValues[index]);
             return true;
         });
-        return matchesSearch && matchesFilters;
+        return isAvailable && matchesSearch && matchesFilters;
     });
 
     return (
@@ -76,12 +78,15 @@ export default function Doctors() {
                     {filteredDoctors.map((doctor, index) => (
                         <div className="doctor-cards" key={index}>
                             <div className="img-section">
-                                <img src={doctor.doctorPhotoUrl} alt="" />
+                                <img src={doctor.doctorProfileImageUrl} alt="" />
                             </div>
                             <div className="doctor-detail">
                                 <div className="doctor-data">
                                     <p>
-                                        <span id="doctor-name">{doctor.doctorName}</span><br />
+                                        <span id="doctor-name">{doctor.personName}</span><br />
+                                        <span>
+                                            <RatingStars ratingValue={doctor.doctorAverageRating} starSize={20} />
+                                        </span><br />
                                         <span id="doctor-hospital">{doctor.hospitalName}</span><br />
                                         <span id="doctor-location">{doctor.doctorCity}</span><br />
                                         <span id="doctor-speciality">{doctor.doctorSpecialization.join(', ')}</span>

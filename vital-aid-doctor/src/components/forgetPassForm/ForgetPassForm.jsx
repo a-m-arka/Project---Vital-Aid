@@ -16,31 +16,31 @@ export const EnterEmail = (props) => {
         setErrorMessage("");
         setIsLoading(true);
 
-        props.onSubmit();
+        // props.onSubmit();
 
-        // try {
-        //     const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/admin/sendCode', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             email: email,
-        //         }),
-        //     });
+        try {
+            const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/doctor/sendCode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                }),
+            });
 
-        //     if (response.ok) {
-        //         props.onSubmit();
-        //         localStorage.setItem('adminForgotPassEmail', email);
-        //     } else {
-        //         const error = await response.text();
-        //         setErrorMessage(error || 'Failed to send OTP');
-        //     }
-        // } catch (error) {
-        //     setErrorMessage('Failed to send OTP');
-        // } finally {
-        //     setIsLoading(false);
-        // }
+            if (response.ok) {
+                props.onSubmit();
+                localStorage.setItem('adminForgotPassEmail', email);
+            } else {
+                const error = await response.text();
+                setErrorMessage(error || 'Failed to send OTP');
+            }
+        } catch (error) {
+            setErrorMessage('Failed to send OTP');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -93,31 +93,31 @@ export const EnterOtp = (props) => {
             setErrorMessage("");
             setTimeOver(false);
 
-            props.onSubmit();
+            // props.onSubmit();
 
-            // try {
-            //     const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/admin/validateOtp', {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //         },
-            //         body: JSON.stringify({
-            //             otp: otp,
-            //         }),
-            //     });
+            try {
+                const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/doctor/validateOtp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        otp: otp,
+                    }),
+                });
 
-            //     if (response.ok) {
-            //         props.onSubmit();
-            //     } else {
-            //         const error = await response.text();
-            //         setErrorMessage(error || 'Failed to verify OTP');
-            //     }
-            // } catch (error) {
-            //     setErrorMessage('Failed to verify OTP');
-            // } finally {
-            //     setIsLoading(false);
-            //     setLoadingMessage("");
-            // }
+                if (response.ok) {
+                    props.onSubmit();
+                } else {
+                    const error = await response.text();
+                    setErrorMessage(error || 'Failed to verify OTP');
+                }
+            } catch (error) {
+                setErrorMessage('Failed to verify OTP');
+            } finally {
+                setIsLoading(false);
+                setLoadingMessage("");
+            }
         }
     };
 
@@ -125,31 +125,31 @@ export const EnterOtp = (props) => {
         setIsLoading(true);
         setLoadingMessage("Sending new OTP...");
 
-        // try {
-        //     const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/admin/sendCode', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             email: localStorage.getItem('adminForgotPassEmail'),
-        //         }),
-        //     });
+        try {
+            const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/doctor/sendCode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: localStorage.getItem('adminForgotPassEmail'),
+                }),
+            });
 
-        //     if (response.ok) {
-        //         setTimeOver(false);
-        //         setErrorMessage("");
-        //         setOtp("");
-        //     } else {
-        //         const error = await response.text();
-        //         setErrorMessage(error || 'Failed to send OTP');
-        //     }
-        // } catch (error) {
-        //     setErrorMessage('Failed to send OTP');
-        // } finally {
-        //     setIsLoading(false);
-        //     setLoadingMessage("");
-        // }
+            if (response.ok) {
+                setTimeOver(false);
+                setErrorMessage("");
+                setOtp("");
+            } else {
+                const error = await response.text();
+                setErrorMessage(error || 'Failed to send OTP');
+            }
+        } catch (error) {
+            setErrorMessage('Failed to send OTP');
+        } finally {
+            setIsLoading(false);
+            setLoadingMessage("");
+        }
     };
 
     return (
@@ -203,29 +203,29 @@ export const NewPassword = (props) => {
     const handleNext = async () => {
         setErrorMessage("");
 
-        props.onSubmit();
+        // props.onSubmit();
 
-        // try {
-        //     const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/admin/resetPassword', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             newPassword: newPass,
-        //             confirmPassword: confirmPass,
-        //         }),
-        //     });
+        try {
+            const response = await fetch('http://localhost:8080/vital_aid/forgotPassword/doctor/resetPassword', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    newPassword: newPass,
+                    confirmPassword: confirmPass,
+                }),
+            });
 
-        //     if (response.ok) {
-        //         props.onSubmit();
-        //     } else {
-        //         const error = await response.text();
-        //         setErrorMessage(error || 'Failed to reset password');
-        //     }
-        // }catch (error) {
-        //     setErrorMessage('Failed to reset password');
-        // }
+            if (response.ok) {
+                props.onSubmit();
+            } else {
+                const error = await response.text();
+                setErrorMessage(error || 'Failed to reset password');
+            }
+        }catch (error) {
+            setErrorMessage('Failed to reset password');
+        }
     };
 
     return (

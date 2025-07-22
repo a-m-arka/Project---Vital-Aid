@@ -4,12 +4,22 @@ import './Sidebar.scss'
 
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import EventNoteIcon from '@mui/icons-material/EventNote'
-import PeopleIcon from '@mui/icons-material/People'
-import DescriptionIcon from '@mui/icons-material/Description'
+// import PeopleIcon from '@mui/icons-material/People'
+// import DescriptionIcon from '@mui/icons-material/Description'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import LogoutIcon from '@mui/icons-material/Logout'
 
+import { useGlobalContext } from '../../context/GlobalContext'
+
 const Sidebar = () => {
+  const { setIsLoggedIn } = useGlobalContext();
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('doctorToken');
+    localStorage.removeItem('doctorProfile');
+  }
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -35,12 +45,12 @@ const Sidebar = () => {
               <span>Appointments</span>
             </li>
           </NavLink>
-          <NavLink style={{ textDecoration: "none" }} to="/patients" className={({ isActive }) => isActive ? 'active' : ''}>
+          {/* <NavLink style={{ textDecoration: "none" }} to="/patients" className={({ isActive }) => isActive ? 'active' : ''}>
             <li>
               <PeopleIcon className="icon" />
               <span>Patients</span>
             </li>
-          </NavLink>
+          </NavLink> */}
           {/* <NavLink style={{ textDecoration: "none" }} to="/prescriptions" className={({ isActive }) => isActive ? 'active' : ''}>
             <li>
               <DescriptionIcon className="icon" />
@@ -55,7 +65,12 @@ const Sidebar = () => {
               <span>Profile</span>
             </li>
           </NavLink>
-          <NavLink style={{ textDecoration: "none" }} to="/login" className={({ isActive }) => isActive ? 'active' : ''}>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to="/"
+            className={({ isActive }) => isActive ? 'active' : ''}
+            onClick={handleLogout}
+          >
             <li>
               <LogoutIcon className="icon" />
               <span>Logout</span>

@@ -50,9 +50,9 @@ function App() {
             </Route>
             <Route element={<PrivateRoute />}>
               <Route path='doctor'>
-                <Route index element={<List type="doctor" columns={doctorColumns} adminControl={true} />}></Route>
+                <Route index element={<List type="doctor" columns={doctorColumns} adminControl={false} />}></Route>
                 <Route path=':doctorId'>
-                  <Route index element={<Single type="doctor" adminControl={true} />}></Route>
+                  <Route index element={<Single type="doctor" adminControl={false} />}></Route>
                   <Route path='update' element={<Update type="doctor" />}></Route>
                 </Route>
                 <Route path='new' element={<New type="doctor" />}></Route>

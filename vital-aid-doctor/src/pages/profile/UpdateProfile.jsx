@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import './UpdateProfile.scss';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-// import { useNavigate } from 'react-router-dom';
+import { useGlobalContext } from '../../context/GlobalContext';
+import { useNavigate } from 'react-router-dom';
 
-import { doctorData } from '../../temporaryData/doctorData';
+// import { doctorData } from '../../temporaryData/doctorData';
 
 const UpdateProfile = () => {
-    const data = doctorData;
-    // const navigate = useNavigate();
-    const prevImg = data.doctorProfileImageUrl;
+    const { profile } = useGlobalContext();
+    const data = profile;
+    const navigate = useNavigate();
     const [errorMessages, setErrorMessages] = useState('');
-    const [img, setImg] = useState(null);
     const [formData, setFormData] = useState({
         personName: data.personName,
         personEmail: data.personEmail,
@@ -29,10 +28,6 @@ const UpdateProfile = () => {
         doctorCity: data.doctorCity
     });
     const [loading, setLoading] = useState(false);
-
-    const handleImgUpload = (event) => {
-        setImg(event.target.files[0]);
-    };
 
     const handleInputChange = (event, field) => {
         const { value } = event.target;
@@ -61,7 +56,38 @@ const UpdateProfile = () => {
     };
 
     const handleSubmit = async (e) => {
-        // Code below
+        e.preventDefault();
+        setErrorMessages('');
+        setLoading(true);
+        const token = localStorage.getItem('doctorToken');
+
+        // console.log(token);
+
+        try {
+            const response = await fetch("http://localhost:8080/vital_aid/doctors/updateDoctorProfile", {
+                method: 'PUT',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                console.log("Profile Updated");
+                setLoading(false);
+                navigate("/profile");
+                window.location.reload();
+            }
+            else {
+                console.log("Failed to update profile")
+                setErrorMessages(response.message);
+            }
+        } catch (error) {
+            console.error('Error updating profile:', error);
+        } finally {
+            setLoading(false);
+        }
     };
 
 
@@ -79,16 +105,6 @@ const UpdateProfile = () => {
         <div className="update-profile-container">
             <h2>Update Profile</h2>
             <div className="bottom">
-                <div className="left">
-                    <img src={img ? URL.createObjectURL(img) : prevImg} alt="" />
-                    <div className="imgUpload">
-                        <label htmlFor='img'>
-                            <AddPhotoAlternateIcon className='icon' />
-                            Upload New Image
-                        </label>
-                        <input type="file" id='img' style={{ display: "none" }} onChange={handleImgUpload} />
-                    </div>
-                </div>
                 <div className="right">
                     <p className="error-message">{errorMessages}</p>
                     <form onSubmit={handleSubmit}>
@@ -215,11 +231,9 @@ export default UpdateProfile
 
 
 
-// e.preventDefault();
-// setErrorMessages('');
-// setLoading(true);
 
-// const token = localStorage.getItem('adminToken');
+
+
 // const { personName, personEmail, personPhone, hospitalName, doctorFee, specializationField, doctorSpecialization, consultationDays, consultingTime, doctorGender, doctorCity } = formData;
 // const { hospitalFile } = img ? { hospitalFile: img } : {};
 

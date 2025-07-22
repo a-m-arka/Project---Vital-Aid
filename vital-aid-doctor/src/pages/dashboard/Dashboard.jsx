@@ -4,17 +4,16 @@ import './Dashboard.scss'
 import RatingCircle from '../../components/ratingCircle/RatingCircle'
 import Graph from '../../components/graph/Graph'
 import { formatDate } from '../../helperFunctions/formatDate';
+import { useGlobalContext } from '../../context/GlobalContext';
 import { calculateAverageRating } from '../../helperFunctions/avgRating';
-
-
-import { appointments } from '../../temporaryData/appointments'
-import { doctorRatings } from '../../temporaryData/doctorRatings';
+import { getWeekDay } from '../../helperFunctions/getWeekDay';
 
 const Dashboard = () => {
-    const feedbackCount = doctorRatings.length;
-    const rating = calculateAverageRating(doctorRatings);
+    const { ratings, appointments } = useGlobalContext();
+    const feedbackCount = ratings.length;
+    const rating = calculateAverageRating(ratings);
 
-    const today = new Date().toISOString().split('T')[0]
+    const today = new Date().toISOString().split('T')[0];
 
     const navigate = useNavigate();
 
@@ -28,32 +27,25 @@ const Dashboard = () => {
 
     const pastAppointments = appointments.filter(
         (appt) => appt.appointmentDate < today
-    )
+    );
 
-    const upcomingAppointments = appointments.filter(
-        (appt) => appt.appointmentDate >= today
-    )
+    const todayAppointments = appointments.filter(
+        (appt) => appt.appointmentDate === today
+    );
 
     const frequencyMap = pastAppointments.reduce((acc, appt) => {
-        const date = appt.appointmentDate
-        if (!acc[date]) acc[date] = 0
-        acc[date]++
-        return acc
-    }, {})
+        const date = appt.appointmentDate;
+        if (!acc[date]) acc[date] = 0;
+        acc[date]++;
+        return acc;
+    }, {});
 
     const graphData = Object.entries(frequencyMap)
         .map(([date, count]) => ({
             date: formatDate(date),
             count,
         }))
-        .sort((a, b) => new Date(a.date) - new Date(b.date))
-
-    const appointmentsByDay = upcomingAppointments.reduce((grouped, appt) => {
-        const day = appt.visitDay;
-        if (!grouped[day]) grouped[day] = [];
-        grouped[day].push(appt);
-        return grouped;
-    }, {});
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
 
     return (
         <div className="dashboard">
@@ -72,20 +64,22 @@ const Dashboard = () => {
             </div>
 
             <div className="bottom">
-                <h2>Upcoming Appointments</h2>
+                <h2>Today's Appointments</h2>
                 <div className="appointments-container">
-                    {Object.entries(appointmentsByDay).map(([day, dayAppointments]) => (
-                        <div key={day} className="day-group">
-                            <h3>{day}, {formatDate(dayAppointments[0].appointmentDate)} <span>({dayAppointments.length} Appointments)</span></h3>
-                            <ul>
-                                {dayAppointments.map((appt, index) => (
+                    <div className="day-group">
+                        <h3>{getWeekDay(today)}, {formatDate(today)} <span>({todayAppointments.length} Appointments)</span></h3>
+                        <ul>
+                            {todayAppointments.length === 0 ? (
+                                <p>No appointments.</p>
+                            ) : (
+                                todayAppointments.map((appt, index) => (
                                     <li key={index} onClick={() => handleViewDetails(appt)}>
                                         {appt.patientName} - {appt.reasonForVisit}
                                     </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
+                                ))
+                            )}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

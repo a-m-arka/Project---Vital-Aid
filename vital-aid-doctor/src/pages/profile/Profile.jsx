@@ -1,13 +1,17 @@
 import React from 'react'
 import './Profile.scss'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useGlobalContext } from '../../context/GlobalContext'
 
-import { doctorData } from '../../temporaryData/doctorData'
+// import { doctorData } from '../../temporaryData/doctorData'
 
 const Profile = () => {
     const noImg = "https://static.vecteezy.com/system/resources/thumbnails/004/141/669/small_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg";
     //   const { state } = useLocation();
-    const data = doctorData;
+
+    const { profile } = useGlobalContext();
+
+    const data = profile;
 
     const detailsArray = Object.entries(data)
         .filter(([key]) => key !== 'doctorProfileImageUrl' && key !== 'consultingTime')
@@ -24,6 +28,10 @@ const Profile = () => {
 
     const handleUpdateClick = () => {
         navigate("/update-profile");
+    };
+
+    const handleImageClick = () => {
+        navigate("/update-image");
     };
 
     const handleChangeClick = () => {
@@ -67,6 +75,9 @@ const Profile = () => {
             <div className="btn-section">
                 <div className="updateButton" onClick={() => handleUpdateClick()}>
                     Edit Profile
+                </div>
+                <div className="updateButton" onClick={() => handleImageClick()}>
+                    Edit Image
                 </div>
                 <div className="changePassButton" onClick={() => handleChangeClick()}>
                     Change Password

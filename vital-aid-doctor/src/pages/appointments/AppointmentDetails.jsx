@@ -2,6 +2,7 @@ import React from 'react'
 import './AppointmentDetails.scss'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { formatDate } from '../../helperFunctions/formatDate'
+import { getWeekDay } from '../../helperFunctions/getWeekDay'
 
 const AppointmentDetails = () => {
   const { state } = useLocation()
@@ -28,7 +29,7 @@ const AppointmentDetails = () => {
         <div className="row"><span className="label">Phone</span><span className="value">{appointment.patientPhone}</span></div>
         <div className="row"><span className="label">Email</span><span className="value">{appointment.patientEmail}</span></div>
         <div className="row"><span className="label">Appointment Date</span><span className="value">{formatDate(appointment.appointmentDate)}</span></div>
-        <div className="row"><span className="label">Visit Day</span><span className="value">{appointment.visitDay}</span></div>
+        <div className="row"><span className="label">Visit Day</span><span className="value">{getWeekDay(appointment.appointmentDate)}</span></div>
         <div className="row"><span className="label">Reason for Visit</span><span className="value">{appointment.reasonForVisit}</span></div>
         <div className="row"><span className="label">Booked By</span><span className="value">{appointment.appointmentBy}</span></div>
       </div>

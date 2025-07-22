@@ -29,7 +29,7 @@ const HospitalDoctors = () => {
                         <tbody>
                             {doctorList.map((doctor, index) => (
                                 <tr key={index}>
-                                    <td>{doctor.doctorName}</td>
+                                    <td>{doctor.personName}</td>
                                     <td>{doctor.specializationField}</td>
                                     <td>
                                         <button className='hospital-doctor-book-btn' onClick={() => handleView(doctor)}>

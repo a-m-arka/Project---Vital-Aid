@@ -8,15 +8,15 @@ const Single = ({ type, adminControl }) => {
   const { state } = useLocation();
   const data = state?.row;
   const detailsArray = Object.entries(data)
-    .filter(([key]) => key !== 'profileImageUrl' && key !== 'doctorPhotoUrl' && key !== 'hospitalPhotoUrl' && key !== 'productPhotoUrl' && key !== 'id' && key !== 'consultingTime')
+    .filter(([key]) => key !== 'profileImageUrl' && key !== 'doctorProfileImageUrl' && key !== 'hospitalPhotoUrl' && key !== 'productPhotoUrl' && key !== 'id' && key !== 'consultingTime')
     .map(([key, value]) => [key, String(value)]);
 
   const img = () => {
     if (data.profileImageUrl) {
       return data.profileImageUrl;
     }
-    if (data.doctorPhotoUrl) {
-      return data.doctorPhotoUrl;
+    if (data.doctorProfileImageUrl) {
+      return data.doctorProfileImageUrl;
     }
     if (data.hospitalPhotoUrl) {
       return data.hospitalPhotoUrl;

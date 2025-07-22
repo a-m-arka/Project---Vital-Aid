@@ -87,6 +87,7 @@ export const GlobalProvider = ({ children }) => {
 
       switch (dataType) {
         case 'doctor':
+          // console.log(data)
           setDoctorData(data);
           break;
         case 'hospital':

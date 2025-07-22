@@ -1,14 +1,69 @@
+.doctor-details-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
+
 /* Parent container of doctor profile main container */
 .parent-container-of-doctor-profile-main-container {
     display: flex;
     justify-content: center;
-    align-items:baseline;
-    background-image: url('../Images/bg_img.JPG');
+    align-items: baseline;
+    /* background-image: url('../Images/bg_img.JPG'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100vw;
     height: 874px;
+}
+
+.review-modal,
+.feedback-modal {
+    z-index: 10;
+    margin-bottom: 50px;
+    margin-top: -120px;
+    background-color: var(--4th-color);
+    box-shadow: rgba(19, 17, 17, 0.56) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    padding: 20px;
+    color: var(--primary-color);
+}
+
+.review-modal-content,
+.feedback-modal-content {
+    width: 100%;
+}
+
+.feedback-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback-modal-content form {
+    width: 100%;
+    ;
+}
+
+.review-modal-content h2,
+.feedback-modal-content h2 {
+    width: 100%;
+    /* background-color: red; */
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
 }
 
 
@@ -76,6 +131,12 @@
     z-index: 2;
 }
 
+.doctor-profile-details-container .button-section {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
 /* profile details including name hospital degree adress*/
 .doctor-profile-details {
     display: flex;
@@ -87,6 +148,10 @@
     height: 250px;
     text-align: center;
     color: var(--primary-color);
+}
+
+.doctor-speciality-section {
+    margin-bottom: 20px;
 }
 
 /* fixing height of all spans under doctor profile details div */
@@ -107,7 +172,10 @@
 }
 
 /* doctor degree, doctor speciality, doctor working hospital section, doctor address section font size */
-.doctor-profile-details .doctor-degree-section .degree-span, .speciality-span, .hospital-name-span, .address-value {
+.doctor-profile-details .doctor-degree-section .degree-span,
+.speciality-span,
+.hospital-name-span,
+.address-value {
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -226,12 +294,14 @@
 
 
 /* button container */
-.doctor-book-appointment-button {
+.doctor--button,
+.feedback-submit-btn {
     margin: auto;
 }
 
 /* doctor book appointment button */
-.doctor-book-appointment-button button {
+.doctor--button button,
+.feedback-submit-btn {
     position: relative;
     width: 14vw;
     height: 50px;
@@ -253,7 +323,8 @@
 
 
 /* button border customization(simply copy paste without modify) */
-.doctor-book-appointment-button button::before {
+.doctor--button button::before,
+.feedback-submit-btn::before {
     content: "";
     position: absolute;
     top: -2px;
@@ -271,12 +342,14 @@
     /* Smooth opacity transition on hover */
 }
 
-.doctor-book-appointment-button button:hover::before {
+.doctor--button button:hover::before,
+.feedback-submit-btn:hover::before {
     opacity: 1;
     /* Show on hover */
 }
 
-.doctor-book-appointment-button button:hover {
+.doctor--button button:hover,
+.feedback-submit-btn:hover {
     background-position: right;
 }
 
@@ -325,7 +398,10 @@
     } */
 
     /* doctor degree, doctor speciality, doctor working hospital section, doctor address section font size */
-    .doctor-profile-details .doctor-degree-section .degree-span, .speciality-span, .hospital-name-span, .address-value {
+    .doctor-profile-details .doctor-degree-section .degree-span,
+    .speciality-span,
+    .hospital-name-span,
+    .address-value {
         font-size: 2.2vw;
     }
 
@@ -403,7 +479,7 @@
 
 
     /* doctor book appointment button */
-    .doctor-book-appointment-button button {
+    .doctor--button button {
         width: 18vw;
         height: 60px;
         font-size: 1rem;
@@ -462,11 +538,14 @@
     } */
 
     /* doctor degree, doctor speciality, doctor working hospital section, doctor address section font size */
-    .doctor-profile-details .doctor-degree-section .degree-span, .speciality-span, .hospital-name-span, .address-value {
+    .doctor-profile-details .doctor-degree-section .degree-span,
+    .speciality-span,
+    .hospital-name-span,
+    .address-value {
         font-size: 3.5vw;
     }
 
-    
+
 
     /* doctor consultation Starts here */
     .consultation-days-section {
@@ -541,7 +620,7 @@
     }
 
     /* doctor book appointment button */
-    .doctor-book-appointment-button button {
+    .doctor--button button {
         width: 30vw;
         height: 50px;
         font-size: 0.8rem;
@@ -563,7 +642,7 @@
     }
 
     /* profile picture */
-    .doctor-profile-picture-container img{
+    .doctor-profile-picture-container img {
         width: 22vw;
         height: 22vw;
     }
@@ -582,11 +661,15 @@
 
 
     /* doctor name font size */
-    .doctor-profile-details .doctor-name-span{
+    .doctor-profile-details .doctor-name-span {
         font-size: 5vw;
     }
+
     /* doctor degree, doctor speciality, doctor working hospital section, doctor address section font size */
-    .doctor-profile-details .doctor-degree-section .degree-span, .speciality-span, .hospital-name-span, .address-value {
+    .doctor-profile-details .doctor-degree-section .degree-span,
+    .speciality-span,
+    .hospital-name-span,
+    .address-value {
         font-size: 4vw;
     }
 
@@ -656,7 +739,7 @@
     }
 
     /* doctor book appointment button */
-    .doctor-book-appointment-button button {
+    .doctor--button button {
         width: 50vw;
         height: 50px;
         font-size: 3vw;

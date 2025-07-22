@@ -52,9 +52,6 @@ const Datatable = ({ type, rows, columns, adminControl }) => {
 
     const handleDeleteClick = (row) => {
         switch (type) {
-            case ('doctor'):
-                deleteRow(`http://localhost:8080/vital_aid/doctors/deleteDoctor/${row.id}`);
-                break;
             case ('hospital'):
                 deleteRow(`http://localhost:8080/vital_aid/hospitals/deleteHospital/${row.id}`);
                 break;

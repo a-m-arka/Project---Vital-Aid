@@ -89,8 +89,8 @@ export default function Home() {
                             {doctorToShow.map((doctor, index) => (
                                 <div className="doctor-item" key={index}>
                                     <div className="doctor-content">
-                                        <img src={doctor.doctorPhotoUrl} alt="" className="doctor-photo" />
-                                        <h4 className="doctor-name">{doctor.doctorName}</h4>
+                                        <img src={doctor.doctorProfileImageUrl} alt="" className="doctor-photo" />
+                                        <h4 className="doctor-name">{doctor.personName}</h4>
                                         <p className="doctor-speciality"><span className='doctor-highlight'>Field: </span>{doctor.specializationField}</p>
                                         <p className="doctor-hospital">{doctor.hospitalName}</p>
                                     </div>

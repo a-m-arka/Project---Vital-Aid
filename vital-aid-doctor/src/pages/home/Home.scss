@@ -1,0 +1,76 @@
+@import '../../Var.scss';
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+.landing-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('./bg-2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        // backdrop-filter: blur(2px);
+        z-index: 1;
+    }
+
+    .content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 100px;
+        // background-color: #fff;
+
+        h1 {
+            color: var(--text-color1);
+            font-size: 100px;
+            font-weight: bold;
+            font-family: "Orbitron", sans-serif;
+        }
+
+        h3 {
+            color: var(--text-color1);
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        p{
+            color: var(--text-color1);
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .home-btn {
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+            width: fit-content;
+            padding: 5px 15px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: var(--primary-color);
+            color: var(--text-color1);
+
+            &:hover {
+                background-color: var(--third-color);
+            }
+        }
+    }
+}

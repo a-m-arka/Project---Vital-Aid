@@ -2,12 +2,14 @@ import React from 'react'
 import './Appointments.scss'
 import { useNavigate } from 'react-router-dom';
 import { formatDate } from '../../helperFunctions/formatDate';
+import { useGlobalContext } from '../../context/GlobalContext';
 
-import { appointments } from '../../temporaryData/appointments'
+// import { appointments } from '../../temporaryData/appointments'
 
 
 const Appointments = () => {
     const navigate = useNavigate();
+    const { appointments } = useGlobalContext();
 
     const today = new Date()
     today.setHours(0, 0, 0, 0)

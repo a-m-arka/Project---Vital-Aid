@@ -3,8 +3,9 @@ import './Ratings.scss';
 import RatingStars from '../../components/ratingStars/RatingStars';
 import { Box, Typography, LinearProgress } from '@mui/material';
 import { calculateAverageRating } from '../../helperFunctions/avgRating';
+import { useGlobalContext } from '../../context/GlobalContext';
 
-import { doctorRatings } from '../../temporaryData/doctorRatings';
+// import { doctorRatings } from '../../temporaryData/doctorRatings';
 
 const RatingBar = ({ rating, percentage }) => (
   <Box display="flex" alignItems="center" gap={1}>
@@ -29,6 +30,8 @@ const RatingBar = ({ rating, percentage }) => (
 );
 
 const Ratings = () => {
+  const { ratings } = useGlobalContext();
+  const doctorRatings = ratings;
   const totalRatings = doctorRatings.length;
   const averageRating = calculateAverageRating(doctorRatings);
 

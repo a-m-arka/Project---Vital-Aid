@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import '../style/AppoinmentList.scss'
+import React, { useState, useEffect } from 'react';
+import '../style/AppoinmentList.scss';
 import { useNavigate } from 'react-router-dom';
 
 const AppoinmentList = () => {
@@ -22,7 +22,6 @@ const AppoinmentList = () => {
                 if (response.ok) {
                     const data = await response.json();
                     setAppoinmentList(data);
-                    // console.log(data);
                 } else {
                     const errorMessage = await response.text();
                     console.log(errorMessage);
@@ -39,6 +38,49 @@ const AppoinmentList = () => {
         navigate('/appointmentdetails', { state: { appointmentData: appointment } });
     };
 
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Remove time part for accurate comparison
+
+    const upcomingAppointments = appoinmentList.filter(a => new Date(a.appointmentDate) >= today);
+    const pastAppointments = appoinmentList.filter(a => new Date(a.appointmentDate) < today);
+
+    // console.log(upcomingAppointments);
+
+    const renderTable = (appointments, heading) => (
+        <div className="appoinment-table-container" style={{ borderRadius: '10px', overflow: 'hidden' }}>
+            <h2 className="table-heading" style={{padding: '10px'}}>{heading}</h2>
+            <table className="appoinment-table">
+                <thead>
+                    <tr>
+                        <th>Appointment Token</th>
+                        <th>Patient</th>
+                        <th>Doctor</th>
+                        <th>Appointment Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {appointments.length > 0 ? appointments.map((appoinment, index) => (
+                        <tr key={index}>
+                            <td>{appoinment.appointmentToken}</td>
+                            <td>{appoinment.patientName}</td>
+                            <td>{appoinment.appointmentWith}</td>
+                            <td>{appoinment.appointmentDate}</td>
+                            <td>
+                                <button className='appoinment-book-btn' onClick={() => handleView(appoinment)}>
+                                    View Details
+                                </button>
+                            </td>
+                        </tr>
+                    )) : (
+                        <tr>
+                            <td colSpan="5">No {heading.toLowerCase()}.</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
+    );
 
     return (
         <div className='rout-container'>
@@ -46,37 +88,11 @@ const AppoinmentList = () => {
                 <div className="heading caption">
                     <h1>Your Appointments</h1>
                 </div>
-                <div className="appoinment-table-container">
-                    <table className="appoinment-table">
-                        <thead>
-                            <tr>
-                                <th>Appointment Token</th>
-                                <th>Patient</th>
-                                <th>Doctor</th>
-                                <th>Visiting Day</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {appoinmentList.map((appoinment, index) => (
-                                <tr key={index}>
-                                    <td>{appoinment.appointmentToken}</td>
-                                    <td>{appoinment.patientName}</td>
-                                    <td>{appoinment.appointmentWith}</td>
-                                    <td>{appoinment.visitDay}</td>
-                                    <td>
-                                        <button className='appoinment-book-btn' onClick={() => handleView(appoinment)}>
-                                            View Details
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                {renderTable(upcomingAppointments, 'Upcoming Appointments')}
+                {renderTable(pastAppointments, 'Past Appointments')}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default AppoinmentList
+export default AppoinmentList;
